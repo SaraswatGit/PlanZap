@@ -2,7 +2,7 @@ import './CSSComponents/App.css';
 import React, { useState ,useEffect } from "react";
 import Login from "./loginpage";
 import Profile from "./profpage"; 
-import { Switch, Route, Link , DefaultRoute, Navigate} from "react-router-dom";
+import { Routes, Route, Link , DefaultRoute, Navigate} from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import Calender from './calendar';
 import Pgraphs from './pgraphs';
@@ -143,7 +143,7 @@ return (
     
        
             <div>
-            <Switch>
+            <Routes>
             <Route exact path="/" render={() => (
     <Navigate to="/Calendar"/>
 )}/>
@@ -163,7 +163,7 @@ return (
                <Ideas/>
                </Route>
              
-                  </Switch>
+                  </Routes>
                   </div>
                   </div>}
                   
