@@ -2,7 +2,7 @@ import './CSSComponents/App.css';
 import React, { useState ,useEffect } from "react";
 import Login from "./loginpage";
 import Profile from "./profpage"; 
-import { Switch, Route, Link , DefaultRoute, Redirect} from "react-router-dom";
+import { Switch, Route, Link , DefaultRoute, Navigate} from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import Calender from './calendar';
 import Pgraphs from './pgraphs';
@@ -145,7 +145,7 @@ return (
             <div>
             <Switch>
             <Route exact path="/" render={() => (
-    <Redirect to="/Calendar"/>
+    <Navigate to="/Calendar"/>
 )}/>
                  <Route exact path="/Profile">
                <Profile/>
