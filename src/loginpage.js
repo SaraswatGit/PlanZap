@@ -1,8 +1,7 @@
 import  Axios  from "axios";
 import React, { useState ,useContext } from "react";
 import './CSSComponents/loginpage.css';
-import { useHistory } from "react-router-dom";
-import { Switch, Route } from "react-router-dom";
+import {  Route } from "react-router-dom";
 import {usercontext} from './Context/usercontext';
 
 import Calender from './calendar';

@@ -3,7 +3,7 @@ import React, { useState ,useEffect } from "react";
 import Login from "./loginpage";
 import Profile from "./profpage"; 
 import { Routes, Route, Link , DefaultRoute, Navigate} from "react-router-dom";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import Calender from './calendar';
 import Pgraphs from './pgraphs';
 import Loader from './LoadingScreen';
@@ -33,7 +33,7 @@ function App() {
   const [userid,setuserid]=useState(0);
   const [loading,setloading]=useState(true);
 
-  const history=useHistory();
+  //const history=useHistory();
   const [isOpen, setIsOpen] = useState(false);
 
 function toggleModal() {
