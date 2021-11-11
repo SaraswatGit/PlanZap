@@ -1,0 +1,45 @@
+.loginpage
+{
+    background-image: url(./loginback.png);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+.loginbox
+{
+    margin-top:30vh;
+    margin-bottom: 20vh;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    width: 50vw;
+    height: 50vh;
+    background-color: 	rgb(211,211,211,0.7);
+    display: flex;
+
+}
+
+.signinbox
+{
+   height:49vh;
+   width:24vw;
+   padding: 1vh 0 0 1vw;
+   border: none;
+   border-right: 2px solid black;
+    
+}
+.heading
+{
+    width: 24vw;
+    height: 4vh;
+    font-size: 3.9vh;
+    text-align: center;
+}
+.holders
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid red;
+    width: 20vw;
+    margin-top: 15px;
+}

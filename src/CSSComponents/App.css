@@ -1,0 +1,101 @@
+.App
+{
+  display: flex;
+  flex-direction: row;
+  /*height: 100vh;*/
+}
+.sidebar{
+  display: flex;
+  background-color:black; 
+  margin-left: 0;
+  margin-right: 0%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  flex-direction: column;
+  height: 100vh;
+  width: 15vw;
+  overflow-y:hidden;
+  overflow-x:hidden;
+  position: fixed;
+}
+
+.quotearea
+{
+  margin-top: 3vh;
+  color: white;
+  font-style: italic;
+  padding-left: 10%;
+  font-size: 2.3vh;
+  height: 13vh;
+  padding-right:10% ;
+ 
+}
+.editbutton
+{
+  padding-right: 80%;
+  height: 2.6vh;
+ margin-top: 1vh;
+ text-align: center;
+ color: rgb(90, 89, 89);
+}
+.editbutton :hover
+{
+  color: white;
+}
+.barelement
+{
+display: flex;
+align-items: center;
+  background-color:black;
+margin: 0%;
+font-size: 1.9vh;
+font-weight:700;
+text-decoration: none;
+font-style: normal;
+color:grey;
+height: 8.66vh;
+padding-left: 10%;
+margin-right:0.5vw;
+}
+.barelement:hover
+{
+color : white;
+text-decoration: 'none';
+font-style: normal;
+
+}
+
+.selected
+{
+color : white;
+text-decoration: 'none';
+font-style: normal;
+
+}
+.logout{
+  position:absolute;
+  display: flex;
+align-items: center;
+  color: grey;
+  height: 3vh;
+  padding-left: 10%;
+  bottom:3vh;
+}
+.logout:hover
+{
+  color: white;
+}
+.profpage
+{
+  color: black;
+  font-size: 10px;
+  text-align: center;
+  font-weight: 600;
+  height:  100vh;
+  width: 85vw;
+  margin-bottom:0% ;
+  margin-top: 0%;
+  display: grid;
+ background-color:bisque;
+
+}
