@@ -42,10 +42,10 @@ setmessage(response.data.message);
 
   return <div className="loginpage">
       <div style={{position:"Absolute",marginTop:"5vh",fontSize:"15vh",fontFamily:"serif",fontWeight:"bolder",color:"red",textAlign:"center",width:"100vw"}} >PlanZap</div>
-      <div style={{position:"Absolute",marginTop:"21.5vh",fontSize:"3vh",fontFamily:"cursive",width:"100vw",textAlign:"center",color:"white"}} >One Place for managing Tasks ,Personal Diary ,Notes ,movielist ! </div>
+      <div style={{marginTop:"1.3vh",fontSize:"3vh",fontFamily:"cursive",width:"100vw",textAlign:"center",color:"white"}} >One Place for managing Tasks ,Personal Diary ,Notes ,movielist ! </div>
 <div className="loginbox" >
     <div className="signinbox">
-        <div className="heading" style={{fontSize:"5vh",fontWeight:"bold"}}>
+        <div className="heading" style={{fontSize:"5vh",fontWeight:"400",color:"white"}}>
             Login
             </div>
             <br/>
@@ -67,7 +67,7 @@ setmessage(response.data.message);
             <div>{message}</div>
         </div>
         <div className="signinbox">
-        <div className="heading"  style={{fontSize:"5vh",fontWeight:"bold"}}>
+        <div className="heading"  style={{fontSize:"5vh",fontWeight:"400",color:"white"}}>
             Register
             </div>
             <br/>
