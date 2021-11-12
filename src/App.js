@@ -119,17 +119,38 @@ return (
                      &nbsp; &nbsp; Profile
     </NavLink>*/}
     <div className="quotearea">"{userquote}"<br/><EditIcon className="editbutton" onClick={toggleModal}/></div>
-                     <NavLink to="/Calendar" className={isActive=>!isActive?"barelement":"selected"}>
+                     <NavLink to="/Calendar"  className={({ isActive }) =>
+    `link ${
+      isActive
+        ? "selected"
+        : // Couldn't do this before!
+          "barelement"
+    }`
+  } >
                        <TaskIcon style={{height:"2.8vh",marginRight:"1vw"}}/>
                       Tasks and Progress
     </NavLink>
                    {/*  <NavLink to="/Performancegraphs" className="barelement" activeClassName="selected">
                      <ShowChartIcon/>      &nbsp; &nbsp;Performance Graphs
     </NavLink>*/}
-                     <NavLink to="/movieslist" className={isActive=>!isActive?"barelement":"selected"} >
+                     <NavLink to="/movieslist" className={({ isActive }) =>
+    `link ${
+      isActive
+        ? "selected"
+        : // Couldn't do this before!
+          "barelement"
+    }`
+  }>
                      <FormatListBulletedIcon style={{height:"2.8vh",marginRight:"1vw"}}/>    Movies to Watch
                      </NavLink>      
-                     <NavLink to="/diary" className={isActive=>!isActive?"barelement":"selected"}>
+                     <NavLink to="/diary"className={({ isActive }) =>
+    `link ${
+      isActive
+        ? "selected"
+        : // Couldn't do this before!
+          "barelement"
+    }`
+  }>
                      <MenuBookIcon style={{height:"2.8vh",marginRight:"1vw"}}/>        Personal Diary <br/>
                      </NavLink>   
                      <NavLink to="/ideasnotes" className={isActive=>!isActive?"barelement":"selected"}>
