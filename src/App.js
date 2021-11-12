@@ -32,7 +32,7 @@ function App() {
   const [usernewquote,setnewuserquote]=useState("");
   const [userid,setuserid]=useState(0);
   const [loading,setloading]=useState(true);
-
+ const [logoutstatus,setlogout]=useState(false);
   //const history=useHistory();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,8 +41,9 @@ function toggleModal() {
 }
 
   const logout=()=>{
+    setlogout(true);
     setloginstatus(true);
-    setloading(true)
+    setloading(true);
  Axios.put("https://planzap.herokuapp.com/logout",{status:true}).then((response)=>{
    setloginstatus(true);
    setloading(false);
@@ -55,7 +56,7 @@ function toggleModal() {
       
 Axios.get("https://planzap.herokuapp.com/slogin").then(
   (response)=>{
-    if(response.data.loggedin===true)
+    if(response.data.loggedin===true && logoutstatus===false)
     {           
         setloginstatus(false);
         setuserid(response.data.user.userid);
