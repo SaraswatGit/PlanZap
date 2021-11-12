@@ -112,9 +112,9 @@ margin-top: 10px;
 }
 .entrybox
 {
-    width: 28vw;
-
-    height:43vh ;
+    width: auto;
+    padding: 1vw;
+    height:auto;
     background-image: linear-gradient(to top left,grey, rgba(200,0,0,1));
     border-radius: 10px;
     margin-top: 25px;      
