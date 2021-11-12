@@ -177,7 +177,7 @@ return (
        
             <div>
             <Routes>
-            <Route exact path="/" render={() => (
+            <Route  path="/" render={() => (
     <Navigate to="/Calendar"/>
 )}/>
                  <Route  path="/Profile" element={ <Profile/>}>
