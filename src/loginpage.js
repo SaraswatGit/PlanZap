@@ -42,6 +42,7 @@ setmessage(response.data.message);
 
   return <div className="loginpage">
       <div style={{position:"Absolute",marginTop:"5vh",fontSize:"15vh",fontFamily:"serif",fontWeight:"bolder",color:"red",textAlign:"center",marginLeft:"37vw"}} >PlanZap</div>
+      <div style={{position:"Absolute",marginTop:"21vh",fontSize:"3vh",fontFamily:"cursive",width:"100vw",textAlign:"center"}} >One Place for managing Tasks ,Personal Diary ,Notes ,movielist </div>
 <div className="loginbox">
     <div className="signinbox">
         <div className="heading">
@@ -50,7 +51,7 @@ setmessage(response.data.message);
             <br/>
             <br/>
 
-        <label for="emailid"><b>E-Mail ID</b></label>
+        <label  for="emailid"><b>E-Mail ID</b></label>
         <br/>
         
     <input type="email" id="emailid" maxlength="40" name="emailid" className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setlmail(event.target.value)}}/>
