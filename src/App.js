@@ -147,20 +147,20 @@ return (
             <Route exact path="/" render={() => (
     <Navigate to="/Calendar"/>
 )}/>
-                 <Route exact path="/Profile">
-               <Profile/>
+                 <Route  path="/Profile" element={ <Profile/>}>
+              
                </Route>
-               <Route exact path="/Calendar">
-               <Calender/>
+               <Route  path="/Calendar" element={  <Calender/>}>
+             
                </Route>
-               <Route exact path="/diary">
-               <Diary/>
+               <Route  path="/diary" element={ <Diary/>}>
+              
                </Route>
-               <Route exact path="/movieslist">
-               <Movies/>
+               <Route  path="/movieslist" element={  <Movies/>}>
+             
                </Route>
-               <Route exact path="/ideasnotes">
-               <Ideas/>
+               <Route  path="/ideasnotes" element={    <Ideas/>}>
+           
                </Route>
              
                   </Routes>
