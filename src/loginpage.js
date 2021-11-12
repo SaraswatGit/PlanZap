@@ -51,19 +51,19 @@ setmessage(response.data.message);
             <br/>
             <br/>
 
-        <label style={{fontSize:"3.5vh"}} for="emailid"><b>E-Mail ID</b></label>
+        <label style={{fontSize:"2.5vh"}} for="emailid"><b>E-Mail ID</b></label>
         <br/>
         
-    <input style={{fontSize:"3.5vh"}} type="email" id="emailid" maxlength="40" name="emailid" className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setlmail(event.target.value)}}/>
+    <input style={{fontSize:"2.5vh"}} type="email" id="emailid" maxlength="40" name="emailid" className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setlmail(event.target.value)}}/>
     <br/>
     <br/>
-    <label style={{fontSize:"3.5vh"}} for="lpassword"><b>Password</b></label>
+    <label style={{fontSize:"2.5vh"}} for="lpassword"><b>Password</b></label>
         <br/>
-    <input style={{fontSize:"3.5vh"}} type="password" id="lpassword" maxlength="40" name="password" className="holders"  onChange={(event)=>{setpass(event.target.value)}}/>
+    <input style={{fontSize:"2.5vh"}} type="password" id="lpassword" maxlength="40" name="password" className="holders"  onChange={(event)=>{setpass(event.target.value)}}/>
     <br/>
 <br/>
 <br/>
-<button style={{backgroundColor:"teal", height:"auto",width:"auto",padding:"0.5vh",borderRadius:"10%",marginLeft:"10vw"}} onClick={loginuser}><b>Sign In</b></button>
+<button style={{backgroundColor:"teal",fontSize:"1.5vh", height:"auto",width:"auto",padding:"0.5vh",borderRadius:"10%",marginLeft:"10vw"}} onClick={loginuser}><b>Sign In</b></button>
             <div>{message}</div>
         </div>
         <div className="signinbox">
@@ -74,25 +74,25 @@ setmessage(response.data.message);
            
 
         <form autocomplete="false"   >
-        <label style={{fontSize:"3.5vh"}} for="emailid"><b>E-Mail ID</b></label>
+        <label style={{fontSize:"2.5vh"}} for="emailid"><b>E-Mail ID</b></label>
         <br/>
         
-    <input style={{fontSize:"3.5vh"}}  type="email" id="emailid" maxlength="40" name="hidden" autocomplete="false"  className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setuseremail(event.target.value)}} />
+    <input style={{fontSize:"2.5vh"}}  type="email" id="emailid" maxlength="40" name="hidden" autocomplete="false"  className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setuseremail(event.target.value)}} />
     <br/>
     <br/>
-    <label style={{fontSize:"3.5vh"}} for="password"><b>Password</b></label>
+    <label style={{fontSize:"2.5vh"}} for="password"><b>Password</b></label>
         <br/>
-    <input style={{fontSize:"3.5vh"}}  type="password" id="password" maxlength="10" name="password"  autocomplete="new-password" className="holders"  />
+    <input style={{fontSize:"2.5vh"}}  type="password" id="password" maxlength="10" name="password"  autocomplete="new-password" className="holders"  />
     <br/>
 <br/>
-<label style={{fontSize:"3.5vh"}} for="Cpassword"><b>Confirm Password</b></label>
+<label style={{fontSize:"2.5vh"}} for="Cpassword"><b>Confirm Password</b></label>
         <br/>
     <input type="password" id="Cpassword" maxlength="10" name="Cpassword" className="holders" onChange={(event)=>{setpassword(event.target.value)}} />
     <br/>
 <br/>
 <br/>
 
-<button style={{backgroundColor:"teal", height:"auto",width:"auto",padding:"0.5vh",borderRadius:"10%",marginLeft:"10vw"}} onClick={registeruser}><b>Sign Up</b></button>
+<button style={{backgroundColor:"teal",fontSize:"1.5vh", height:"auto",width:"auto",padding:"0.5vh",borderRadius:"10%",marginLeft:"10vw"}} onClick={registeruser}><b>Sign Up</b></button>
             </form>
             </div>
     </div>
