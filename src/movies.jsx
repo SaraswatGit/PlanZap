@@ -134,19 +134,19 @@ const deletemovie=(id)=>{
    })}
     </div>
 <div className="entrybox">
-  <div className="Heading">Enter the Movie Details here</div>
+  <div className="Heading" style={{fontSize:"3vh"}}>Enter the Movie Details here</div>
   <form className="formbox">
-  <label for="mname">Movie Name</label>
+  <label for="mname" style={{fontSize:"2vh"}}>Movie Name</label>
         <br/>
-    <input type="text" id="mname" maxlength="40" name="moviename" className="donkey" placeholder="Eg: Mission Impossible : Rogue Nation " onChange={(event)=>{setmoviename(event.target.value)}}/>
+    <input style={{fontSize:"2vh"}} type="text" id="mname" maxlength="40" name="moviename" className="donkey" placeholder="Eg: Mission Impossible : Rogue Nation " onChange={(event)=>{setmoviename(event.target.value)}}/>
     <br/>
-    <label for="mrating">IMDb rating</label>
+    <label style={{fontSize:"2vh"}} for="mrating">IMDb rating</label>
 <br/>
-    <input type="text" id="mrating" maxlength="3" name="movierating" className="donkey"  placeholder="Eg: 8.4"  onChange={(event)=>{setmovierating(event.target.value)}}/>
+    <input style={{fontSize:"2vh"}}  type="text" id="mrating" maxlength="3" name="movierating" className="donkey"  placeholder="Eg: 8.4"  onChange={(event)=>{setmovierating(event.target.value)}}/>
     <br/>
-    <label for="mdesc">Movie Description</label>
+    <label style={{fontSize:"2vh"}}  for="mdesc">Movie Description</label>
     <br/>
-<textarea id="mdesc" name="moviedescription" rows="2" cols="40" maxlength="73" className="donkey"  placeholder="Eg:Oscar Nominated, Action,Directed By : Michael Scott , Based on Iraq Wars" onChange={(event)=>{setmoviedesc(event.target.value)}}>
+<textarea style={{fontSize:"2vh"}}  id="mdesc" name="moviedescription" rows="2" cols="40" maxlength="73" className="donkey"  placeholder="Eg:Oscar Nominated, Action,Directed By : Michael Scott , Based on Iraq Wars" onChange={(event)=>{setmoviedesc(event.target.value)}}>
 
   </textarea>
   <input type="submit" value="Submit" className="subm2" onClick={addmovie}/>
