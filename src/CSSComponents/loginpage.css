@@ -25,7 +25,7 @@
    width:24vw;
    padding: 1vh 0 0 1vw;
    border: none;
-   border-right: 2px solid black;
+   border-right: 0.6px solid black;
     
 }
 .heading
@@ -41,5 +41,5 @@
     border: none;
     border-bottom: 2px solid red;
     width: 20vw;
-    margin-top: 15px;
+    margin-top: 1.5vh;
 }
