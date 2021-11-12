@@ -177,9 +177,7 @@ return (
        
             <div>
             <Routes>
-            <Route  path="/" render={() => (
-    <Navigate to="/Calendar"/>
-)}/>
+      ]
  <Route  path="/"  element={<Calender/>}/>
                  <Route  path="/Profile" element={ <Profile/>}>
               
