@@ -42,22 +42,22 @@ setmessage(response.data.message);
 
   return <div className="loginpage">
       <div style={{position:"Absolute",marginTop:"5vh",fontSize:"15vh",fontFamily:"serif",fontWeight:"bolder",color:"red",textAlign:"center",width:"100vw"}} >PlanZap</div>
-      <div style={{marginTop:"1.3vh",fontSize:"3vh",fontFamily:"cursive",width:"100vw",textAlign:"center",color:"white"}} >One Place for managing Tasks ,Personal Diary ,Notes ,movielist ! </div>
+      <div style={{position:"Absolute",marginTop:"21.7vh",fontSize:"3vh",fontFamily:"cursive",width:"100vw",textAlign:"center",color:"white"}} >One Place for managing Tasks ,Personal Diary ,Notes ,movielist ! </div>
 <div className="loginbox" >
     <div className="signinbox">
-        <div className="heading" style={{fontSize:"5vh",fontWeight:"400",color:"white"}}>
+        <div className="heading" style={{fontSize:"5vh",fontWeight:"400"}}>
             Login
             </div>
             <br/>
             <br/>
 
-        <label style={{fontSize:"2.5vh"}} for="emailid"><b>E-Mail ID</b></label>
+        <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="emailid"><b>E-Mail ID</b></label>
         <br/>
         
     <input style={{fontSize:"2.5vh"}} type="email" id="emailid" maxlength="40" name="emailid" className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setlmail(event.target.value)}}/>
     <br/>
     <br/>
-    <label style={{fontSize:"2.5vh"}} for="lpassword"><b>Password</b></label>
+    <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="lpassword"><b>Password</b></label>
         <br/>
     <input style={{fontSize:"2.5vh"}} type="password" id="lpassword" maxlength="40" name="password" className="holders"  onChange={(event)=>{setpass(event.target.value)}}/>
     <br/>
@@ -67,25 +67,25 @@ setmessage(response.data.message);
             <div>{message}</div>
         </div>
         <div className="signinbox">
-        <div className="heading"  style={{fontSize:"5vh",fontWeight:"400",color:"white"}}>
+        <div className="heading"  style={{fontSize:"5vh",fontWeight:"400"}}>
             Register
             </div>
             <br/>
            
 
         <form autocomplete="false"   >
-        <label style={{fontSize:"2.5vh"}} for="emailid"><b>E-Mail ID</b></label>
+        <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="emailid"><b>E-Mail ID</b></label>
         <br/>
         
     <input style={{fontSize:"2.5vh"}}  type="email" id="emailid" maxlength="40" name="hidden" autocomplete="false"  className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setuseremail(event.target.value)}} />
     <br/>
     <br/>
-    <label style={{fontSize:"2.5vh"}} for="password"><b>Password</b></label>
+    <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="password"><b>Password</b></label>
         <br/>
     <input style={{fontSize:"2.5vh"}}  type="password" id="password" maxlength="10" name="password"  autocomplete="new-password" className="holders"  />
     <br/>
 <br/>
-<label style={{fontSize:"2.5vh"}} for="Cpassword"><b>Confirm Password</b></label>
+<label style={{fontSize:"2.5vh",fontWeight:"300"}} for="Cpassword"><b>Confirm Password</b></label>
         <br/>
     <input type="password" id="Cpassword" maxlength="10" name="Cpassword" className="holders" onChange={(event)=>{setpassword(event.target.value)}} />
     <br/>
