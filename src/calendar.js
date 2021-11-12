@@ -153,8 +153,7 @@ flexDirection: "column",
       <option Value="Medium Priority">Medium Priority</option>
       <option value="Low Priority">Low Priority</option>
     </select>
-  <br/>
-    <input type="submit" value="Submit" className="subbut" onClick={addtask}/>
+    <input type="submit" value="Submit" className="subbut" style={{marginTop:"1.5vh",fontSize:"1.3vh"}} onClick={addtask}/>
           </form>
         </div>
 
