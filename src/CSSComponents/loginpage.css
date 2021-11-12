@@ -12,8 +12,8 @@
     margin-bottom: 20vh;
     margin-left: 25vw;
     margin-right: 25vw;
-    width: 50vw;
-    height: 50vh;
+    width: auto;
+    height: auto;
     background-color: 	rgb(211,211,211,0.7);
     display: flex;
 
@@ -21,9 +21,9 @@
 
 .signinbox
 {
-   height:49vh;
-   width:24vw;
-   padding: 1vh 0 0 1vw;
+   height:auto;
+   width:auto;
+   padding: 1vh 1vw 1vh 1vw;
    border: none;
    border-right: 0.6px solid black;
     
