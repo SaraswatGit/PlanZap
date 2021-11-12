@@ -146,7 +146,7 @@ const deletenote=(id)=>{
        
        <div className="ideabox">
             <div className="ideaboxtop">
-              {val.idea_name} &nbsp; <div style={{position:"absolute",marginLeft:"78vw",fontSize:"1.5vh"}}><EditIcon onClick={()=>{settempidea(val.idea_name);settempdesc(val.idea_desc);setnewidea(val.idea_name);setnewdesc(val.idea_desc);settempid(val.ideaid);toggleModal2()}}/>&nbsp; <CloseIcon onClick={()=>{deletenote(val.ideaid)}} /> </div>
+              {val.idea_name} &nbsp; <div style={{position:"absolute",marginLeft:"77vw",fontSize:"1.5vh"}}><EditIcon onClick={()=>{settempidea(val.idea_name);settempdesc(val.idea_desc);setnewidea(val.idea_name);setnewdesc(val.idea_desc);settempid(val.ideaid);toggleModal2()}}/>&nbsp; <CloseIcon onClick={()=>{deletenote(val.ideaid)}} /> </div>
           </div>
          
           <div className="ideaboxbottom" >
