@@ -119,20 +119,20 @@ return (
                      &nbsp; &nbsp; Profile
     </NavLink>*/}
     <div className="quotearea">"{userquote}"<br/><EditIcon className="editbutton" onClick={toggleModal}/></div>
-                     <NavLink to="/Calendar" className="barelement"   activeClassName="selected">
+                     <NavLink to="/Calendar" className={isActive=>isActive?"barelement":"selected"}>
                        <TaskIcon style={{height:"2.8vh",marginRight:"1vw"}}/>
                       Tasks and Progress
     </NavLink>
                    {/*  <NavLink to="/Performancegraphs" className="barelement" activeClassName="selected">
                      <ShowChartIcon/>      &nbsp; &nbsp;Performance Graphs
     </NavLink>*/}
-                     <NavLink to="/movieslist" className="barelement" activeClassName="selected">
+                     <NavLink to="/movieslist" className={isActive=>isActive?"barelement":"selected"} >
                      <FormatListBulletedIcon style={{height:"2.8vh",marginRight:"1vw"}}/>    Movies to Watch
                      </NavLink>      
-                     <NavLink to="/diary" className="barelement"  activeClassName="selected">
+                     <NavLink to="/diary" className={isActive=>isActive?"barelement":"selected"}>
                      <MenuBookIcon style={{height:"2.8vh",marginRight:"1vw"}}/>        Personal Diary <br/>
                      </NavLink>   
-                     <NavLink to="/ideasnotes" className="barelement" activeClassName="selected">
+                     <NavLink to="/ideasnotes" className={isActive=>isActive?"barelement":"selected"}>
                      <CollectionsBookmarkIcon style={{height:"2.8vh",marginRight:"1vw"}}/>       Ideas and Notes <br/>
     
                      </NavLink>     
