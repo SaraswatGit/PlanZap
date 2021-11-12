@@ -42,7 +42,11 @@ function toggleModal() {
 
   const logout=()=>{
     setloginstatus(true);
- Axios.put("https://planzap.herokuapp.com/logout",{status:true})
+    setloading(true)
+ Axios.put("https://planzap.herokuapp.com/logout",{status:true}).then((response)=>{
+   setloginstatus(true);
+   setloading(false);
+ })
   }
 
   //loggedin=
