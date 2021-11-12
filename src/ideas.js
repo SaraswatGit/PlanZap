@@ -157,7 +157,7 @@ const deletenote=(id)=>{
      
   
     </div>
-    <div className="newideabutton" onClick={toggleModal}>
+    <div className="newideabutton" onClick={toggleModal} style={{fontSize:"2.5vh"}}>
       New Note &nbsp;   <AddCircleOutlineIcon/>
       </div>
   </div>;

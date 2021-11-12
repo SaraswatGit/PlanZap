@@ -69,8 +69,8 @@ margin-right: 2vh;
 {
     margin-left: 72vw;
     margin-top: 1vh;
-    width: 10vw;
-    height: 5vh;
+    width: auto;
+    height: auto;
     background-color:rgb(177, 174, 174);
     display: flex;
     align-items: center;
@@ -79,6 +79,7 @@ margin-right: 2vh;
     border: 0.5vh;
     border-radius: 5%;
     color: white;
+    padding :1vh;
 }
 .newideabutton:hover
 {
