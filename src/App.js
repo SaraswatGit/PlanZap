@@ -153,7 +153,14 @@ return (
   }>
                      <MenuBookIcon style={{height:"2.8vh",marginRight:"1vw"}}/>        Personal Diary <br/>
                      </NavLink>   
-                     <NavLink to="/ideasnotes" className={isActive=>!isActive?"barelement":"selected"}>
+                     <NavLink to="/ideasnotes" className={({ isActive }) =>
+    `link ${
+      isActive
+        ? "selected"
+        : // Couldn't do this before!
+          "barelement"
+    }`
+  }>
                      <CollectionsBookmarkIcon style={{height:"2.8vh",marginRight:"1vw"}}/>       Ideas and Notes <br/>
     
                      </NavLink>     
