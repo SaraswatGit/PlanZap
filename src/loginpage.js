@@ -66,7 +66,7 @@ setmessage(response.data.message);
 <button style={{backgroundColor:"teal",fontSize:"2vh", height:"auto",width:"auto",padding:"0.5vh",borderRadius:"10%",marginLeft:"10vw"}} onClick={loginuser}><b>Sign In</b></button>
             <div>{message}</div>
         </div>
-        <div className="signinbox">
+        <div className="signinbox"  style={{bordes:"none"}}>
         <div className="heading"  style={{fontSize:"5vh",fontWeight:"400"}}>
             Register
             </div>
