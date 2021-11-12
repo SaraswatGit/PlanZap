@@ -180,6 +180,7 @@ return (
             <Route  path="/" render={() => (
     <Navigate to="/Calendar"/>
 )}/>
+ <Route  path="/"  element={<Calender/>}/>
                  <Route  path="/Profile" element={ <Profile/>}>
               
                </Route>
