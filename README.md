@@ -8,9 +8,9 @@
 
 To run the app :
 
-1)you need to clone my repository by writing ```git clone https://github.com/SaraswatGit/PlanZap.git``` on your terminal. 
+1)You need to clone my repository by writing ```git clone https://github.com/SaraswatGit/PlanZap.git``` on your terminal. 
 
-2)The you need you need  to type ```npm run start``` this will run the code on your local server . The app uses continous integration be careful before pushing.
+2)The you need you need to have node js install on your local machine and then type ```npm install``` to install all the dependencies and then  type in```npm run start``` this will run the code on your local server . The app uses continous integration be careful before pushing.
 
 
 
