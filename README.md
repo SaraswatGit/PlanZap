@@ -4,6 +4,8 @@
 
 🧠***Basic Idea*** : To have a app where a user can handle tasks, notes, personal diary  and a moviel list using a simple and easty to use interface . 
 
+👨‍💻***Tech Stack used*** : React JS , REST APIs , Material UI . (For the front end .)
+
 💻***How to run*** ?
 
 **To run the app :**
