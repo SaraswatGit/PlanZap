@@ -14,7 +14,7 @@
 
 ***Structure of the app:***
 
-The nav bar has a position that is fixed the only thing that render everytime a new section is clicked is the area beside it refered to as "routearea" in the app . All CSS of all files is present in the CSS components file . 
+The nav bar has a position that is fixed the only thing that render everytime a new section is clicked is the area beside it refered to as "routearea" in the app . All CSS of all files is present in the CSS components file . Use context has been used to get access to userid , login status etc. 
 
 _Things that can be improved :_ 
 
