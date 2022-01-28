@@ -2,6 +2,8 @@
 
 **Video Demo**: https://drive.google.com/file/d/1t33jODX3xZmITv0QUnhFlc7pja-yHX24/view?usp=sharing__
 
+***Link for the live site :*** https://planzap.netlify.app/ 
+
 🧠***Basic Idea*** : To have a app where a user can handle tasks, notes, personal diary  and a moviel list using a simple and easy to use interface . 
 
 👨‍💻***Tech Stack used*** : React JS , REST APIs , Material UI . (For the front end .)
@@ -30,9 +32,20 @@ _4)Improving the Modals (that pops up to create new movie entry or new diary ent
 
 _5)Improving the User experience of the Personal Diary._ 
 
-***ScreenShots : ***
+***ScreenShots :***
+Task Page : 
+
 ![image](https://user-images.githubusercontent.com/58114914/151507246-fe2fe20e-b840-4632-a218-d11c1864f647.png)
+
+Movie List Page :
+
 ![image](https://user-images.githubusercontent.com/58114914/151507293-f3cec004-9d87-4b8a-909a-da1701a654cc.png)
+
+Personal Diary :
+
 ![image](https://user-images.githubusercontent.com/58114914/151507393-c7542115-13f0-4e3f-a975-feffc702a327.png)
+
+Notes Section :
+
 ![image](https://user-images.githubusercontent.com/58114914/151507426-e2c5f4bf-9161-4778-b975-0575579def93.png)
 
