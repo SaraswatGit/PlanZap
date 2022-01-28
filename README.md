@@ -2,7 +2,7 @@
 
 **Video Demo**: https://drive.google.com/file/d/1t33jODX3xZmITv0QUnhFlc7pja-yHX24/view?usp=sharing__
 
-🧠Basic Idea : The 
+🧠Basic Idea : To have a app where a user can handle tasks, notes, personal diary  and a moviel list using a simple and easty to use interface . 
 
 💻How to run ?
 
