@@ -12,16 +12,18 @@
 
 2)The you need you need to have node js install on your local machine and then type ```npm install``` to install all the dependencies and then  type in```npm run start``` this will run the code on your local server . The app uses continous integration be careful before pushing.
 
+***Structure of the app:***
 
+The nav bar has a position that is fixed the only thing that render everytime a new section is clicked is the area beside it refered to as "routearea" in the app . All CSS of all files is present in the CSS components file . 
 
-_Things that can be improved : 
+_Things that can be improved :_ 
 
-1)On login page confirm password and password don't yet have matching ability. 
+_1)On login page confirm password and password don't yet have matching ability._ 
 
-2)IMproing the UI of the login page. 
+_2)Improing the UI of the login page._ 
 
-3)Implementing responsiveness
+_3)Implementing responsiveness_
 
-4)Improving the Modals (that pops up to create new movie entry or new diary entry) 
+_4)Improving the Modals (that pops up to create new movie entry or new diary entry)_ 
 
-5)Improving the User experience of the Personal Diary._ 
+_5)Improving the User experience of the Personal Diary._ 
