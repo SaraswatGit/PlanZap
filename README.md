@@ -29,3 +29,10 @@ _3)Implementing responsiveness_
 _4)Improving the Modals (that pops up to create new movie entry or new diary entry)_ 
 
 _5)Improving the User experience of the Personal Diary._ 
+
+***ScreenShots : ***
+![image](https://user-images.githubusercontent.com/58114914/151507246-fe2fe20e-b840-4632-a218-d11c1864f647.png)
+![image](https://user-images.githubusercontent.com/58114914/151507293-f3cec004-9d87-4b8a-909a-da1701a654cc.png)
+![image](https://user-images.githubusercontent.com/58114914/151507393-c7542115-13f0-4e3f-a975-feffc702a327.png)
+![image](https://user-images.githubusercontent.com/58114914/151507426-e2c5f4bf-9161-4778-b975-0575579def93.png)
+
