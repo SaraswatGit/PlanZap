@@ -2,11 +2,11 @@
 
 **Video Demo**: https://drive.google.com/file/d/1t33jODX3xZmITv0QUnhFlc7pja-yHX24/view?usp=sharing__
 
-🧠Basic Idea : To have a app where a user can handle tasks, notes, personal diary  and a moviel list using a simple and easty to use interface . 
+🧠***Basic Idea*** : To have a app where a user can handle tasks, notes, personal diary  and a moviel list using a simple and easty to use interface . 
 
-💻How to run ?
+💻***How to run*** ?
 
-To run the app :
+**To run the app :**
 
 1)You need to clone my repository by writing ```git clone https://github.com/SaraswatGit/PlanZap.git``` on your terminal. 
 
@@ -14,7 +14,7 @@ To run the app :
 
 
 
-Things that can be improved : 
+_Things that can be improved : 
 
 1)On login page confirm password and password don't yet have matching ability. 
 
@@ -24,4 +24,4 @@ Things that can be improved :
 
 4)Improving the Modals (that pops up to create new movie entry or new diary entry) 
 
-5)Improving the User experience of the Personal Diary. 
+5)Improving the User experience of the Personal Diary._ 
