@@ -16,6 +16,8 @@
 
 2)You need you need to have node js install on your local machine and then type ```npm install``` to install all the dependencies and then  type in```npm run start``` this will run the code on your local server . The app uses continous integration be careful before pushing.
 
+**Note : You can only run the app on the following domains in local machines : http://localhost:3001 ; http://localhost:3000** 
+
 ***Structure of the app:***
 
 The nav bar has a position that is fixed the only thing that render everytime a new section is clicked is the area beside it refered to as "routearea" in the app . All CSS of all files is present in the CSS components file . Use context has been used to get access to userid , login status etc. 
