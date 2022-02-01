@@ -93,6 +93,7 @@ align-items: center;
 .logout:hover
 {
   color: white;
+  cursor: pointer;
 }
 .profpage
 {
