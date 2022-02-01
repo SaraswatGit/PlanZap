@@ -9,24 +9,36 @@ import Calender from './calendar';
 const Login = () => {
 const {notloggedin,setloginstatus,userid,setuserid}=useContext(usercontext);    
 const [useremail,setuseremail]=useState("");
-const [password,setpassword]=useState("");
+const [password,setPassword]=useState("");
+const [confirmPassword,setConfirmPassword]=useState("");
 const [lmail,setlmail]=useState("");
 const [pass,setpass]=useState("");
-const [message,setmessage]=useState("");
+const [loginMessage,setLoginMessage]=useState("");
+const [registerMessage,setRegisterMessage]=useState("");
 
-const registeruser=()=>{
-    console.log(useremail+password);
+const registeruser=(e)=>{
+    //console.log(useremail+password);
+
+    e.preventDefault();  // added this line so that the default submission of form (which caused refreshing of the page)can be prevented and we get submit usinfg post method.
+    if(password===confirmPassword){
+
     Axios.post("https://planzap.herokuapp.com/usercreate",{
         useremail:useremail,
-        password:password}).then(()=>{console.log("SUCCESS USER ADDED")})
+        password:password}).then(()=>{setRegisterMessage("User Added Successfully.");})
+    }
+    else
+    {
+        setRegisterMessage("Please make sure your passwords match.");
+    }
 }
 const loginuser=()=>{
+    
     Axios.post("https://planzap.herokuapp.com/userlogin",{
         useremail:lmail,
         password:pass}).then((response)=>{
             if(response.data.message)
             {
-setmessage(response.data.message);
+setLoginMessage(response.data.message);
             }
         else
         {      
@@ -64,7 +76,7 @@ setmessage(response.data.message);
 <br/>
 <br/>
 <button style={{backgroundColor:"teal",fontSize:"2vh", height:"auto",width:"auto",padding:"0.5vh",borderRadius:"10%",marginLeft:"10vw"}} onClick={loginuser}><b>Sign In</b></button>
-            <div>{message}</div>
+            <div>{loginMessage}</div>
         </div>
         <div className="signinbox"  style={{border:"none",borderRight:"none"}}>
         <div className="heading"  style={{fontSize:"5vh",fontWeight:"400"}}>
@@ -73,26 +85,27 @@ setmessage(response.data.message);
             <br/>
            
 
-        <form autocomplete="false"   >
+        <form autoComplete="false"   >
         <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="emailid"><b>E-Mail ID</b></label>
         <br/>
         
-    <input style={{fontSize:"2.5vh"}}  type="email" id="emailid" maxlength="40" name="hidden" autocomplete="false"  className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setuseremail(event.target.value)}} />
+    <input style={{fontSize:"2.5vh"}}  type="email" id="emailid" maxLength="40" name="hidden" autoComplete="false"  className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setuseremail(event.target.value)}} />
     <br/>
     <br/>
     <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="password"><b>Password</b></label>
         <br/>
-    <input style={{fontSize:"2.5vh"}}  type="password" id="password" maxlength="10" name="password"  autocomplete="new-password" className="holders"  />
+    <input style={{fontSize:"2.5vh"}}  type="password" id="password" maxLength="10" name="password"  autoComplete="new-password" className="holders" onChange={(event)=>{setPassword(event.target.value)}} />
     <br/>
 <br/>
 <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="Cpassword"><b>Confirm Password</b></label>
         <br/>
-    <input type="password" id="Cpassword" maxlength="10" name="Cpassword" className="holders" onChange={(event)=>{setpassword(event.target.value)}} />
+    <input type="password" id="Cpassword" maxLength="10" name="Cpassword" className="holders" onChange={(event)=>{setConfirmPassword(event.target.value)}} />
     <br/>
 <br/>
 <br/>
-
+<div>{registerMessage}</div>
 <button style={{backgroundColor:"teal",fontSize:"2vh", height:"auto",width:"auto",padding:"0.5vh",borderRadius:"10%",marginLeft:"10vw"}} onClick={registeruser}><b>Sign Up</b></button>
+    
             </form>
             </div>
     </div>
