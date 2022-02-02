@@ -113,10 +113,10 @@ align-items: center;
 
 
 .push-out {
---primary:rgb(13, 99, 80);
---duration: .85;
-height: 100px;
-width: 100px;
+--primary:rgb(11, 97, 78);
+--duration: .86;
+height: 101px;
+width: 101px;
   position: absolute;
     top:0;
     bottom: 0;
