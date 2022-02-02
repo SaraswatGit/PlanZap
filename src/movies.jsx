@@ -13,9 +13,12 @@ const Movies = () => {
   const [movie_rating, setmovierating] = useState(0);
   const [movie_desc, setmoviedesc] = useState("");
   const[movielist,setmovielist]=useState([]);
+  const [newname, setnewname] = useState(0);
   const[newdesc,setnewdesc]=useState(0);
+  const [tempname, settempname] = useState("");
+  const [tempdesc, settempdesc] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [defaulttext, setdefaulttext] = useState("");
+  //const [defaulttext, setdefaulttext] = useState("");
   const[tempid,settempid]=useState(0);
   const {userid,setuserid}=useContext(usercontext);    
 
@@ -23,23 +26,24 @@ const Movies = () => {
 function toggleModal() {
   setIsOpen(!isOpen);
 }
-function updatedesc(num,text){
 
-  setdefaulttext(
-    text);
-    setnewdesc(
-      text);
- settempid(
-   num
- );
-    toggleModal();
-  
-  
- }
- const updatemoviedesc=()=>
+// function updatedesc(num,text,text){
+    
+//     setdefaulttext(text);
+//     setnewname(text);
+//     setnewdesc(text);
+//     settempid(num);
+//     toggleModal();
+// }
+
+ const updatemovie=()=>
  {console.log(tempid);
-   Axios.put("https://planzap.herokuapp.com/updatedesc",{id:tempid,movie_desc:newdesc}).then((response)=>{console.log("updated")})
+   Axios.put("https://planzap.herokuapp.com/updatedesc",
+   {id:tempid, movie_name:newname, movie_desc:newdesc}).then((response)=>{console.log("updated")})
+
  }
+
+
 const addmovie=()=>{
   Axios.post("https://planzap.herokuapp.com/create",{
     movie_name:movie_name,
@@ -52,9 +56,7 @@ const addmovie=()=>{
 
 useEffect(() => {
   Axios.post("https://planzap.herokuapp.com/getdata",{userid:userid}).then((response)=>{
- setmovielist(response.data) 
-
-});
+ setmovielist(response.data) });
   
 }, []);
 
@@ -67,6 +69,8 @@ const deletemovie=(id)=>{
   return (
 
   <div className="moviesback">
+
+
     <Modal
     isOpen={isOpen}
         onRequestClose={toggleModal}
@@ -79,7 +83,7 @@ const deletemovie=(id)=>{
           },
         content:{
           width:'40vw',
-          height:'16vh',
+          height:'30vh',
           margin:'auto',
           padding:'0',
    borderRadius:'10px',
@@ -90,14 +94,25 @@ const deletemovie=(id)=>{
         }
         }
         
-        }><form>
-            <label for="mdesc">New Movie Description</label>
+        }>
+        <form>
+
+            <label for="mname"><b>Edit Movie Name</b></label>
+            <br/>
+            <textarea id="mname" name="moviename" rows="2" cols="40" maxlength="60" className="donkey" defaultValue={tempname}  onChange={(event)=>{setnewname(event.target.value)}}>
+            </textarea>
+            <br/>
+
+            <label for="mdesc"><b>Edit Movie Description</b></label>
     <br/>
-<textarea id="mdesc" name="moviedescription" rows="2" cols="40" maxlength="60" className="donkey"   onChange={(event)=>{setnewdesc(event.target.value)}}>
-{defaulttext}</textarea>
+<textarea id="mdesc" name="moviedescription" rows="2" cols="40" maxlength="60" className="donkey" defaultValue={tempdesc}  onChange={(event)=>{setnewdesc(event.target.value)}}>
+</textarea>
   <br/>
-  <button onClick={updatemoviedesc}>Save</button>
-     </form> </Modal>
+  <button onClick={updatemovie}>Save</button>
+     </form>
+      </Modal>
+
+
     <div className="topbar">
 
       <div className="moviename">
@@ -111,6 +126,7 @@ const deletemovie=(id)=>{
               </div>
   </div>
 
+
   <div>
    { movielist.map((val,key)=>{
      return(
@@ -123,7 +139,9 @@ const deletemovie=(id)=>{
               </div>
           <div className="moviedesc2" style={{paddingRight:"transparent"}}>
           {val.movie_desc}
-          <EditIcon onClick={()=>updatedesc(val.id,val.movie_desc)} style={{paddingLeft:'30px',height:"3.2vh"}}/>
+          <EditIcon style={{paddingLeft:'30px',height:"3.2vh"}}
+              onClick={()=>{settempname(val.movie_name);settempdesc(val.movie_desc);setnewname(val.movie_name);setnewdesc(val.movie_desc);settempid(val.id);toggleModal()}}/>
+          
           <button style={{backgroundColor:"transparent", height:"3vh", marginLeft:"1vw",fontSize:"1.6vh",textAlign:"center"}} onClick={()=>{deletemovie(val.id)}}>
             Delete
           </button>
@@ -133,6 +151,8 @@ const deletemovie=(id)=>{
      )
    })}
     </div>
+
+
 <div className="entrybox">
   <div className="Heading" style={{fontSize:"3vh"}}>Enter the Movie Details here</div>
   <form className="formbox">
