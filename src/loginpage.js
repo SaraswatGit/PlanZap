@@ -99,7 +99,7 @@ setLoginMessage(response.data.message);
 <br/>
 <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="Cpassword"><b>Confirm Password</b></label>
         <br/>
-    <input type="password" id="Cpassword" maxLength="10" name="Cpassword" className="holders" onChange={(event)=>{setConfirmPassword(event.target.value)}} />
+    <input style={{fontSize:"2.5vh"}} type="password" id="Cpassword" maxLength="10" name="Cpassword" className="holders" onChange={(event)=>{setConfirmPassword(event.target.value)}} />
     <br/>
 <br/>
 <br/>
