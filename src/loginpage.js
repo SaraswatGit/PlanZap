@@ -1,12 +1,13 @@
 import  Axios  from "axios";
 import React, { useState ,useContext } from "react";
-import { Link } from 'react-router-dom';
 import './CSSComponents/loginpage.css';
 import {  Route } from "react-router-dom";
 import {usercontext} from './Context/usercontext';
+import ReactModal from 'react-modal';
 
 import Calender from './calendar';
 import { color } from "@mui/system";
+import { visibleDays } from "react-big-calendar/lib/utils/dates";
 
 const Login = () => {
 const {notloggedin,setloginstatus,userid,setuserid}=useContext(usercontext);    
@@ -21,7 +22,7 @@ const [registerMessage,setRegisterMessage]=useState("");
 const registeruser=(e)=>{
     //console.log(useremail+password);
 
-    e.preventDefault();  // added this line so that the default submission of form (which caused refreshing of the page)can be prevented and we get submit usinfg post method.
+    e.preventDefault();  // added this line so that the default submission of form (which caused refreshing of the page)can be prevented and we get submit using post method.
     if(password===confirmPassword){
 
     Axios.post("https://planzap.herokuapp.com/usercreate",{
@@ -33,7 +34,6 @@ const registeruser=(e)=>{
         setRegisterMessage("Please make sure your passwords match.");
     }
 }
-
 
 
 const loginuser=()=>{
@@ -57,6 +57,8 @@ setLoginMessage(response.data.message);
 
 }
 
+const [modalIsOpen, setModalisOpen] = useState(false)
+
   return <div className="loginpage">
       <div style={{position:"Absolute",marginTop:"5vh", fontSize:"15vh",fontFamily:"Pacificio",fontWeight:"bolder",color:"rgb(255, 183, 1)",textAlign:"right",width:"100vw"}} >PlanZap &nbsp; </div>
 
@@ -74,13 +76,13 @@ setLoginMessage(response.data.message);
             <br/>
             
         <br/>
-        <form autocomplete="false">
+        <div >
         
     <input type="email" id="emailid" maxlength="40" name="emailid" className="holders" placeholder="Email" onChange={(event)=>{setlmail(event.target.value)}}/>
     <br/>
     <br/>
 
-    <input type="password" id="lpassword" maxlength="10" name="password" className="holders" placeholder="Password" onChange={(event)=>{setpass(event.target.value)}}/>
+    <input type="password" id="lpassword" maxlength="10" name="password" autoComplete="new-password" className="holders" placeholder="Password" onChange={(event)=>{setpass(event.target.value)}}/>
 
 <br/>
 <br/>
@@ -94,17 +96,76 @@ Visiting for the first time?
 <br/>
 <br/>
 
-<button>Register here!</button>
+<button type="button" onClick={ () => setModalisOpen(true) }>Register here!</button>
 
-</form>
+</div>
 </center>
-        </div>
+
+<ReactModal isOpen = { modalIsOpen } onRequestClose = { () => setModalisOpen(false)} 
+
+    style = {
+        {
+            overlay: {
+            backgroundColor : "rgba(0, 0, 0, 0.8)",},
+
+            content: {
+                position: 'absolute',
+                width: '44vw',
+                height: '90vh',
+                borderRadius: '20px 20px 20px 20px',
+                overflow: 'visible',
+                outline: 'none',
+                padding: '0px',
+                position: "fixed",
+                left: '25vw',
+                top: '5vh',
+
+              }
+        }
+    }
+
+>
+
+    <div className="regform">
+        <center>
+        <br/>
+        <div className="heading" style={{fontSize:"5vh",fontWeight:"400", color:"rgb(255, 183, 1)"}}>
+        <b>REGISTER</b>
+            </div>
+            <br/>
+            
+        <br/>
+        <form autocomplete="false">
+        
+    <input type="email" id="emailid" maxlength="40" name="hidden" className="holders" autoComplete="false" placeholder="Email" onChange={(event)=>{setuseremail(event.target.value)}}/>
+    <br/>
+    <br/>
+
+    <input type="password" id="password" maxlength="10" autoComplete="new-password" name="password" className="holders" placeholder="Password" onChange={(event)=>{setPassword(event.target.value)}}/>
+
+
+    <br/>
+    <br/>
+
+    <input type="password" id="Cpassword" maxlength="10" name="Cpassword" className="holders" placeholder="Confirm Password" onChange={(event)=>{setConfirmPassword(event.target.value)}}/>
+
+<br/>
+<br/>
+<br/>
+<div>{registerMessage}{}</div>
+<button onClick={registeruser}><b>Register Me!</b></button>
+
+            </form>
+            </center>
+            <br/>
+            </div>
+
+</ReactModal>
+    </div>
         
     </div>
 
   </div>;
 };
-        
-
 
 export default Login;

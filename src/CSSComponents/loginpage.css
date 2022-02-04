@@ -20,6 +20,16 @@
 
 }
 
+.regform{
+    width: 40vw;
+    height: 80vh;
+    padding-inline: 2vw;
+    padding-block: 5vh;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.096);
+    border-radius: 20px 20px 20px 20px;
+}
+
 .loginform {
     position: relative;
     padding: 0px;
@@ -64,3 +74,22 @@ button:hover{	opacity:0.7;}
     width: 90%;
     margin-top: 1.5vh;
 }
+
+.modal {
+    position: absolute;
+    top: 30px;
+    left: 20vw;
+    right: 20vw;
+    bottom: 40px;
+    background-color: grey;
+  }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity : 0.8;
+  }
