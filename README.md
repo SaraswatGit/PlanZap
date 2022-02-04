@@ -1,53 +1,162 @@
+<br/>
+<p align=center>
+    <h1 align="center"> 📓 PlanZap 📓 </h1>
+    <img align="center" src="https://i.postimg.cc/XJSmSqZV/planzap-2.png" alt="PlanZap logo" width="100%"/>
+    <br/>
+    <h3 align="center">
+    <br/>
+    <a href="https://github.com/SaraswatGit/PlanZap/stargazers">
+      <img alt="Issues" src="https://img.shields.io/github/stars/SaraswatGit/PlanZap?color=0088ff" />
+    </a>
+    <a href="https://github.com/SaraswatGit/PlanZap/network/members">
+      <img alt="Issues" src="https://img.shields.io/github/forks/SaraswatGit/PlanZap?color=0088ff" />
+    </a>
+    <a href="https://github.com/SaraswatGit/PlanZap/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/SaraswatGit/PlanZap?color=0088ff" />
+    </a>
+    <a href="https://github.com/SaraswatGit/PlanZap/pulls">
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/SaraswatGit/PlanZap?color=0088ff" />
+    </a>
+    <br /><br/>
+    <a href="https://drive.google.com/file/d/1t33jODX3xZmITv0QUnhFlc7pja-yHX24/view">View Demo</a>
+    ·
+    <a href="https://github.com/SaraswatGit/PlanZap/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/SaraswatGit/PlanZap/issues">Request Feature</a>
+  </h3>
+</p><br/>
+
+## 🌟 About The Project
+
+A productivity cum utility based application, where users can keep an eye on their tasks update their progress , maintain a watchlist for movies , personal diary as well as notes.
+
+## 🌟 Built With
+
+-  HTML
+-  CSS
+-  React
+-  Material UI
+-  REST APIs
+
+## 🌟 Structure
+
+- A side navbar with the fixed position, that render everytime a new section is clicked, in the area beside it- refered to as "routearea" in the app
+- All CSS of all files is present in the CSS components file
+- `useContext` has been used to get access to userid , login status etc.
+
+### Live site
+
+**_Have a look <a href="https://planzap.netlify.app/">here</a> on the live site._**
+
+## 🌟 Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+- You need to install [Node js](https://nodejs.org/en/) to successfully run this project on your local machine.
+
+## 🌟 Contributing
+
+1. Fork the project first
+
+2. Clone the forked repo
+
+   ```sh
+   git clone https://github.com/<your_user_name>/PlanZap.git
+   ```
+
+3. Navigate to the project directory
+   
+   ```sh
+   cd PlanZap
+   ```
+
+4. In the project directory, install the packages using
+  
+   ```sh
+   npm install
+   ```
+5. Run the app on your local server using
+
+   ```sh
+   npm run start
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) or [http://localhost:3001](http://localhost:3001) to view it in the browser.
+   The page will reload if you make edits.\
+    You will also see any lint errors in the console.
+
+## 🌟 Roadmap
+
+See the [open issues](https://github.com/SaraswatGit/PlanZap/issues) for a list of proposed features . Feel free to raise new issues.
+
+### Thnigs that can be improved
+- On login page confirm password and password don't yet have matching ability
+- Improing the UI of the login page
+- Implementing responsiveness
+- Improving the Modals (that pops up to create new movie entry or new diary entry)
+- Improving the User experience of the Personal Diary
+
+## 🌟 Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch  
+
+    ```sh 
+    git checkout -b <your_branch_name>
+    ``` 
+3. Perform your desired changes to the code base
+4. Add your Changes  
+
+    ```sh
+    git add .
+    ``` 
+5. Commit your Changes  
+    
+    ```sh
+    git commit -m "Relevent message"
+    ``` 
+6. Push to the Branch  
+    ```sh
+    git push origin <your_branch_name>
+    ``` 
+7. Open a Pull Request by ading appropriate **Title** and **Description**
+
+## 🌟 Open Source Participation
+This project is a part of these Open Source Programs
+
+<br/>
+<table>
+<tr>
+ <td>
+<a href="https://jwoc.tech"><img src="https://jwoc.tech/assets/img/opengraph.png" width=100px height=100px /></a>
+ </td>
+</tr>
+</table>
 
 
-**Video Demo**: https://drive.google.com/file/d/1t33jODX3xZmITv0QUnhFlc7pja-yHX24/view?usp=sharing__
+## 🌟 Contributors
 
-***Link for the live site :*** https://planzap.netlify.app/ 
+Thanks to these wonderful people ✨✨:
 
-🧠***Basic Idea*** : To have a app where a user can handle tasks, notes, personal diary  and a moviel list using a simple and easy to use interface . 
+<table>
+	<tr>
+		 <td>
+  <a href="https://github.com/SaraswatGit/PlanZap/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=SaraswatGit/PlanZap" />
+  </a>
+		</td>
+	</tr>
+</table>
 
-👨‍💻***Tech Stack used*** : React JS , REST APIs , Material UI . (For the front end .)
-
-💻***How to run*** ?
-
-**To run the app :**
-
-1)You need to clone my repository by writing ```git clone https://github.com/SaraswatGit/PlanZap.git``` on your terminal. 
-
-2)You need you need to have node js install on your local machine and then type ```npm install``` to install all the dependencies and then  type in```npm run start``` this will run the code on your local server . The app uses continous integration be careful before pushing.
-
-**Note : You can only run the app on the following domains in local machines : http://localhost:3001 ; http://localhost:3000** 
-
-***Structure of the app:***
-
-The nav bar has a position that is fixed the only thing that render everytime a new section is clicked is the area beside it refered to as "routearea" in the app . All CSS of all files is present in the CSS components file . Use context has been used to get access to userid , login status etc. 
-
-_Things that can be improved :_ 
-
-_1)On login page confirm password and password don't yet have matching ability._ 
-
-_2)Improing the UI of the login page._ 
-
-_3)Implementing responsiveness_
-
-_4)Improving the Modals (that pops up to create new movie entry or new diary entry)_ 
-
-_5)Improving the User experience of the Personal Diary._ 
-
-***ScreenShots :***
-Task Page : 
-
-![image](https://user-images.githubusercontent.com/58114914/151507246-fe2fe20e-b840-4632-a218-d11c1864f647.png)
-
-Movie List Page :
-
-![image](https://user-images.githubusercontent.com/58114914/151507293-f3cec004-9d87-4b8a-909a-da1701a654cc.png)
-
-Personal Diary :
-
-![image](https://user-images.githubusercontent.com/58114914/151507393-c7542115-13f0-4e3f-a975-feffc702a327.png)
-
-Notes Section :
-
-![image](https://user-images.githubusercontent.com/58114914/151507426-e2c5f4bf-9161-4778-b975-0575579def93.png)
-
+## 🌟 Project Admin
+<br/>
+<p align = "center">
+<a href="https://github.com/SaraswatGit"><img src="https://avatars.githubusercontent.com/u/58114914?v=4" width=100px height=100px /></a>
+</p>
+<p align = "center">
+<a href="https://github.com/SaraswatGit"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="25"></img></a>&nbsp;&nbsp; <a href="https://www.linkedin.com/in/saraswat-majumder-b9136115b/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="25"></img></a>
+</p>
