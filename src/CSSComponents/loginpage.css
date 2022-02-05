@@ -1,31 +1,62 @@
 .loginpage
 {
-    background-image: url(./loginback.png);
     height: 100vh;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
+    
+
 }
 .loginbox
 {
-    margin-top:30vh;
-    margin-bottom: 20vh;
-    margin-left: 25vw;
-    margin-right: 25vw;
-    width: auto;
-    height: auto;
-    background-color: 	rgb(211,211,211,0.7);
-    display: flex;
+    margin-top: 0vh;
+    margin-left: 5vw;
+    margin-bottom: 10vh;
+    margin-right: 50vw;
+    width: 40vw;
+    height: 80vh;
+    padding: 6vh;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.096);
+    border-radius: 0 0 20px 20px;
 
 }
 
+.regform{
+    width: 40vw;
+    height: 80vh;
+    padding-inline: 2vw;
+    padding-block: 5vh;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.096);
+    border-radius: 20px 20px 20px 20px;
+}
+
+.loginform {
+    position: relative;
+    padding: 0px;
+    color: black;
+}
+  
+
+    input{	width: 100%;
+		padding: 15px;
+		font-size: 15px;
+        background-color: white;
+		border:none;}
+
+button{	background-color: rgb(255, 183, 1);
+		color:white;
+		padding: 15px;
+		font-size: 15px;
+		border: none;
+		cursor: pointer;
+		width:100%;}
+		
+button:hover{	opacity:0.7;}
+
 .signinbox
 {
-   height:auto;
-   width:auto;
-   padding: 1vh 1vw 1vh 1vw;
-   border: none;
-   border-right: 0.6px solid black;
+  
+
     
 }
 .heading
@@ -37,9 +68,28 @@
 }
 .holders
 {
-    background-color: transparent;
+    background-color: white;
     border: none;
-    border-bottom: 2px solid red;
-    width: 20vw;
+    border-bottom: 2px solid rgb(255, 183, 1);
+    width: 90%;
     margin-top: 1.5vh;
 }
+
+.modal {
+    position: absolute;
+    top: 30px;
+    left: 20vw;
+    right: 20vw;
+    bottom: 40px;
+    background-color: grey;
+  }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity : 0.8;
+  }
