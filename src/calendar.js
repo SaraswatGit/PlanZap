@@ -18,10 +18,13 @@ const Calender = () => {
   const[taskname,settask]=useState("");
   const[priority,setpriority]=useState("");
   const[deadline,setdeadline]=useState("");
+  const [isPopup, setPopup] = useState(false);  
   const [isOpen, setIsOpen] = useState(false);
-  const {userid,setuserid}=useContext(usercontext);    
+  const {userid,setuserid}=useContext(usercontext); 
+ 
   const [tasklist,settasklist]=useState([]);
- const [progress,setprogress]=useState();
+  const [progress,setprogress]=useState();
+
   const deletetask=(id)=>{
     Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then((respose)=>{
       settasklist(tasklist.filter((val)=>{return val.taskid !== id}))
@@ -34,10 +37,10 @@ const Calender = () => {
         
         Axios.post("https://planzap.herokuapp.com/gettaskdata",{userid:userid}).then((response)=>{
           settasklist(response.data) }); 
-
-  
-    
   }, []);
+
+
+
   const addtask=()=>{
     Axios.post("https://planzap.herokuapp.com/addtask",{
       taskname:taskname,
@@ -58,7 +61,53 @@ const Calender = () => {
      return(
       <div className={(val.priority==="Highest Priority")?"taskbox":val.priority==="Medium Priority"?"mediumtaskbox":"lowtaskbox"}>
         <div className="toppar2" style={{width:"13vw",marginTop:"0vh",paddingTop:"0.5vh",height:"4vh",fontSize:"2vh"}}>
-     <span className="forhover" style={{width:"1.3vw",height:"1.4vw",marginRight:"11vw",padding:"0.5vh",fontSize:"2vh"}}> </span> <span className="forhover" style={{width:"2vw",height:"2vw"}} onClick={()=>{deletetask(val.taskid)}}> <CloseIcon style={{width:"1.6vw",height:"1.6vw"}}/></span>
+     <span className="forhover" style={{width:"1.3vw",height:"1.4vw",marginRight:"11vw",padding:"0.5vh",fontSize:"2vh"}}> </span>
+      <span className="forhover"   style={{width:"2vw",height:"2vw"}} > <CloseIcon onClick={()=>{setPopup(true)}}style={{width:"1.6vw",height:"1.6vw"}}/></span>
+  
+      <Modal isOpen={isPopup}
+      onRequestClose={()=>{setPopup(false)}}
+      style={
+        {overlay:{
+          backgroundColor: 'rgba(255, 255, 255, 0.75)',
+          
+
+        },
+      content:{
+        width:'30vw',
+        height:'33vh',
+        margin:'auto',
+        padding:'0',
+        borderRadius:'10px',
+        backgroundImage: "linear-gradient(to top left,grey, rgb(200, 187, 0))",
+
+        display: "flex",
+        flexDirection: "column",
+        alignItems:"center",
+        justifyContent:"space-around"
+      }
+      }
+      
+      }
+      centered>
+
+        <h2>
+          are you sure to delete?
+        </h2>
+       <div>
+       <button  onClick={()=>{deletetask(val.taskid) ;setPopup(false)}} className ="popupBtn"  style={{backgroundColor:"red"}} >
+          confirm
+        </button>
+
+        <button onClick={()=>{setPopup(false)}} className="popupBtn">
+          cancel
+        </button>
+       </div>
+       
+
+      </Modal>
+
+
+
           </div>
         <div style={{height:"10vh",width:"13vw",fontStyle:"italic",fontWeight:"bold",textAlign:"center",fontSize:"2vh"}}>{val.taskname}</div>
         <div style={{display:"flex",justifyContent:"center",alignItems:"center", width:"13vw",fontWeight:"bolder",fontSize:"2.1vh" }}> Task Progress</div>
@@ -158,7 +207,10 @@ flexDirection: "column",
         </div>
 
       </Modal>
+
 </div>
+
+
 
 }
 export  default Calender;

@@ -45,6 +45,12 @@
     align-items: center;*/
        
 }
+.popupBtn{
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
 .mediumtaskbox
 {
     margin:2vh;
