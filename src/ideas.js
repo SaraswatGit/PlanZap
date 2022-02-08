@@ -22,6 +22,7 @@ const Ideas = () => {
   const [newidea, setnewidea] = useState("");
   const [newdesc, setnewdesc] = useState("");
   const [tempid,settempid]=useState(0);
+  const [isPopup, setPopup] = useState(false);
 
 
  let arra=["wer",<br/>,"try",<br/>,"go"];
@@ -146,12 +147,57 @@ const deletenote=(id)=>{
        
        <div className="ideabox">
             <div className="ideaboxtop">
-              {val.idea_name} &nbsp; <div style={{position:"absolute",marginLeft:"77vw",fontSize:"1.5vh"}}><EditIcon onClick={()=>{settempidea(val.idea_name);settempdesc(val.idea_desc);setnewidea(val.idea_name);setnewdesc(val.idea_desc);settempid(val.ideaid);toggleModal2()}}/>&nbsp; <CloseIcon onClick={()=>{deletenote(val.ideaid)}} /> </div>
+              {val.idea_name} &nbsp; <div style={{position:"absolute",marginLeft:"77vw",fontSize:"1.5vh"}}><EditIcon onClick={()=>{settempidea(val.idea_name);settempdesc(val.idea_desc);setnewidea(val.idea_name);setnewdesc(val.idea_desc);settempid(val.ideaid);toggleModal2()}}/>&nbsp; <CloseIcon onClick={()=>{setPopup(true)}}  /> </div>
           </div>
          
           <div className="ideaboxbottom" >
           {val.idea_desc.split("\n").map((text) => <div>{text}<br/></div>)}
               </div>
+
+            
+              <Modal isOpen={isPopup}
+      onRequestClose={()=>{setPopup(false)}}
+      style={
+        {overlay:{
+          backgroundColor: 'rgba(255, 255, 255, 0.75)',
+          
+
+        },
+      content:{
+        width:'30vw',
+        height:'33vh',
+        margin:'auto',
+        padding:'0',
+        borderRadius:'10px',
+        backgroundImage: "linear-gradient(to top left,grey, rgb(200, 187, 0))",
+
+        display: "flex",
+        flexDirection: "column",
+        alignItems:"center",
+        justifyContent:"space-around"
+      }
+      }
+      
+      }
+      centered>
+
+        <h2>
+          are you sure to delete?
+        </h2>
+       <div>
+       <button   onClick={()=>{deletenote(val.ideaid) ;setPopup(false)}} className ="popupBtn"  style={{backgroundColor:"red"}} >
+          confirm
+        </button>
+
+        <button onClick={()=>{setPopup(false)}} className="popupBtn">
+          cancel
+        </button>
+       </div>
+       
+
+      </Modal>
+
+
          </div>
      )})}
      
