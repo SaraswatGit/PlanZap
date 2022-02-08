@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 const {format} = require('date-fns');
 
 
+
 Modal.setAppElement("#root");
 
 
@@ -21,6 +22,7 @@ const Calender = () => {
   const [isPopup, setPopup] = useState(false);  
   const [isOpen, setIsOpen] = useState(false);
   const {userid,setuserid}=useContext(usercontext); 
+  const [isLoading, setLoading] = useState(true);
  
   const [tasklist,settasklist]=useState([]);
   const [progress,setprogress]=useState();
@@ -34,9 +36,11 @@ const Calender = () => {
     setIsOpen(!isOpen);
   }
   useEffect(() => {
-        
+    setLoading(true); 
+    
         Axios.post("https://planzap.herokuapp.com/gettaskdata",{userid:userid}).then((response)=>{
           settasklist(response.data) }); 
+          setLoading(false);      
   }, []);
 
 
@@ -52,8 +56,35 @@ const Calender = () => {
       })
   }
   const updateprogess=(id)=>{
+    
+    
     Axios.put("https://planzap.herokuapp.com/updateprog",{id:id,progress:progress}).then((response)=>{console.log("updated")})
+    
   }
+
+  const mystyle = {
+    color: "black",
+    backgroundColor: "coral",
+    
+    fontFamily: "Arial",
+    display:" flex",
+    flexDirection: "column",
+    width: "85vw",
+    marginLeft: "15vw",
+    height: "100vh",
+    justifyContent:"center",
+    alignItems:"center"
+    
+  }
+
+  if(isLoading){
+    return(
+      <div style={mystyle}  >
+        <h2 >Loading...</h2>
+      </div>
+
+    );
+  };
 
   return <div className="calpage">
     <div className="toppart">
