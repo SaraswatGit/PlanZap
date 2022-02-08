@@ -25,7 +25,7 @@ const Diary = () => {
 
 
  
-  function toggleModal() {
+ const toggleModal=()=>{
     
        Axios.post("https://planzap.herokuapp.com/getentry",{userid:userid,entry_date:date}).then((response)=>{
     if(response.data.message)
@@ -51,15 +51,16 @@ const Diary = () => {
  /* useEffect(() => {
   
   }, [])*/
-  const update=()=>{
-   
-   
+  const update=(e)=>{
+
+    e.preventDefault();
     Axios.put("https://planzap.herokuapp.com/updatediary",{userid:userid,data_entry:newdesc,entry_date:date}).then((response)=>{console.log("updated")})
   
   }
-  const add=()=>{
-  
-    Axios.post("https://planzap.herokuapp.com/insertdiary",{userid:userid,data_entry:desc,entry_date:date}).then((response)=>{console.log("inserted")})
+  const add=(e)=>{
+
+    e.preventDefault();
+     Axios.post("https://planzap.herokuapp.com/insertdiary",{userid:userid,data_entry:desc,entry_date:date}).then((response)=>{console.log("inserted")})
 
   }
  /*const deleteentry=(tid)=>{
@@ -128,7 +129,7 @@ const Diary = () => {
 
   </textarea>
   <br/>
-<button style={{marginLeft:"40%",height:"3.6vh",fontWeight:"bold",fontSize:"2vh"}} onClick={()=>{if(entryexists){update()} else{add()}}}>{entryexists?"Update":"Add Entry"}</button>
+<button style={{marginLeft:"40%",height:"3.6vh",fontWeight:"bold",fontSize:"2vh"}} onClick={entryexists?update:add}>{entryexists?"Update":"Add Entry"}</button>
   </form>
       </Modal>
    <div> <input type="date" style={{height:"3vh",width:"10vw",fontSize:"2vh",marginTop:"2vh"}}   onChange={(event)=>{setdate(event.target.value)}}/></div>
