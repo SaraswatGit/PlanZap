@@ -28,7 +28,7 @@ const Ideas = () => {
   const [isPopup, setPopup] = useState(fals
 
 
- let arra=["wer",<br/>,"try",<br/>,"go"];
+
 function toggleModal() {
   setIsOpen(!isOpen);
 }
