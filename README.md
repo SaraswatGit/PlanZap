@@ -28,7 +28,7 @@
 
 ## 🌟 About The Project
 
-A productivity cum utility based application, where users can keep an eye on their tasks update their progress , maintain a watchlist for movies , personal diary as well as notes.
+A productivity cum utility based open source application, where users can keep an eye on their tasks update their progress , maintain a watchlist for movies , personal diary as well as notes. 
 
 ## 🌟 Built With
 
