@@ -25,7 +25,7 @@ const Ideas = () => {
 
   const [isLoading, setLoading] = useState(true);
 
-  const [isPopup, setPopup] = useState(fals
+  const [isPopup, setPopup] = useState(false);
 
 
 
