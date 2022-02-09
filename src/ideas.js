@@ -32,12 +32,20 @@ const Ideas = () => {
   function toggleModal() {
     setIsOpen(!isOpen);
   }
+  function toggleModal2() {
+    setIsOpen2(!isOpen2);
+  }
   const addidea = () => {
     Axios.post("https://planzap.herokuapp.com/addidea", {
       idea_name: idea_name,
       idea_desc: idea_desc,
       userid: userid,
     }).then(() => {
+      Axios.post("https://planzap.herokuapp.com/getideadata", {
+        userid: userid,
+      }).then((response) => {
+        setidealist(response.data);
+      });
       console.log("success");
     });
   };
@@ -59,12 +67,15 @@ const Ideas = () => {
       new_idea: newidea,
       new_desc: newdesc,
     }).then((response) => {
+      Axios.post("https://planzap.herokuapp.com/getideadata", {
+        userid: userid,
+      }).then((response) => {
+        setidealist(response.data);
+      });
+
       console.log("updated");
     });
   };
-  function toggleModal2() {
-    setIsOpen2(!isOpen2);
-  }
 
   const deletenote = (id) => {
     Axios.delete(`https://planzap.herokuapp.com/deleteidea/${id}`).then(
@@ -130,7 +141,7 @@ const Ideas = () => {
         >
           <CloseIcon onClick={toggleModal2} />
         </div>
-        <form style={{ marginTop: "5vh", marginLeft: "2vw" }}>
+        <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
           <label for="mname">Heading</label>
           <br />
           <input
@@ -163,9 +174,12 @@ const Ideas = () => {
             type="submit"
             value="Submit"
             className="subm2"
-            onClick={update}
+            onClick={() => {
+              update();
+              toggleModal2();
+            }}
           />
-        </form>
+        </div>
       </Modal>
       <Modal
         isOpen={isOpen}
@@ -196,7 +210,7 @@ const Ideas = () => {
         >
           <CloseIcon onClick={toggleModal} />
         </div>
-        <form style={{ marginTop: "5vh", marginLeft: "2vw" }}>
+        <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
           <label for="mname">Heading</label>
           <br />
           <input
@@ -227,9 +241,12 @@ const Ideas = () => {
             type="submit"
             value="Submit"
             className="subm2"
-            onClick={addidea}
+            onClick={() => {
+              addidea();
+              toggleModal();
+            }}
           />
-        </form>
+        </div>
       </Modal>
 
       <div>
