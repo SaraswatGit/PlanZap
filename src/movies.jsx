@@ -52,22 +52,6 @@ const Movies = () => {
     });
   };
 
-  const updatemovie = () => {
-    console.log(tempid);
-    Axios.put("https://planzap.herokuapp.com/updatedesc", {
-      id: tempid,
-      movie_name: newname,
-      movie_desc: newdesc,
-    }).then((response) => {
-      console.log("updated");
-      Axios.post("https://planzap.herokuapp.com/getdata", {
-        userid: userid,
-      }).then((response) => {
-        setmovielist(response.data);
-      });
-    });
-  };
-
   const addmovie = () => {
     Axios.post("https://planzap.herokuapp.com/create", {
       movie_name: movie_name,
@@ -249,17 +233,15 @@ const Movies = () => {
                 }}
                 style={{
                   overlay: {
-                    backgroundColor: "rgba(255, 255, 255, 0.75)",
+                    backgroundColor: "rgba(0, 0, 0, 0.75)",
                   },
                   content: {
-                    width: "30vw",
-                    height: "33vh",
+                    width: "35vw",
+                    height: "45vh",
                     margin: "auto",
-                    padding: "0",
-                    borderRadius: "10px",
-                    backgroundImage:
-                      "linear-gradient(to top left,grey, rgb(200, 187, 0))",
-
+                    padding: "1%",
+                    borderRadius: "7px",
+                    backgroundColor: "white",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -268,14 +250,17 @@ const Movies = () => {
                 }}
                 centered
               >
-                <h2>are you sure to delete?</h2>
-                <div>
+                <CancelIcon className="cross" />
+                <h2 className="delete-message">
+                  Do you want to delete the movie?
+                </h2>
+                <div className="delete-btns">
                   <button
                     onClick={() => {
                       deletemovie(val.id);
                       setPopup(false);
                     }}
-                    className="popupBtn"
+                    className="popupBtn confirm-btn"
                     style={{ backgroundColor: "red" }}
                   >
                     confirm
@@ -285,7 +270,7 @@ const Movies = () => {
                     onClick={() => {
                       setPopup(false);
                     }}
-                    className="popupBtn"
+                    className="popupBtn cancel-btn"
                   >
                     cancel
                   </button>
@@ -361,170 +346,7 @@ const Movies = () => {
         </div>
       </div>
 
-      <div className="topbar">
-        <div className="moviename">Title</div>
-        <div className="movierating">IMDb</div>
-        <div className="moviedesc">Description</div>
-      </div>
-
-      <div>
-        {movielist.map((val, key) => {
-          return (
-            <div className="topbar2">
-              <div className="moviename2">{val.movie_name}</div>
-              <div className="movierating2">{val.movie_rating}</div>
-              <div
-                className="moviedesc2"
-                style={{ paddingRight: "transparent" }}
-              >
-                {val.movie_desc}
-                <EditIcon
-                  style={{ paddingLeft: "30px", height: "3.2vh" }}
-                  onClick={() => {
-                    settempname(val.movie_name);
-                    settempdesc(val.movie_desc);
-                    setnewname(val.movie_name);
-                    setnewdesc(val.movie_desc);
-                    settempid(val.id);
-                    toggleModal();
-                  }}
-                />
-
-                <button
-                  style={{
-                    backgroundColor: "transparent",
-                    height: "3vh",
-                    marginLeft: "1vw",
-                    fontSize: "1.6vh",
-                    textAlign: "center",
-                  }}
-                  onClick={() => {
-                    setPopup(true);
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-
-              <Modal
-                isOpen={isPopup}
-                onRequestClose={() => {
-                  setPopup(false);
-                }}
-                style={{
-                  overlay: {
-                    backgroundColor: "rgba(0, 0, 0, 0.75)",
-                  },
-                  content: {
-                    width: "35vw",
-                    height: "45vh",
-                    margin: "auto",
-                    padding: "1%",
-                    borderRadius: "7px",
-                    backgroundColor: "white",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "space-around",
-                  },
-                }}
-                centered
-              >
-                <CancelIcon className="cross" />
-                <h2 className="delete-message">
-                  Do you want to delete the movie?
-                </h2>
-                <div className="delete-btns">
-                  <button
-                    onClick={() => {
-                      deletemovie(val.id);
-                      setPopup(false);
-                    }}
-                    className="popupBtn confirm-btn"
-                    style={{ backgroundColor: "red" }}
-                  >
-                    confirm
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      setPopup(false);
-                    }}
-                    className="popupBtn cancel-btn"
-                  >
-                    cancel
-                  </button>
-                </div>
-              </Modal>
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="entrybox">
-        <div className="Heading" style={{ fontSize: "3vh" }}>
-          Enter the Movie Details here
-        </div>
-        <form className="formbox">
-          <label for="mname" style={{ fontSize: "2vh" }}>
-            Movie Name
-          </label>
-          <br />
-          <input
-            style={{ fontSize: "2vh" }}
-            type="text"
-            id="mname"
-            maxlength="40"
-            name="moviename"
-            className="donkey"
-            placeholder="Eg: Mission Impossible : Rogue Nation "
-            onChange={(event) => {
-              setmoviename(event.target.value);
-            }}
-          />
-          <br />
-          <label style={{ fontSize: "2vh" }} for="mrating">
-            IMDb rating
-          </label>
-          <br />
-          <input
-            style={{ fontSize: "2vh" }}
-            type="text"
-            id="mrating"
-            maxlength="3"
-            name="movierating"
-            className="donkey"
-            placeholder="Eg: 8.4"
-            onChange={(event) => {
-              setmovierating(event.target.value);
-            }}
-          />
-          <br />
-          <label style={{ fontSize: "2vh" }} for="mdesc">
-            Movie Description
-          </label>
-          <br />
-          <textarea
-            style={{ fontSize: "2vh" }}
-            id="mdesc"
-            name="moviedescription"
-            rows="2"
-            cols="40"
-            maxlength="73"
-            className="donkey"
-            placeholder="Eg:Oscar Nominated, Action,Directed By : Michael Scott , Based on Iraq Wars"
-            onChange={(event) => {
-              setmoviedesc(event.target.value);
-            }}
-          ></textarea>
-          <input
-            type="submit"
-            value="Submit"
-            className="subm2"
-            onClick={addmovie}
-          />
-        </form>
-      </div>
+      <div></div>
     </div>
   );
 };

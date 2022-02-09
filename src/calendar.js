@@ -58,6 +58,11 @@ const Calender = () => {
       deadline: deadline,
       userid: userid,
     }).then(() => {
+      Axios.post("https://planzap.herokuapp.com/gettaskdata", {
+        userid: userid,
+      }).then((response) => {
+        settasklist(response.data);
+      });
       console.log(typeof deadline);
       console.log("success");
     });
@@ -330,7 +335,7 @@ const Calender = () => {
               <CloseIcon />
             </span>
           </div>
-          <form className="formarea">
+          <div className="formarea">
             <label
               style={{ fontSize: "2.2vh", marginBottom: "0vh" }}
               for="taskname"
@@ -388,9 +393,12 @@ const Calender = () => {
               value="Submit"
               className="subbut"
               style={{ marginTop: "1.5vh", fontSize: "2vh" }}
-              onClick={addtask}
+              onClick={() => {
+                addtask();
+                toggleModal();
+              }}
             />
-          </form>
+          </div>
         </div>
       </Modal>
     </div>
