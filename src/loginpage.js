@@ -3,8 +3,11 @@ import React, { useState ,useContext } from "react";
 import './CSSComponents/loginpage.css';
 import {  Route } from "react-router-dom";
 import {usercontext} from './Context/usercontext';
+import ReactModal from 'react-modal';
 
 import Calender from './calendar';
+import { color } from "@mui/system";
+import { visibleDays } from "react-big-calendar/lib/utils/dates";
 
 const Login = () => {
 const {notloggedin,setloginstatus,userid,setuserid}=useContext(usercontext);    
@@ -19,7 +22,7 @@ const [registerMessage,setRegisterMessage]=useState("");
 const registeruser=(e)=>{
     //console.log(useremail+password);
 
-    e.preventDefault();  // added this line so that the default submission of form (which caused refreshing of the page)can be prevented and we get submit usinfg post method.
+    e.preventDefault();  // added this line so that the default submission of form (which caused refreshing of the page)can be prevented and we get submit using post method.
     if(password===confirmPassword){
 
     Axios.post("https://planzap.herokuapp.com/usercreate",{
@@ -31,6 +34,8 @@ const registeruser=(e)=>{
         setRegisterMessage("Please make sure your passwords match.");
     }
 }
+
+
 const loginuser=()=>{
     
     Axios.post("https://planzap.herokuapp.com/userlogin",{
@@ -52,65 +57,117 @@ setLoginMessage(response.data.message);
 
 }
 
+const [modalIsOpen, setModalisOpen] = useState(false)
+
   return <div className="loginpage">
-      <div style={{position:"Absolute",marginTop:"5vh",fontSize:"15vh",fontFamily:"serif",fontWeight:"bolder",color:"grey",textAlign:"center",width:"100vw"}} >PlanZap</div>
-      <div style={{position:"Absolute",marginTop:"21.7vh",fontSize:"3vh",fontFamily:"cursive",width:"100vw",textAlign:"center",color:"white"}} >One Place for managing Tasks, Personal Diary, Notes, movielist ! </div>
+      <div style={{position:"Absolute",marginTop:"5vh", fontSize:"15vh",fontFamily:"Pacificio",fontWeight:"bolder",color:"rgb(255, 183, 1)",textAlign:"right",width:"100vw"}} >PlanZap &nbsp; </div>
+
+      <div style={{position:"Absolute",marginTop:"21.7vh",fontSize:"3vh",fontFamily:"cursive",width:"100vw",textAlign:"right",color:"black"}} >One Place for your notes, goals, movies, personal diary and more ! &nbsp; &nbsp; &nbsp;</div>
+      <img style={{position: "fixed", bottom: 0, right: "5vw", width: "30vw",}} src="https://image.freepik.com/free-vector/flat-creativity-concept-illustration_52683-64279.jpg"></img>
 <div className="loginbox" >
-    <div className="signinbox">
-        <div className="heading" style={{fontSize:"5vh",fontWeight:"400"}}>
-            Login
+    <div className="loginform">
+        <center>
+        <i>"A good plan today is better than a perfect plan tomorrow"</i>
+        <br/>
+        <br/>
+        <div className="heading" style={{fontSize:"5vh",fontWeight:"400", color:"rgb(255, 183, 1)"}}>
+        <b>LOGIN</b>
             </div>
             <br/>
-            <br/>
-
-        <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="emailid"><b>E-Mail ID</b></label>
+            
         <br/>
+        <div >
         
-    <input style={{fontSize:"2.5vh"}} type="email" id="emailid" maxlength="40" name="emailid" className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setlmail(event.target.value)}}/>
+    <input type="email" id="emailid" maxlength="40" name="emailid" className="holders" placeholder="Email" onChange={(event)=>{setlmail(event.target.value)}}/>
     <br/>
     <br/>
-    <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="lpassword"><b>Password</b></label>
-        <br/>
-    <input style={{fontSize:"2.5vh"}} type="password" id="lpassword" maxlength="40" name="password" className="holders"  onChange={(event)=>{setpass(event.target.value)}}/>
-    <br/>
+
+    <input type="password" id="lpassword" maxlength="10" name="password" autoComplete="new-password" className="holders" placeholder="Password" onChange={(event)=>{setpass(event.target.value)}}/>
+
 <br/>
 <br/>
-<button style={{backgroundColor:"teal",fontSize:"2vh", height:"auto",width:"auto",padding:"0.5vh",borderRadius:"10%",marginLeft:"10vw"}} onClick={loginuser}><b>Sign In</b></button>
+<button onClick={loginuser}><b>Sign In</b></button>
             <div>{loginMessage}</div>
-        </div>
-        <div className="signinbox"  style={{border:"none",borderRight:"none"}}>
-        <div className="heading"  style={{fontSize:"5vh",fontWeight:"400"}}>
-            Register
+
+            <br/>
+            
+        
+Visiting for the first time?
+<br/>
+<br/>
+
+<button type="button" onClick={ () => setModalisOpen(true) }>Register here!</button>
+
+</div>
+</center>
+
+<ReactModal isOpen = { modalIsOpen } onRequestClose = { () => setModalisOpen(false)} 
+
+    style = {
+        {
+            overlay: {
+            backgroundColor : "rgba(0, 0, 0, 0.8)",},
+
+            content: {
+                position: 'absolute',
+                width: '44vw',
+                height: '90vh',
+                borderRadius: '20px 20px 20px 20px',
+                overflow: 'visible',
+                outline: 'none',
+                padding: '0px',
+                position: "fixed",
+                left: '25vw',
+                top: '5vh',
+
+              }
+        }
+    }
+
+>
+
+    <div className="regform">
+        <center>
+        <br/>
+        <div className="heading" style={{fontSize:"5vh",fontWeight:"400", color:"rgb(255, 183, 1)"}}>
+        <b>REGISTER</b>
             </div>
             <br/>
-           
-
-        <form autoComplete="false"   >
-        <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="emailid"><b>E-Mail ID</b></label>
+            
         <br/>
+        <form autocomplete="false">
         
-    <input style={{fontSize:"2.5vh"}}  type="email" id="emailid" maxLength="40" name="hidden" autoComplete="false"  className="holders" placeholder="Eg:abc@gmail.com" onChange={(event)=>{setuseremail(event.target.value)}} />
+    <input type="email" id="emailid" maxlength="40" name="hidden" className="holders" autoComplete="false" placeholder="Email" onChange={(event)=>{setuseremail(event.target.value)}}/>
     <br/>
     <br/>
-    <label style={{fontSize:"2.5vh",fontWeight:"300"}} for="password"><b>Password</b></label>
-        <br/>
-    <input style={{fontSize:"2.5vh"}}  type="password" id="password" maxLength="10" name="password"  autoComplete="new-password" className="holders" onChange={(event)=>{setPassword(event.target.value)}} />
+
+    <input type="password" id="password" maxlength="10" autoComplete="new-password" name="password" className="holders" placeholder="Password" onChange={(event)=>{setPassword(event.target.value)}}/>
+
+
     <br/>
+    <br/>
+
+    <input type="password" id="Cpassword" maxlength="10" name="Cpassword" className="holders" placeholder="Confirm Password" onChange={(event)=>{setConfirmPassword(event.target.value)}}/>
+
 <br/>
-<label style={{fontSize:"2.5vh",fontWeight:"300"}} for="Cpassword"><b>Confirm Password</b></label>
-        <br/>
-    <input style={{fontSize:"2.5vh"}} type="password" id="Cpassword" maxLength="10" name="Cpassword" className="holders" onChange={(event)=>{setConfirmPassword(event.target.value)}} />
-    <br/>
 <br/>
 <br/>
-<div>{registerMessage}</div>
-<button style={{backgroundColor:"teal",fontSize:"2vh", height:"auto",width:"auto",padding:"0.5vh",borderRadius:"10%",marginLeft:"10vw"}} onClick={registeruser}><b>Sign Up</b></button>
-    
+<div>{registerMessage}{}</div>
+<button onClick={registeruser}><b>Register Me!</b></button>
+
+            <div>{loginMessage}</div>
             </form>
+            </center>
+            <br/>
             </div>
+
+</ReactModal>
+    </div>
+        
     </div>
 
   </div>;
 };
 
 export default Login;
+
