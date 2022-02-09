@@ -20,7 +20,13 @@ const Movies = () => {
   const [isOpen, setIsOpen] = useState(false);
   //const [defaulttext, setdefaulttext] = useState("");
   const[tempid,settempid]=useState(0);
-  const {userid,setuserid}=useContext(usercontext);    
+
+  const [isLoading, setLoading] = useState(true); 
+
+  const {userid,setuserid}=useContext(usercontext);  
+  
+  const [isPopup, setPopup] = useState(false);
+
 
 
 function toggleModal() {
@@ -55,8 +61,10 @@ const addmovie=()=>{
 }
 
 useEffect(() => {
+  setLoading(true);
   Axios.post("https://planzap.herokuapp.com/getdata",{userid:userid}).then((response)=>{
  setmovielist(response.data) });
+ setLoading(false)
   
 }, []);
 
@@ -65,6 +73,31 @@ const deletemovie=(id)=>{
     setmovielist(movielist.filter((val)=>{return val.id !== id}))
   })
 }
+
+
+const mystyle = {
+  color: "black",
+  backgroundColor: "coral",
+  
+  fontFamily: "Arial",
+  display:" flex",
+  flexDirection: "column",
+  width: "85vw",
+  marginLeft: "15vw",
+  height: "100vh",
+  justifyContent:"center",
+  alignItems:"center"
+  
+}
+
+if(isLoading){
+  return(
+    <div style={mystyle}  >
+      <h2 >Loading...</h2>
+    </div>
+
+  );
+};
 
   return (
 
@@ -142,15 +175,70 @@ const deletemovie=(id)=>{
           <EditIcon style={{paddingLeft:'30px',height:"3.2vh"}}
               onClick={()=>{settempname(val.movie_name);settempdesc(val.movie_desc);setnewname(val.movie_name);setnewdesc(val.movie_desc);settempid(val.id);toggleModal()}}/>
           
-          <button style={{backgroundColor:"transparent", height:"3vh", marginLeft:"1vw",fontSize:"1.6vh",textAlign:"center"}} onClick={()=>{deletemovie(val.id)}}>
+          <button style={{backgroundColor:"transparent", height:"3vh", marginLeft:"1vw",fontSize:"1.6vh",textAlign:"center"}} onClick={()=>{setPopup(true)}}>
             Delete
           </button>
               </div>
+
+
+
+              <Modal isOpen={isPopup}
+      onRequestClose={()=>{setPopup(false)}}
+      style={
+        {overlay:{
+          backgroundColor: 'rgba(255, 255, 255, 0.75)',
+          
+
+        },
+      content:{
+        width:'30vw',
+        height:'33vh',
+        margin:'auto',
+        padding:'0',
+        borderRadius:'10px',
+        backgroundImage: "linear-gradient(to top left,grey, rgb(200, 187, 0))",
+
+        display: "flex",
+        flexDirection: "column",
+        alignItems:"center",
+        justifyContent:"space-around"
+      }
+      }
+      
+      }
+      centered>
+
+        <h2>
+          are you sure to delete?
+        </h2>
+       <div>
+       <button   onClick={()=>{deletemovie(val.id) ;setPopup(false)}} className ="popupBtn"  style={{backgroundColor:"red"}} >
+          confirm
+        </button>
+
+        <button onClick={()=>{setPopup(false)}} className="popupBtn">
+          cancel
+        </button>
+       </div>
+       
+
+      </Modal>
          </div>
+
+
+        
 
      )
    })}
     </div>
+
+
+   
+
+
+
+
+    
 
 
 <div className="entrybox">

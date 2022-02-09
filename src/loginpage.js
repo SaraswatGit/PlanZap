@@ -155,7 +155,7 @@ Visiting for the first time?
 <div>{registerMessage}{}</div>
 <button onClick={registeruser}><b>Register Me!</b></button>
 
-            <div>{loginMessage}</div>
+<div>{loginMessage}</div>
             </form>
             </center>
             <br/>
@@ -170,4 +170,3 @@ Visiting for the first time?
 };
 
 export default Login;
-

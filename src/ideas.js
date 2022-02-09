@@ -23,8 +23,12 @@ const Ideas = () => {
   const [newdesc, setnewdesc] = useState("");
   const [tempid,settempid]=useState(0);
 
+  const [isLoading, setLoading] = useState(true);
 
- let arra=["wer",<br/>,"try",<br/>,"go"];
+  const [isPopup, setPopup] = useState(false);
+
+
+
 function toggleModal() {
   setIsOpen(!isOpen);
 }
@@ -36,23 +40,56 @@ const addidea=()=>{
       console.log("success");
     })
 }
-const update=()=>{
-  Axios.put("https://planzap.herokuapp.com/updateideadesc",{id:tempid,new_idea:newidea,new_desc:newdesc}).then((response)=>{console.log("updated")})
 
+useEffect(() => {
+  
+  setLoading(true);   
+      
+    Axios.post("https://planzap.herokuapp.com/getideadata",{userid:userid}).then((response)=>{
+   setidealist(response.data) });
+   setLoading(false);
+   
+    
+  }, []);
+
+const update=()=>{
+  
+  Axios.put("https://planzap.herokuapp.com/updateideadesc",{id:tempid,new_idea:newidea,new_desc:newdesc}).then((response)=>{console.log("updated")})
+  
 }
 function toggleModal2() {
 setIsOpen2(!isOpen2);
 }
-useEffect(() => {
-  Axios.post("https://planzap.herokuapp.com/getideadata",{userid:userid}).then((response)=>{
- setidealist(response.data) });
-  
-}, []);
+
 const deletenote=(id)=>{
   Axios.delete(`https://planzap.herokuapp.com/deleteidea/${id}`).then((respose)=>{
     setidealist(idea_list.filter((val)=>{return val.ideaid !== id}))
   })
 }
+
+const mystyle = {
+  color: "black",
+  backgroundColor: "coral",
+  
+  fontFamily: "Arial",
+  display:" flex",
+  flexDirection: "column",
+  width: "85vw",
+  marginLeft: "15vw",
+  height: "100vh",
+  justifyContent:"center",
+  alignItems:"center"
+  
+}
+
+if(isLoading){
+  return(
+    <div style={mystyle}  >
+      <h2 >Loading...</h2>
+    </div>
+
+  );
+};
   return <div className="ideaspage">
       <Modal
         isOpen={isOpen2}
@@ -140,18 +177,64 @@ const deletenote=(id)=>{
   <input type="submit" value="Submit" className="subm2" onClick={addidea}/>
   </form>
       </Modal>
+     
       <div>
       { idea_list.map((val,key)=>{
      return(
        
        <div className="ideabox">
             <div className="ideaboxtop">
-              {val.idea_name} &nbsp; <div style={{position:"absolute",marginLeft:"77vw",fontSize:"1.5vh"}}><EditIcon onClick={()=>{settempidea(val.idea_name);settempdesc(val.idea_desc);setnewidea(val.idea_name);setnewdesc(val.idea_desc);settempid(val.ideaid);toggleModal2()}}/>&nbsp; <CloseIcon onClick={()=>{deletenote(val.ideaid)}} /> </div>
+              {val.idea_name} &nbsp; <div style={{position:"absolute",marginLeft:"77vw",fontSize:"1.5vh"}}><EditIcon onClick={()=>{settempidea(val.idea_name);settempdesc(val.idea_desc);setnewidea(val.idea_name);setnewdesc(val.idea_desc);settempid(val.ideaid);toggleModal2()}}/>&nbsp; <CloseIcon onClick={()=>{setPopup(true)}}  /> </div>
           </div>
          
           <div className="ideaboxbottom" >
           {val.idea_desc.split("\n").map((text) => <div>{text}<br/></div>)}
               </div>
+
+            
+              <Modal isOpen={isPopup}
+      onRequestClose={()=>{setPopup(false)}}
+      style={
+        {overlay:{
+          backgroundColor: 'rgba(255, 255, 255, 0.75)',
+          
+
+        },
+      content:{
+        width:'30vw',
+        height:'33vh',
+        margin:'auto',
+        padding:'0',
+        borderRadius:'10px',
+        backgroundImage: "linear-gradient(to top left,grey, rgb(200, 187, 0))",
+
+        display: "flex",
+        flexDirection: "column",
+        alignItems:"center",
+        justifyContent:"space-around"
+      }
+      }
+      
+      }
+      centered>
+
+        <h2>
+          are you sure to delete?
+        </h2>
+       <div>
+       <button   onClick={()=>{deletenote(val.ideaid) ;setPopup(false)}} className ="popupBtn"  style={{backgroundColor:"red"}} >
+          confirm
+        </button>
+
+        <button onClick={()=>{setPopup(false)}} className="popupBtn">
+          cancel
+        </button>
+       </div>
+       
+
+      </Modal>
+
+
          </div>
      )})}
      
