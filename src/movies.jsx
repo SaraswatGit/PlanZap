@@ -45,7 +45,8 @@ function toggleModal() {
  const updatemovie=()=>
  {console.log(tempid);
    Axios.put("https://planzap.herokuapp.com/updatedesc",
-   {id:tempid, movie_name:newname, movie_desc:newdesc}).then((response)=>{console.log("updated")})
+   {id:tempid, movie_name:newname, movie_desc:newdesc}).then((response)=>{console.log("updated");  Axios.post("https://planzap.herokuapp.com/getdata",{userid:userid}).then((response)=>{
+    setmovielist(response.data) });})
 
  }
 
@@ -56,6 +57,8 @@ const addmovie=()=>{
     movie_rating:movie_rating,
     movie_desc:movie_desc,
   userid:userid}).then(()=>{
+    Axios.post("https://planzap.herokuapp.com/getdata",{userid:userid}).then((response)=>{
+      setmovielist(response.data) });
       console.log("success");
     })
 }
@@ -128,7 +131,7 @@ if(isLoading){
         }
         
         }>
-        <form>
+        <div>
 
             <label for="mname"><b>Edit Movie Name</b></label>
             <br/>
@@ -141,8 +144,8 @@ if(isLoading){
 <textarea id="mdesc" name="moviedescription" rows="2" cols="40" maxlength="60" className="donkey" defaultValue={tempdesc}  onChange={(event)=>{setnewdesc(event.target.value)}}>
 </textarea>
   <br/>
-  <button onClick={updatemovie}>Save</button>
-     </form>
+  <button onClick={()=>{updatemovie();toggleModal()}}>Save</button>
+     </div>
       </Modal>
 
 
@@ -243,7 +246,7 @@ if(isLoading){
 
 <div className="entrybox">
   <div className="Heading" style={{fontSize:"3vh"}}>Enter the Movie Details here</div>
-  <form className="formbox">
+  <div className="formbox">
   <label for="mname" style={{fontSize:"2vh"}}>Movie Name</label>
         <br/>
     <input style={{fontSize:"2vh"}} type="text" id="mname" maxlength="40" name="moviename" className="donkey" placeholder="Eg: Mission Impossible : Rogue Nation " onChange={(event)=>{setmoviename(event.target.value)}}/>
@@ -259,7 +262,7 @@ if(isLoading){
   </textarea>
   <input type="submit" value="Submit" className="subm2" onClick={addmovie}/>
 
-        </form>
+        </div>
 </div>
 
   </div>

@@ -51,6 +51,8 @@ const Calender = () => {
       priority:priority,
       deadline:deadline,
     userid:userid}).then(()=>{
+      Axios.post("https://planzap.herokuapp.com/gettaskdata",{userid:userid}).then((response)=>{
+        settasklist(response.data) }); 
        console.log(typeof(deadline));
         console.log("success");
       })
@@ -217,7 +219,7 @@ flexDirection: "column",
       </span>
 
         </div>
-        <form className="formarea">
+        <div className="formarea">
         <label style={{fontSize:"2.2vh",marginBottom:"0vh"}} for="taskname">Task Name</label>
     <input type="text" id="taskname" maxlength="50" name="taskname" className="fields" placeholder="Max Characters:32" onChange={(event)=>{settask(event.target.value)}}  required/>
   
@@ -233,8 +235,8 @@ flexDirection: "column",
       <option Value="Medium Priority">Medium Priority</option>
       <option value="Low Priority">Low Priority</option>
     </select>
-    <input type="submit" value="Submit" className="subbut" style={{marginTop:"1.5vh",fontSize:"2vh"}} onClick={addtask}/>
-          </form>
+    <input type="submit" value="Submit" className="subbut" style={{marginTop:"1.5vh",fontSize:"2vh"}} onClick={()=>{addtask();toggleModal()}}/>
+          </div>
         </div>
 
       </Modal>

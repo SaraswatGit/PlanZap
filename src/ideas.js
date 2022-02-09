@@ -32,11 +32,16 @@ const Ideas = () => {
 function toggleModal() {
   setIsOpen(!isOpen);
 }
+function toggleModal2() {
+  setIsOpen2(!isOpen2);
+  }
 const addidea=()=>{
   Axios.post("https://planzap.herokuapp.com/addidea",{
     idea_name:idea_name,
     idea_desc:idea_desc,
   userid:userid}).then(()=>{
+    Axios.post("https://planzap.herokuapp.com/getideadata",{userid:userid}).then((response)=>{
+      setidealist(response.data) });
       console.log("success");
     })
 }
@@ -54,12 +59,14 @@ useEffect(() => {
 
 const update=()=>{
   
-  Axios.put("https://planzap.herokuapp.com/updateideadesc",{id:tempid,new_idea:newidea,new_desc:newdesc}).then((response)=>{console.log("updated")})
+  Axios.put("https://planzap.herokuapp.com/updateideadesc",{id:tempid,new_idea:newidea,new_desc:newdesc}).then((response)=>{
+    Axios.post("https://planzap.herokuapp.com/getideadata",{userid:userid}).then((response)=>{
+      setidealist(response.data) });  
+  
+  console.log("updated")})
   
 }
-function toggleModal2() {
-setIsOpen2(!isOpen2);
-}
+
 
 const deletenote=(id)=>{
   Axios.delete(`https://planzap.herokuapp.com/deleteidea/${id}`).then((respose)=>{
@@ -120,7 +127,7 @@ if(isLoading){
        <CloseIcon onClick={toggleModal2}/>
        
         </div>
-<form style={{marginTop:"5vh",marginLeft:"2vw"}}>
+<div style={{marginTop:"5vh",marginLeft:"2vw"}}>
 <label for="mname">Heading</label>
         <br/>
     <input type="text" id="mname" maxlength="40" name="idea" className="fields" defaultValue={tempidea} onChange={(event)=>{setnewidea(event.target.value)}}/>
@@ -131,8 +138,8 @@ if(isLoading){
 <textarea id="mdesc" name="description" rows="5" cols="40"  className="fields"  defaultValue={tempideadesc} onChange={(event)=>{setnewdesc(event.target.value)}}>
 
   </textarea>
-  <input type="submit" value="Submit" className="subm2" onClick={update}/>
-  </form>
+  <input type="submit" value="Submit" className="subm2" onClick={()=>{update();toggleModal2()}}/>
+  </div>
       </Modal>
         <Modal
         isOpen={isOpen}
@@ -163,7 +170,7 @@ if(isLoading){
        <CloseIcon onClick={toggleModal}/>
        
         </div>
-<form style={{marginTop:"5vh",marginLeft:"2vw"}}>
+<div style={{marginTop:"5vh",marginLeft:"2vw"}}>
 <label for="mname">Heading</label>
         <br/>
     <input type="text" id="mname" maxlength="40" name="moviename" className="fields"  onChange={(event)=>{setideaname(event.target.value)}}/>
@@ -174,8 +181,8 @@ if(isLoading){
 <textarea id="mdesc" name="moviedescription" rows="5" cols="40"  className="fields"   onChange={(event)=>{setideadesc(event.target.value)}}>
 
   </textarea>
-  <input type="submit" value="Submit" className="subm2" onClick={addidea}/>
-  </form>
+  <input type="submit" value="Submit" className="subm2" onClick={()=>{addidea();toggleModal()}}/>
+  </div>
       </Modal>
      
       <div>

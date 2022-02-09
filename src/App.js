@@ -74,6 +74,12 @@ function App() {
       id: userid,
       userquote: usernewquote,
     }).then((response) => {
+      Axios.post("https://planzap.herokuapp.com/getquote", {
+        userid: userid,
+      }).then((response) => {
+        setuserquote(response.data.userquote);
+        console.log(userquote);
+      });
       console.log("updated");
     });
   };
@@ -106,7 +112,7 @@ function App() {
             },
           }}
         >
-          <form>
+          <div>
             <label for="quote">New Quote</label>
             <br />
             <textarea
@@ -120,8 +126,8 @@ function App() {
               }}
             ></textarea>
             <br />
-            <button onClick={updateuserquote}>Save</button>
-          </form>{" "}
+            <button onClick={()=>{updateuserquote();toggleModal()}}>Save</button>
+          </div>{" "}
         </Modal>
         {loading ? (
           <Loader />

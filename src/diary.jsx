@@ -121,7 +121,7 @@ const Diary = () => {
        <CloseIcon onClick={toggleModal}/>
        
         </div>
-<form style={{marginTop:"5vh",marginLeft:"2vw"}}>
+<div style={{marginTop:"5vh",marginLeft:"2vw"}}>
 
     <label for="mdesc" style={{fontSize:"2.5vh"}}>{format(new Date(date),'PPPP')}</label>
     <br/>
@@ -129,8 +129,8 @@ const Diary = () => {
 
   </textarea>
   <br/>
-<button style={{marginLeft:"40%",height:"3.6vh",fontWeight:"bold",fontSize:"2vh"}} onClick={entryexists?update:add}>{entryexists?"Update":"Add Entry"}</button>
-  </form>
+<button style={{marginLeft:"40%",height:"3.6vh",fontWeight:"bold",fontSize:"2vh"}} onClick={()=>{entryexists?update():add();toggleModal()}}>{entryexists?"Update":"Add Entry"}</button>
+  </div>
       </Modal>
    <div> <input type="date" style={{height:"3vh",width:"10vw",fontSize:"2vh",marginTop:"2vh"}}   onChange={(event)=>{setdate(event.target.value)}}/></div>
     <br/>
