@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import { usercontext } from "./Context/usercontext";
 import "./CSSComponents/delete.css";
 import CancelIcon from "@mui/icons-material/Cancel";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 Modal.setAppElement("#root");
 
@@ -193,12 +194,10 @@ const Movies = () => {
             <div className="topbar2">
               <div className="moviename2">{val.movie_name}</div>
               <div className="movierating2">{val.movie_rating}</div>
-              <div
-                className="moviedesc2"
-                style={{ paddingRight: "transparent" }}
-              >
-                {val.movie_desc}
+              <div className="moviedesc2">
+                <p>{val.movie_desc}</p>
                 <EditIcon
+                  className="edit-icon"
                   style={{ paddingLeft: "30px", height: "3.2vh" }}
                   onClick={() => {
                     settempname(val.movie_name);
@@ -211,18 +210,16 @@ const Movies = () => {
                 />
 
                 <button
+                  className="trash-btn"
                   style={{
                     backgroundColor: "transparent",
-                    height: "3vh",
-                    marginLeft: "1vw",
-                    fontSize: "1.6vh",
-                    textAlign: "center",
+                    color: "white",
                   }}
                   onClick={() => {
                     setPopup(true);
                   }}
                 >
-                  Delete
+                  <DeleteIcon class="trash-icon" />
                 </button>
               </div>
 
