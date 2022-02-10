@@ -114,7 +114,7 @@ const Ideas = () => {
     <div className="ideaspage">
       <Modal
         isOpen={isOpen2}
-        onRequestClose={toggleModal}
+        onRequestClose={toggleModal2}
         contentLabel="My dialog"
         style={{
           overlay: {
