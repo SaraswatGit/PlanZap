@@ -124,7 +124,7 @@ const Movies = () => {
           },
           content: {
             width: "40vw",
-            height: "30vh",
+            height: "50vh",
             margin: "auto",
             padding: "0",
             borderRadius: "10px",
@@ -135,7 +135,7 @@ const Movies = () => {
           },
         }}
       >
-        <div>
+        <div className="movie-edit">
           <label for="mname">
             <b>Edit Movie Name</b>
           </label>
@@ -172,6 +172,7 @@ const Movies = () => {
           ></textarea>
           <br />
           <button
+            className="save-button"
             onClick={() => {
               updatemovie();
               toggleModal();

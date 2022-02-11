@@ -176,3 +176,14 @@ textarea {
   margin-top: 2%;
   height: 14%;
 }
+
+.save-button {
+  width: 15rem;
+  margin: auto;
+}
+
+.movie-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
