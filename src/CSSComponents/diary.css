@@ -1,4 +1,17 @@
-.fhover:hover
-{
-color: aqua;
+.fhover:hover {
+  color: aqua;
+}
+.btn-entry {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.add-entry {
+  height: 3.6vh;
+  padding: 3% 0 5% 0;
+  font-weight: bold;
+  font-size: 2vh;
+
+  width: 15rem;
+  text-align: center;
 }

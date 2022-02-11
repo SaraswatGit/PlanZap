@@ -121,11 +121,12 @@ const Ideas = () => {
             backgroundColor: "rgba(255, 255, 255, 0.75)",
           },
           content: {
-            width: "40vw",
-            height: "43vh",
+            width: "41vw",
+            height: "50vh",
             margin: "auto",
             padding: "0",
             borderRadius: "10px",
+            overflowX: "hidden",
             display: "flex",
             flexDirection: "column",
             backgroundImage: "linear-gradient(to top left,grey, teal)",
@@ -160,6 +161,9 @@ const Ideas = () => {
           <label for="mdesc">Description</label>
           <br />
           <textarea
+            style={{
+              resize: "vertical",
+            }}
             id="mdesc"
             name="description"
             rows="5"
@@ -190,11 +194,12 @@ const Ideas = () => {
             backgroundColor: "rgba(255, 255, 255, 0.75)",
           },
           content: {
-            width: "40vw",
-            height: "43vh",
+            width: "41vw",
+            height: "50vh",
             margin: "auto",
             padding: "0",
             borderRadius: "10px",
+            overflowX: "hidden",
             display: "flex",
             flexDirection: "column",
             backgroundImage: "linear-gradient(to top left,grey, teal)",
@@ -228,6 +233,9 @@ const Ideas = () => {
           <label for="mdesc">Description</label>
           <br />
           <textarea
+            style={{
+              resize: "vertical",
+            }}
             id="mdesc"
             name="moviedescription"
             rows="5"
@@ -301,7 +309,7 @@ const Ideas = () => {
                   },
                   content: {
                     width: "35vw",
-                    height: "45vh",
+                    height: "50vh",
                     margin: "auto",
                     padding: "1%",
                     borderRadius: "7px",
