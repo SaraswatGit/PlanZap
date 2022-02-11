@@ -10,11 +10,12 @@ import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import "./CSSComponents/delete.css";
 import CancelIcon from "@mui/icons-material/Cancel";
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 const { format } = require("date-fns");
 
 Modal.setAppElement("#root");
 
-const Calender = () => {
+const Calender = (props) => {
   const [taskname, settask] = useState("");
   const [priority, setpriority] = useState("");
   const [deadline, setdeadline] = useState("");
@@ -27,15 +28,23 @@ const Calender = () => {
   const [progress, setprogress] = useState();
 
   const deletetask = (id) => {
-    Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
-      (respose) => {
-        settasklist(
-          tasklist.filter((val) => {
-            return val.taskid !== id;
-          })
-        );
-      }
-    );
+    //when finishes a task, confetti celeb action
+    props.setConfetti(true);
+
+    //after 5s remove confetti and delete task
+    setTimeout(() => {
+      Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
+        (respose) => {
+          settasklist(
+            tasklist.filter((val) => {
+              return val.taskid !== id;
+            })
+          );
+        }
+      );
+      props.setConfetti(false);
+    }, 5000);
+
   };
   function toggleModal() {
     setIsOpen(!isOpen);
@@ -108,8 +117,8 @@ const Calender = () => {
                 val.priority === "Highest Priority"
                   ? "taskbox"
                   : val.priority === "Medium Priority"
-                  ? "mediumtaskbox"
-                  : "lowtaskbox"
+                    ? "mediumtaskbox"
+                    : "lowtaskbox"
               }
             >
               <div
