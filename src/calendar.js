@@ -32,7 +32,10 @@ const Calender = (props) => {
     props.setConfetti(true);
 
     //after 5s remove confetti and delete task
-    setTimeout(() => {
+
+
+    //after 5s remove confetti and delete task
+   
       Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
         (respose) => {
           settasklist(
@@ -42,8 +45,8 @@ const Calender = (props) => {
           );
         }
       );
-      props.setConfetti(false);
-    }, 5000);
+      setTimeout(()=>{
+      props.setConfetti(false)},5000);
 
   };
   function toggleModal() {
