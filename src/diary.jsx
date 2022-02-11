@@ -158,21 +158,17 @@ const Diary = () => {
             }}
           ></textarea>
           <br />
-          <button
-            style={{
-              margin: "auto",
-              height: "3.6vh",
-              fontWeight: "bold",
-              fontSize: "2vh",
-              width: "15rem",
-            }}
-            onClick={() => {
-              entryexists ? update() : add();
-              toggleModal();
-            }}
-          >
-            {entryexists ? "Update" : "Add Entry"}
-          </button>
+          <div className="btn-entry">
+            <button
+              className="add-entry"
+              onClick={() => {
+                entryexists ? update() : add();
+                toggleModal();
+              }}
+            >
+              {entryexists ? "Update" : "Add Entry"}
+            </button>
+          </div>
         </div>
       </Modal>
       <div>
