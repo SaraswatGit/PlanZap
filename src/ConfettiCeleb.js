@@ -13,9 +13,9 @@ export default function ConfettiCeleb() {
             <Confetti
                 width={window.innerWidth}
                 height={window.innerHeight}
-          
+              
                 opacity={0.9}
-                gravity={0.07}
+                gravity={0.4}
             />
         </div>
     )
