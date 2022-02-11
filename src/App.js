@@ -227,7 +227,7 @@ function App() {
                 ]
                 <Route path="/" element={<Calender setConfetti={setConfetti} />} />
                 <Route path="/Profile" element={<Profile />}></Route>
-                <Route path="/TasksandProgress" element={<Calender />}></Route>
+                <Route path="/TasksandProgress" element={<Calender setConfetti={setConfetti}  />}></Route>
                 <Route path="/diary" element={<Diary />}></Route>
                 <Route path="/movieslist" element={<Movies />}></Route>
                 <Route path="/ideasnotes" element={<Ideas />}></Route>
