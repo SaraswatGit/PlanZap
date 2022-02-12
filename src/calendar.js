@@ -16,6 +16,39 @@ const { format } = require("date-fns");
 Modal.setAppElement("#root");
 
 const Calender = (props) => {
+  function daysLeft(a) {
+    //calculates the number of days left
+    var x = Date.now();
+    var timeDiff = Date.parse(a.deadline) - x;
+    var noOfDays = timeDiff / (1000 * 60 * 60 * 24);
+    return noOfDays;
+  }
+
+  function weightedPriority(pr, d, progress) {
+    var wP = d / ((100 - progress) * pr);
+    return wP;
+  }
+
+  function getFormattedDate(val) {
+    var ts = Date.parse(val);
+    var n = new Date(ts);
+    return n.getDate() + "/" + (n.getMonth() + 1) + "/" + n.getFullYear();
+  }
+
+  function priorityNumVal(a) {
+    //gets priority as an integer (1-3)
+    switch (a.priority) {
+      case "Highest Priority":
+        return 3;
+
+      case "Medium Priority":
+        return 2;
+
+      case "Lowest priority":
+        return 1;
+    }
+  }
+
   const [taskname, settask] = useState("");
   const [priority, setpriority] = useState("");
   const [deadline, setdeadline] = useState("");
@@ -23,10 +56,55 @@ const Calender = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { userid, setuserid } = useContext(usercontext);
   const [isLoading, setLoading] = useState(true);
-  const today = new Date().toISOString().split('T')[0];
+  const [isSortPopup, setSortPopup] = useState(false);
+  const today = new Date().toISOString().split("T")[0];
 
   const [tasklist, settasklist] = useState([]);
+
+  var taskArr = [...tasklist];
+  const [sortedTasks, setSortedTasks] = useState(taskArr);
+
   const [progress, setprogress] = useState();
+  const [sortType, setSortType] = useState({ sortBy: "default" });
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setSortType({
+      ...sortType,
+      sortBy: value,
+    });
+
+    if (e.target.value === "deadline") {
+      taskArr.sort((a, b) => {
+        if (a.deadline < b.deadline) {
+          return -1;
+        } else if (a.deadline > b.deadline) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+
+      setSortedTasks(taskArr);
+    } else if (e.target.value === "workleft") {
+      taskArr.sort((a, b) => {
+        return a.progress - b.progress;
+      });
+      setSortedTasks(taskArr);
+    } else {
+      taskArr.sort((a, b) => {
+        let prA = priorityNumVal(a),
+          prB = priorityNumVal(b),
+          dA = daysLeft(a),
+          dB = daysLeft(b);
+        return (
+          weightedPriority(prA, dA, a.progress) -
+          weightedPriority(prB, dB, b.progress)
+        );
+      });
+      setSortedTasks(taskArr);
+    }
+  };
 
   const deletetask = (id) => {
     Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
@@ -63,6 +141,11 @@ const Calender = (props) => {
   function toggleModal() {
     setIsOpen(!isOpen);
   }
+
+  function toggleTaskSort() {
+    setSortPopup(!isSortPopup);
+  }
+
   useEffect(() => {
     setLoading(true);
 
@@ -328,7 +411,69 @@ const Calender = (props) => {
         <div className="newtaskbutton" onClick={toggleModal}>
           Add new task
         </div>
+
+        <div className="newtaskbutton" onClick={toggleTaskSort}>
+          Sort tasks
+        </div>
       </div>
+
+      <Modal
+        isOpen={isSortPopup}
+        onRequestClose={toggleTaskSort}
+        contentLabel="Sort Task"
+        style={{
+          overlay: {
+            backgroundColor: "rgba(255, 255, 255, 0.75)",
+          },
+          content: {
+            width: "40vw",
+            height: "70vh",
+            margin: "auto",
+            padding: "0",
+            borderRadius: "10px",
+            backgroundImage:
+              "linear-gradient(to top left,grey, rgb(200, 187, 0))",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-around",
+          },
+        }}
+      >
+        <label style={{ fontSize: "2.4vh" }}>
+          {" "}
+          Sort by &nbsp;
+          <select
+            value={sortType.sortBy}
+            onChange={handleChange}
+            className="select-option"
+          >
+            <option value="default"> --Select-- </option>
+            <option value="deadline"> By nearest deadline </option>
+            <option value="workleft">By most work left</option>
+            <option value="both"> By both(weighted) </option>
+          </select>
+        </label>
+
+        <div className="sorted-wrapper">
+          <div className="task-object">
+            <p className="task-elem-heading">Task Name</p>
+            <p className="task-elem-heading">Progress</p>
+            <p className="task-elem-heading">Priority</p>
+            <p className="task-elem-heading">Deadline</p>
+          </div>
+          {sortedTasks.map((val, key) => {
+            return (
+              <div className="task-object">
+                <p className="task-elem">{val.taskname}</p>
+                <p className="task-elem">{val.progress}%</p>
+                <p className="task-elem">{val.priority}</p>
+                <p className="task-elem">{getFormattedDate(val.deadline)}</p>
+              </div>
+            );
+          })}
+        </div>
+      </Modal>
 
       <Modal
         isOpen={isOpen}
@@ -355,7 +500,7 @@ const Calender = (props) => {
         centered
       >
         <div>
-          <div >
+          <div>
             <span className="crossbutton" onClick={toggleModal}>
               <CloseIcon />
             </span>
