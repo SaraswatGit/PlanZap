@@ -18,6 +18,7 @@ const Diary = () => {
   const [errormessage, seterrormessage] = useState("");
   const [extracteddesc, setextracteddesc] = useState("");
   const [extractdate, setextractdate] = useState(false);
+  const today = new Date().toISOString().split('T')[0];
 
   const [id, setid] = useState(0);
 
@@ -175,6 +176,7 @@ const Diary = () => {
         {" "}
         <input
           type="date"
+          max={today}
           style={{
             height: "3vh",
             width: "10vw",
