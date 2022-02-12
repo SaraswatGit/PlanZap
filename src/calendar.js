@@ -178,7 +178,13 @@ const Calender = (props) => {
       id: id,
       progress: progress,
     }).then((response) => {
+       Axios.post("https://planzap.herokuapp.com/gettaskdata", {
+        userid: userid,
+      }).then((response) => {
+        settasklist(response.data);
+      });
       console.log("updated");
+      
     });
   };
 
