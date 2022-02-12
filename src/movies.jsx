@@ -220,7 +220,7 @@ const Movies = () => {
                     setPopup(true);
                   }}
                 >
-                  <DeleteIcon class="trash-icon" />
+                  <DeleteIcon className="trash-icon" />
                 </button>
               </div>
 
