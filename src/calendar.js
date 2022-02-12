@@ -355,7 +355,7 @@ const Calender = (props) => {
         centered
       >
         <div>
-          <div className="topbar">
+          <div >
             <span className="crossbutton" onClick={toggleModal}>
               <CloseIcon />
             </span>
