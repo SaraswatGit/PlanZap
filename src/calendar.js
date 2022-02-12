@@ -10,7 +10,7 @@ import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import "./CSSComponents/delete.css";
 import CancelIcon from "@mui/icons-material/Cancel";
-import DoneAllIcon from '@mui/icons-material/DoneAll';
+import DoneAllIcon from "@mui/icons-material/DoneAll";
 const { format } = require("date-fns");
 
 Modal.setAppElement("#root");
@@ -28,27 +28,37 @@ const Calender = (props) => {
   const [progress, setprogress] = useState();
 
   const deletetask = (id) => {
+    Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
+      (response) => {
+        settasklist(
+          tasklist.filter((val) => {
+            return val.taskid !== id;
+          })
+        );
+      }
+    );
+  };
+
+  const taskComplete = (id) => {
     //when finishes a task, confetti celeb action
     props.setConfetti(true);
 
+    Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
+      (response) => {
+        settasklist(
+          tasklist.filter((val) => {
+            return val.taskid !== id;
+          })
+        );
+      }
+    );
+
     //after 5s remove confetti and delete task
+    setTimeout(() => {
+      props.setConfetti(false);
+    }, 5000);
+  }
 
-
-    //after 5s remove confetti and delete task
-   
-      Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
-        (respose) => {
-          settasklist(
-            tasklist.filter((val) => {
-              return val.taskid !== id;
-            })
-          );
-        }
-      );
-      setTimeout(()=>{
-      props.setConfetti(false)},5000);
-
-  };
   function toggleModal() {
     setIsOpen(!isOpen);
   }
@@ -120,8 +130,8 @@ const Calender = (props) => {
                 val.priority === "Highest Priority"
                   ? "taskbox"
                   : val.priority === "Medium Priority"
-                    ? "mediumtaskbox"
-                    : "lowtaskbox"
+                  ? "mediumtaskbox"
+                  : "lowtaskbox"
               }
             >
               <div
@@ -289,7 +299,7 @@ const Calender = (props) => {
                     textAlign: "center",
                   }}
                   onClick={() => {
-                    deletetask(val.taskid);
+                    taskComplete(val.taskid);
                   }}
                 >
                   Done
