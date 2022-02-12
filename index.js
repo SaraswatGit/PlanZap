@@ -358,6 +358,25 @@ app.post(
    
         const useremail=req.body.useremail;
         const password=req.body.password;
+
+        // checking if email is already registered or not
+        db.query("SELECT * FROM user_database WHERE useremail=?",[useremail],(err,result)=>{
+
+            if(err)
+            {
+                console.log(err);
+            }
+            else
+            {
+                if(result.length>0)
+                {
+                    res.send({message:"Email Id already registered."});
+                }
+            }
+
+        })
+
+        // Adding the new user
        bcrypt.hash(password,saltRounds,(err,hash)=>{     
         if(err)
         {   
@@ -367,11 +386,11 @@ app.post(
         if(err)
         {
             
-console.log(err);
+            console.log(err);
         }
         else
         {
-res.send("Values Inserted");
+            res.send({message:"User Added Successfully."});
         }
     });});
        // console.log(name+rating+desc);
