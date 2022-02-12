@@ -20,12 +20,14 @@ import { usercontext } from "./Context/usercontext";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Axios from "axios";
 import Modal from "react-modal";
+import ConfettiCeleb from "./ConfettiCeleb";
 
 Modal.setAppElement("#root");
 
 function App() {
   Axios.defaults.withCredentials = true;
 
+  const [confetti, setConfetti] = useState(false);
   const [notloggedin, setloginstatus] = useState(true);
   const [userquote, setuserquote] = useState("");
   const [usernewquote, setnewuserquote] = useState("");
@@ -86,6 +88,8 @@ function App() {
   console.log("user ID 2 :" + userid);
   return (
     <div className="App">
+      {confetti && <ConfettiCeleb />}
+
       <usercontext.Provider
         value={{ notloggedin, setloginstatus, userid, setuserid }}
       >
@@ -126,7 +130,14 @@ function App() {
               }}
             ></textarea>
             <br />
-            <button onClick={()=>{updateuserquote();toggleModal()}}>Save</button>
+            <button
+              onClick={() => {
+                updateuserquote();
+                toggleModal();
+              }}
+            >
+              Save
+            </button>
           </div>{" "}
         </Modal>
         {loading ? (
@@ -146,7 +157,7 @@ function App() {
                 <EditIcon className="editbutton" onClick={toggleModal} />
               </div>
               <NavLink
-                to="/TasksandProgress" 
+                to="/TasksandProgress"
                 className={({ isActive }) =>
                   `link ${
                     isActive
@@ -220,9 +231,15 @@ function App() {
             <div>
               <Routes>
                 ]
-                <Route path="/" element={<Calender />} />
+                <Route
+                  path="/"
+                  element={<Calender setConfetti={setConfetti} />}
+                />
                 <Route path="/Profile" element={<Profile />}></Route>
-                <Route path="/TasksandProgress" element={<Calender />}></Route>
+                <Route
+                  path="/TasksandProgress"
+                  element={<Calender setConfetti={setConfetti} />}
+                ></Route>
                 <Route path="/diary" element={<Diary />}></Route>
                 <Route path="/movieslist" element={<Movies />}></Route>
                 <Route path="/ideasnotes" element={<Ideas />}></Route>
