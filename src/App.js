@@ -29,8 +29,8 @@ function App() {
 
   const [confetti, setConfetti] = useState(false);
   const [notloggedin, setloginstatus] = useState(true);
-  const [userquote, setuserquote] = useState("");
-  const [usernewquote, setnewuserquote] = useState("");
+  const [userquote, setuserquote] = useState(null);
+  const [usernewquote, setnewuserquote] = useState(null);
   const [userid, setuserid] = useState(0);
   const [loading, setloading] = useState(true);
   const [logoutstatus, setlogout] = useState(false);
@@ -74,7 +74,7 @@ function App() {
     console.log(userid + " ok " + userquote);
     Axios.put("https://planzap.herokuapp.com/updatequote", {
       id: userid,
-      userquote: usernewquote,
+      userquote: (usernewquote?usernewquote:userquote),
     }).then((response) => {
       Axios.post("https://planzap.herokuapp.com/getquote", {
         userid: userid,
@@ -126,6 +126,7 @@ function App() {
               rows="3"
               cols="20"
               maxlength="57"
+              defaultValue={userquote}
               onChange={(event) => {
                 setnewuserquote(event.target.value);
               }}
