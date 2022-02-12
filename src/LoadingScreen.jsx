@@ -5,7 +5,7 @@ import "./CSSComponents/App.css";
 
 const Loader = () => {
   return (
-    <div class="push-out">
+    <div className="push-out">
       <div></div>
       <div></div>
     </div>

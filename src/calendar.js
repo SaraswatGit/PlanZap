@@ -10,7 +10,7 @@ import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import "./CSSComponents/delete.css";
 import CancelIcon from "@mui/icons-material/Cancel";
-import DoneAllIcon from '@mui/icons-material/DoneAll';
+import DoneAllIcon from "@mui/icons-material/DoneAll";
 const { format } = require("date-fns");
 
 Modal.setAppElement("#root");
@@ -23,32 +23,43 @@ const Calender = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { userid, setuserid } = useContext(usercontext);
   const [isLoading, setLoading] = useState(true);
+  const today = new Date().toISOString().split('T')[0];
 
   const [tasklist, settasklist] = useState([]);
   const [progress, setprogress] = useState();
 
   const deletetask = (id) => {
+    Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
+      (response) => {
+        settasklist(
+          tasklist.filter((val) => {
+            return val.taskid !== id;
+          })
+        );
+      }
+    );
+  };
+
+  const taskComplete = (id) => {
     //when finishes a task, confetti celeb action
     props.setConfetti(true);
 
+    Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
+      (response) => {
+        settasklist(
+          tasklist.filter((val) => {
+            return val.taskid !== id;
+          })
+        );
+      }
+    );
+
     //after 5s remove confetti and delete task
-
-
-    //after 5s remove confetti and delete task
-   
-      Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
-        (respose) => {
-          settasklist(
-            tasklist.filter((val) => {
-              return val.taskid !== id;
-            })
-          );
-        }
-      );
-      setTimeout(()=>{
-      props.setConfetti(false)},5000);
-
+    setTimeout(() => {
+      props.setConfetti(false);
+    }, 5000);
   };
+
   function toggleModal() {
     setIsOpen(!isOpen);
   }
@@ -113,15 +124,16 @@ const Calender = (props) => {
   return (
     <div className="calpage">
       <div className="toppart">
-        {tasklist.map((val, key) => {
+        {tasklist.map((val, index) => {
           return (
             <div
+              key={index}
               className={
                 val.priority === "Highest Priority"
                   ? "taskbox"
                   : val.priority === "Medium Priority"
-                    ? "mediumtaskbox"
-                    : "lowtaskbox"
+                  ? "mediumtaskbox"
+                  : "lowtaskbox"
               }
             >
               <div
@@ -289,7 +301,7 @@ const Calender = (props) => {
                     textAlign: "center",
                   }}
                   onClick={() => {
-                    deletetask(val.taskid);
+                    taskComplete(val.taskid);
                   }}
                 >
                   Done
@@ -337,12 +349,13 @@ const Calender = (props) => {
 
             display: "flex",
             flexDirection: "column",
+            overflowX: "hidden",
           },
         }}
         centered
       >
         <div>
-          <div classname="topbar">
+          <div >
             <span className="crossbutton" onClick={toggleModal}>
               <CloseIcon />
             </span>
@@ -350,14 +363,14 @@ const Calender = (props) => {
           <div className="formarea">
             <label
               style={{ fontSize: "2.2vh", marginBottom: "0vh" }}
-              for="taskname"
+              htmlFor="taskname"
             >
               Task Name
             </label>
             <input
               type="text"
               id="taskname"
-              maxlength="50"
+              maxLength="50"
               name="taskname"
               className="fields"
               placeholder="Max Characters:32"
@@ -367,7 +380,10 @@ const Calender = (props) => {
               required
             />
 
-            <label style={{ fontSize: "2.2vh", marginTop: "1vh" }} for="date">
+            <label
+              style={{ fontSize: "2.2vh", marginTop: "1vh" }}
+              htmlFor="date"
+            >
               Deadline
             </label>
 
@@ -376,13 +392,14 @@ const Calender = (props) => {
               id="date"
               name="date"
               className="fields"
+              min={today}
               onChange={(event) => {
                 setdeadline(event.target.value);
               }}
               required
             />
 
-            <label style={{ fontSize: "2.2vh" }} for="priority">
+            <label style={{ fontSize: "2.2vh" }} htmlFor="priority">
               Priority
             </label>
             <select
@@ -397,7 +414,7 @@ const Calender = (props) => {
               <option></option>
 
               <option value="Highest Priority">Highest Priority</option>
-              <option Value="Medium Priority">Medium Priority</option>
+              <option value="Medium Priority">Medium Priority</option>
               <option value="Low Priority">Low Priority</option>
             </select>
             <input
