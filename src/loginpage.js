@@ -27,7 +27,7 @@ const registeruser=(e)=>{
 
     Axios.post("https://planzap.herokuapp.com/usercreate",{
         useremail:useremail,
-        password:password}).then(()=>{setRegisterMessage("User Added Successfully.");})
+        password:password}).then((response)=>{setRegisterMessage(response.data.message);})
     }
     else
     {
