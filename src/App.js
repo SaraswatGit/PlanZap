@@ -21,6 +21,8 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import Axios from "axios";
 import Modal from "react-modal";
 import ConfettiCeleb from './ConfettiCeleb';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import HowToUse from './HowToUse'
 
 Modal.setAppElement("#root");
 
@@ -213,6 +215,22 @@ function App() {
                 />{" "}
                 Ideas and Notes <br />
               </NavLink>
+              <NavLink
+                to="/howtouse"
+                className={({ isActive }) =>
+                  `link ${
+                    isActive
+                      ? "selected"
+                      : // Couldn't do this before!
+                        "barelement"
+                  }`
+                }
+              >
+                <ListAltIcon
+                  style={{ height: "2.8vh", marginRight: "1vw" }}
+                />{" "}
+               How To Use <br />
+              </NavLink>
               <div
                 className="logout"
                 onClick={logout}
@@ -231,6 +249,7 @@ function App() {
                 <Route path="/diary" element={<Diary />}></Route>
                 <Route path="/movieslist" element={<Movies />}></Route>
                 <Route path="/ideasnotes" element={<Ideas />}></Route>
+                <Route path="/howtouse" element={<HowToUse />}></Route>
               </Routes>
             </div>
           </div>
