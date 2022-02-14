@@ -49,6 +49,12 @@ const Movies = () => {
       movie_name: newname,
       movie_desc: newdesc,
     }).then((response) => {
+      Axios.post("https://planzap.herokuapp.com/getdata", {
+        userid: userid,
+      }).then((response) => {
+        setmovielist(response.data);
+      });
+      
       console.log("updated");
     });
   };
@@ -198,7 +204,7 @@ const Movies = () => {
               <div className="moviedesc2">
                 <p>{val.movie_desc}</p>
                 <EditIcon
-                  className="edit-icon"
+                className="edit-icon"
                   style={{ paddingLeft: "30px", height: "3.2vh" }}
                   onClick={() => {
                     settempname(val.movie_name);
@@ -210,18 +216,14 @@ const Movies = () => {
                   }}
                 />
 
-                <button
-                  className="trash-btn"
-                  style={{
-                    backgroundColor: "transparent",
-                    color: "white",
-                  }}
-                  onClick={() => {
+                 
+               
+               
+         
+                  <DeleteIcon className="trash-icon"  style={{ paddingLeft: "30px", height: "3.2vh" }}   onClick={() => {
                     setPopup(true);
-                  }}
-                >
-                  <DeleteIcon className="trash-icon" />
-                </button>
+                  }}/>
+            
               </div>
 
               <Modal

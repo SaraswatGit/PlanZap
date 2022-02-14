@@ -92,13 +92,9 @@
 .edit-icon:hover {
   color: rgb(70, 70, 70);
 }
-.trash-btn {
-  width: auto;
 
-  padding: 0;
-}
-.trash-icon {
-  height: 20px;
+.trash-icon:hover {
+  color: rgb(70, 70, 70);
 }
 
 .Heading {
