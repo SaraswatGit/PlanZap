@@ -148,7 +148,7 @@ const Ideas = () => {
           <input
             type="text"
             id="mname"
-            maxlength="40"
+            maxLength="40"
             name="idea"
             className="fields"
             defaultValue={tempidea}
@@ -221,7 +221,7 @@ const Ideas = () => {
           <input
             type="text"
             id="mname"
-            maxlength="40"
+            maxLength="40"
             name="moviename"
             className="fields"
             onChange={(event) => {
