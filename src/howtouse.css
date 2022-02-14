@@ -1,0 +1,21 @@
+.frame{
+    padding-left: 15vw;
+    width: 85vw;
+    
+}
+
+img{
+    width: 310px;
+    margin-bottom: 20px;
+}
+
+.task, .movie, .diary , .note{
+    margin-left: 20px;
+
+}
+
+.center{
+    text-align: center;
+    margin: 30px;
+}
+

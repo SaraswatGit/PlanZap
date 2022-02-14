@@ -16,12 +16,14 @@ import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 import EditIcon from "@mui/icons-material/Edit";
+import ListAltIcon from "@mui/icons-material/ListAlt"
 import { usercontext } from "./Context/usercontext";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Axios from "axios";
 import Modal from "react-modal";
 import ConfettiCeleb from "./ConfettiCeleb";
-import MaintenanceImg from "./CSSComponents/maintenance.svg"
+import MaintenanceImg from "./CSSComponents/maintenance.svg";
+import HowToUse from './HowToUse'
 
 Modal.setAppElement("#root");
 
@@ -89,7 +91,7 @@ function App() {
   };
   console.log("user ID 2 :" + userid);
   return (
-    <>
+    <div>
       {underMaintenance ? (
         <div
           style={{
@@ -223,89 +225,95 @@ function App() {
                   </NavLink>
                   {/*  <NavLink to="/Performancegraphs" className="barelement" activeClassName="selected">
                      <ShowChartIcon/>      &nbsp; &nbsp;Performance Graphs
-              </NavLink>*/}
-                  <NavLink
-                    to="/movieslist"
-                    className={({ isActive }) =>
-                      `link ${
-                        isActive
-                          ? "selected"
-                          : // Couldn't do this before!
-                            "barelement"
-                      }`
-                    }
-                  >
-                    <FormatListBulletedIcon
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                    Movies to Watch
-                  </NavLink>
-                  <NavLink
-                    to="/diary"
-                    className={({ isActive }) =>
-                      `link ${
-                        isActive
-                          ? "selected"
-                          : // Couldn't do this before!
-                            "barelement"
-                      }`
-                    }
-                  >
-                    <MenuBookIcon
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                    Personal Diary <br />
-                  </NavLink>
-                  <NavLink
-                    to="/ideasnotes"
-                    className={({ isActive }) =>
-                      `link ${
-                        isActive
-                          ? "selected"
-                          : // Couldn't do this before!
-                            "barelement"
-                      }`
-                    }
-                  >
-                    <CollectionsBookmarkIcon
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                    Ideas and Notes <br />
-                  </NavLink>
-                  <div
-                    className="logout"
-                    onClick={logout}
-                    style={{ fontSize: "2.1vh" }}
-                  >
-                    <LogoutIcon
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                    Log Out{" "}
-                  </div>
-                </div>
-                <div>
-                  <Routes>
-                    ]
-                    <Route
-                      path="/"
-                      element={<Calender setConfetti={setConfetti} />}
-                    />
-                    <Route path="/Profile" element={<Profile />}></Route>
-                    <Route
-                      path="/TasksandProgress"
-                      element={<Calender setConfetti={setConfetti} />}
-                    ></Route>
-                    <Route path="/diary" element={<Diary />}></Route>
-                    <Route path="/movieslist" element={<Movies />}></Route>
-                    <Route path="/ideasnotes" element={<Ideas />}></Route>
-                  </Routes>
-                </div>
+    </NavLink>*/}
+              <NavLink
+                to="/movieslist"
+                className={({ isActive }) =>
+                  `link ${
+                    isActive
+                      ? "selected"
+                      : // Couldn't do this before!
+                        "barelement"
+                  }`
+                }
+              >
+                <FormatListBulletedIcon
+                  style={{ height: "2.8vh", marginRight: "1vw" }}
+                />{" "}
+                Movies to Watch
+              </NavLink>
+              <NavLink
+                to="/diary"
+                className={({ isActive }) =>
+                  `link ${
+                    isActive
+                      ? "selected"
+                      : // Couldn't do this before!
+                        "barelement"
+                  }`
+                }
+              >
+                <MenuBookIcon style={{ height: "2.8vh", marginRight: "1vw" }} />{" "}
+                Personal Diary <br />
+              </NavLink>
+              <NavLink
+                to="/ideasnotes"
+                className={({ isActive }) =>
+                  `link ${
+                    isActive
+                      ? "selected"
+                      : // Couldn't do this before!
+                        "barelement"
+                  }`
+                }
+              >
+                <CollectionsBookmarkIcon
+                  style={{ height: "2.8vh", marginRight: "1vw" }}
+                />{" "}
+                Ideas and Notes <br />
+              </NavLink>
+              <NavLink
+                to="/howtouse"
+                className={({ isActive }) =>
+                  `link ${
+                    isActive
+                      ? "selected"
+                      : // Couldn't do this before!
+                        "barelement"
+                  }`
+                }
+              >
+                <ListAltIcon
+                  style={{ height: "2.8vh", marginRight: "1vw" }}
+                />{" "}
+               How To Use <br />
+              </NavLink>
+              <div
+                className="logout"
+                onClick={logout}
+                style={{ fontSize: "2.1vh" }}
+              >
+                <LogoutIcon style={{ height: "2.8vh", marginRight: "1vw" }} />{" "}
+                Log Out{" "}
               </div>
-            )}
-          </usercontext.Provider>
-        </div>
-      )}
-    </>
+            </div>
+            <div>
+              <Routes>
+                ]
+                <Route path="/" element={<Calender setConfetti={setConfetti} />} />
+                <Route path="/Profile" element={<Profile />}></Route>
+                <Route path="/TasksandProgress" element={<Calender setConfetti={setConfetti}  />}></Route>
+                <Route path="/diary" element={<Diary />}></Route>
+                <Route path="/movieslist" element={<Movies />}></Route>
+                <Route path="/ideasnotes" element={<Ideas />}></Route>
+                <Route path="/howtouse" element={<HowToUse />}></Route>
+              </Routes>
+            </div>
+          </div>
+        )}
+      </usercontext.Provider>
+    </div>
+      )} </div>
   );
 }
 
