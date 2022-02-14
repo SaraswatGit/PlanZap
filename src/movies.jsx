@@ -145,7 +145,7 @@ const Movies = () => {
             name="moviename"
             rows="2"
             cols="40"
-            maxlength="60"
+            maxLength="60"
             className="donkey"
             defaultValue={tempname}
             onChange={(event) => {
@@ -163,7 +163,7 @@ const Movies = () => {
             name="moviedescription"
             rows="2"
             cols="40"
-            maxlength="60"
+            maxLength="60"
             className="donkey"
             defaultValue={tempdesc}
             onChange={(event) => {
@@ -292,7 +292,7 @@ const Movies = () => {
             style={{ fontSize: "2vh" }}
             type="text"
             id="mname"
-            maxlength="40"
+            maxLength="40"
             name="moviename"
             className="donkey"
             placeholder="Eg: Mission Impossible : Rogue Nation "
@@ -309,7 +309,7 @@ const Movies = () => {
             style={{ fontSize: "2vh" }}
             type="text"
             id="mrating"
-            maxlength="3"
+            maxLength="3"
             name="movierating"
             className="donkey"
             placeholder="Eg: 8.4"
@@ -328,7 +328,7 @@ const Movies = () => {
             name="moviedescription"
             rows="2"
             cols="40"
-            maxlength="73"
+            maxLength="73"
             className="donkey"
             placeholder="Eg:Oscar Nominated, Action,Directed By : Michael Scott , Based on Iraq Wars"
             onChange={(event) => {
