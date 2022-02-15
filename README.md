@@ -169,6 +169,26 @@ git push -u origin <your_branch_name>
 
 **14.** Click on `Create Pull Request`.
 
+## 🌟 How to resolve merge conflicts
+
+* Conflicts generally arise when two people have changed the same lines in a file, or if one developer deleted a file while another developer was modifying it. In these cases, Git cannot automatically determine what is correct. Conflicts only affect the developer conducting the merge, the rest of the team is unaware of the conflict. Git will mark the file as being conflicted and halt the merging process. It is then the developers' responsibility to resolve the conflict.
+
+* The most direct way to resolve a merge conflict is to edit the conflicted file
+* Git commands that can help resolve merge conflicts :-
+   
+   1 .The status command is in frequent use when a working with Git and during a merge it will help identify conflicted files.
+   
+    ![image](https://user-images.githubusercontent.com/75252077/154049611-a350ccd5-125e-4730-9620-a83a5619f51e.png)
+   2 . Passing the --merge argument to the git log command will produce a log with a list of commits that conflict between the merging branches.
+   
+   ![image](https://user-images.githubusercontent.com/75252077/154049747-e7e96be6-2df7-41c8-8118-c659d13b393b.png)
+
+   3 . diff helps find differences between states of a repository/files. This is useful in predicting and preventing merge conflicts.
+   
+   ![image](https://user-images.githubusercontent.com/75252077/154049841-b802abec-0203-4cea-b93c-b9212738c61b.png)
+   
+   * If above are not resolving your issue you can checkout this [url](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts)
+
 ## 🌟 Open Source Participation
 This project is a part of these Open Source Programs
 
