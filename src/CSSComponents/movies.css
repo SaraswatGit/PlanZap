@@ -183,3 +183,10 @@ textarea {
   flex-direction: column;
   justify-content: center;
 }
+
+.rating-sort-btn {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  cursor: pointer;
+}

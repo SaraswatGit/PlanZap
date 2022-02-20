@@ -22,12 +22,13 @@ const Movies = () => {
   const [isOpen, setIsOpen] = useState(false);
   //const [defaulttext, setdefaulttext] = useState("");
   const [tempid, settempid] = useState(0);
-
   const [isLoading, setLoading] = useState(true);
-
   const { userid, setuserid } = useContext(usercontext);
-
   const [isPopup, setPopup] = useState(false);
+  const [isRatingAsc, setIsRatingAsc] = useState(null);
+  const moviesListOrder = isRatingAsc
+    ? movielist.sort((a, b) => a.movie_rating < b.movie_rating ? 1 : -1)
+    : movielist.sort((a, b) => a.movie_rating > b.movie_rating ? 1 : -1);
 
   function toggleModal() {
     setIsOpen(!isOpen);
@@ -54,7 +55,7 @@ const Movies = () => {
       }).then((response) => {
         setmovielist(response.data);
       });
-      
+
       console.log("updated");
     });
   };
@@ -191,12 +192,34 @@ const Movies = () => {
 
       <div className="topbar">
         <div className="moviename">Title</div>
-        <div className="movierating">IMDb</div>
+        <div className="movierating">
+          IMDb
+          <div
+            className="rating-sort-btn"
+            onClick={() =>
+              isRatingAsc ? setIsRatingAsc(false) : setIsRatingAsc(true)
+            }
+            title="Sort by Rating"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ height: "20px", width: "20px", background: "none" }}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
         <div className="moviedesc">Description</div>
       </div>
 
       <div>
-        {movielist.map((val, key) => {
+        {moviesListOrder.map((val, key) => {
           return (
             <div className="topbar2">
               <div className="moviename2">{val.movie_name}</div>
@@ -204,7 +227,7 @@ const Movies = () => {
               <div className="moviedesc2">
                 <p>{val.movie_desc}</p>
                 <EditIcon
-                className="edit-icon"
+                  className="edit-icon"
                   style={{ paddingLeft: "30px", height: "3.2vh" }}
                   onClick={() => {
                     settempname(val.movie_name);
@@ -215,15 +238,13 @@ const Movies = () => {
                     toggleModal();
                   }}
                 />
-
-                 
-               
-               
-         
-                  <DeleteIcon className="trash-icon"  style={{ paddingLeft: "30px", height: "3.2vh" }}   onClick={() => {
+                <DeleteIcon
+                  className="trash-icon"
+                  style={{ paddingLeft: "30px", height: "3.2vh" }}
+                  onClick={() => {
                     setPopup(true);
-                  }}/>
-            
+                  }}
+                />
               </div>
 
               <Modal
