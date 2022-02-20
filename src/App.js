@@ -173,7 +173,7 @@ function App() {
                 },
                 content: {
                   width: "30vw",
-                  height: "19vh",
+                  height: "max-content",
                   margin: "auto",
                   padding: "0",
                   borderRadius: "10px",
@@ -186,9 +186,8 @@ function App() {
                 },
               }}
             >
-              <div>
+              <div className="quote-div">
                 <label for="quote">New Quote</label>
-                <br />
                 <textarea
                   id="quote"
                   name="userquote"
@@ -202,6 +201,7 @@ function App() {
                 ></textarea>
                 <br />
                 <button
+                  className="quote-btn"
                   onClick={() => {
                     updateuserquote();
                     toggleModal();
