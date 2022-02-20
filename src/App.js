@@ -40,7 +40,25 @@ function App() {
   const [logoutstatus, setlogout] = useState(false);
   //const history=useHistory();
   const [isOpen, setIsOpen] = useState(false);
+  const [isHowToUseModal, setIsHowToUseModal] = useState(false);
 
+
+
+  function checkHowToUseModal(){
+   if(!localStorage.getItem("isVisited")){
+    localStorage.setItem("isVisited","yes");
+    setIsHowToUseModal(true);
+   } 
+  
+  }
+
+  useEffect(
+    ()=>{
+      checkHowToUseModal();
+
+    },[isHowToUseModal]
+  )
+  
   function toggleModal() {
     setIsOpen(!isOpen);
   }
@@ -298,6 +316,58 @@ function App() {
               </div>
             </div>
             <div>
+            
+            <Modal
+                  isOpen={isHowToUseModal}
+                  onRequestClose={() => {
+                    setIsHowToUseModal(false);
+                  }}
+                  style={{
+                    overlay: {
+                      backgroundColor: "rgba(0, 0, 0, 0.75)",
+                    },
+                    content: {
+                      width: "25vw",
+                      height: "30vh",
+                      margin: "auto",
+                      padding: "1%",
+                      borderRadius: "7px",
+                      backgroundColor: "white",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "space-around",
+                    },
+                  }}
+                  centered
+                >
+                  
+                 <h2>
+                   Welcome to Planzapp
+                 </h2>
+                 <h3>
+                   You are new here so, you can check how to use it properly
+                 </h3>
+
+                 <Link to="/howtouse">
+                 <button onClick={
+                   ()=>{
+                    setIsHowToUseModal(false)
+                   }
+                  
+                   }>
+                   How To Use
+                 </button>
+                 </Link>
+
+                 
+                  
+                   
+
+                    
+                 
+                </Modal>
+
               <Routes>
                 ]
                 <Route path="/" element={<Calender setConfetti={setConfetti} />} />
