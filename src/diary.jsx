@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./CSSComponents/diary.css";
 import { usercontext } from "./Context/usercontext";
 import Modal from "react-modal";
 import CloseIcon from "@mui/icons-material/Close";
 import Axios from "axios";
-import DeleteIcon from "@mui/icons-material/Delete";
 
 const { format } = require("date-fns");
 
@@ -21,6 +20,9 @@ const Diary = () => {
   const today = new Date().toISOString().split('T')[0];
 
   const [id, setid] = useState(0);
+  
+  console.log(setuserid); //This is for removing warning only
+  console.log(id); //This is for removing warning only
 
   const toggleModal = () => {
     Axios.post("https://planzap.herokuapp.com/getentry", {
