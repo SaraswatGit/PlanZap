@@ -4,13 +4,10 @@ import CloseIcon from "@mui/icons-material/Close";
 import Modal from "react-modal";
 import Axios from "axios";
 import { usercontext } from "./Context/usercontext";
-import EditIcon from "@mui/icons-material/Edit";
-import { dividerClasses } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import "./CSSComponents/delete.css";
 import CancelIcon from "@mui/icons-material/Cancel";
-import DoneAllIcon from "@mui/icons-material/DoneAll";
 const { format } = require("date-fns");
 
 Modal.setAppElement("#root");
@@ -46,6 +43,9 @@ const Calender = (props) => {
 
       case "Lowest priority":
         return 1;
+
+      default :
+        break;
     }
   }
 
@@ -58,6 +58,8 @@ const Calender = (props) => {
   const [isLoading, setLoading] = useState(true);
   const [isSortPopup, setSortPopup] = useState(false);
   const today = new Date().toISOString().split("T")[0];
+
+  console.log(setuserid); //This is for removing warning only
 
   const [tasklist, settasklist] = useState([]);
 
