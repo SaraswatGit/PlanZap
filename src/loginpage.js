@@ -52,39 +52,30 @@ const Login = () => {
 
   return (
     <div className="loginpage">
-      <div
-        style={{
-          position: "Absolute",
-          marginTop: "5vh",
-          fontSize: "15vh",
+      <div className="logo-div">   
+        <h2 style={{
           fontFamily: "Pacificio",
           fontWeight: "bolder",
           color: "rgb(255, 183, 1)",
-          textAlign: "right",
-          width: "100vw",
-        }}
-      >
-        PlanZap &nbsp;{" "}
-      </div>
+          marginBottom: "0px",
+        }}> PlanZap</h2>
 
-      <div
-        style={{
-          position: "Absolute",
-          marginTop: "21.7vh",
+        <p style={{
           fontSize: "3vh",
           fontFamily: "cursive",
-          width: "100vw",
-          textAlign: "right",
+          textAlign: "center",
           color: "black",
-        }}
-      >
-        One Place for your notes, goals, movies, personal diary and more !
-        &nbsp; &nbsp; &nbsp;
-      </div>
-      <img
-        style={{ position: "fixed", bottom: 0, right: "5vw", width: "30vw" }}
+          marginTop: "0px",
+          padding: "20px"
+        }}>
+        One Place for your notes, goals, movies, personal diary and more!
+        </p>
+        <img
+        class = "logo-img"
         src="https://image.freepik.com/free-vector/flat-creativity-concept-illustration_52683-64279.jpg" alt = ""
-      />
+        />
+      </div>
+	  
       <div className="loginbox">
         <div className="loginform">
           <center>
@@ -147,6 +138,7 @@ const Login = () => {
           </center>
 
           <ReactModal
+			      className= "reg-modal"
             isOpen={modalIsOpen}
             onRequestClose={() => setModalisOpen(false)}
             style={{
@@ -156,14 +148,11 @@ const Login = () => {
 
               content: {
                 position: "absolute",
-                width: "44vw",
                 height: "90vh",
                 borderRadius: "20px 20px 20px 20px",
                 overflow: "visible",
                 outline: "none",
                 padding: "0px",
-                left: "25vw",
-                top: "5vh",
               },
             }}
           >
