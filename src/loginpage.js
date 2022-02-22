@@ -1,13 +1,9 @@
 import Axios from "axios";
 import React, { useState, useContext } from "react";
 import "./CSSComponents/loginpage.css";
-import { Route } from "react-router-dom";
 import { usercontext } from "./Context/usercontext";
 import ReactModal from "react-modal";
 
-import Calender from "./calendar";
-import { color } from "@mui/system";
-import { visibleDays } from "react-big-calendar/lib/utils/dates";
 
 const Login = () => {
   const { notloggedin, setloginstatus, userid, setuserid } = useContext(usercontext);
@@ -20,7 +16,9 @@ const Login = () => {
   const [registerMessage, setRegisterMessage] = useState("");
 
   const registeruser = (e) => {
-    //console.log(useremail+password);
+    //console.log(useremail+password);    
+    console.log(userid); //This is for removing warning only
+    console.log(notloggedin); //This is for removing warning only
 
     e.preventDefault(); // added this line so that the default submission of form (which caused refreshing of the page)can be prevented and we get submit using post method.
     if (password === confirmPassword) {
