@@ -85,7 +85,7 @@ const Login = () => {
       </div>
       <img
         style={{ position: "fixed", bottom: 0, right: "5vw", width: "30vw" }}
-        src="https://image.freepik.com/free-vector/flat-creativity-concept-illustration_52683-64279.jpg"
+        src="https://image.freepik.com/free-vector/flat-creativity-concept-illustration_52683-64279.jpg" alt = ""
       />
       <div className="loginbox">
         <div className="loginform">
@@ -94,7 +94,7 @@ const Login = () => {
             <br />
             <br />
             <div
-              className="heading"
+              className="heading-login"
               style={{
                 fontSize: "5vh",
                 fontWeight: "400",
@@ -173,7 +173,7 @@ const Login = () => {
               <center>
                 <br />
                 <div
-                  className="heading"
+                  className="heading-register"
                   style={{
                     fontSize: "5vh",
                     fontWeight: "400",
