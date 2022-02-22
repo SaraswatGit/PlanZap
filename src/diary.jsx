@@ -179,7 +179,7 @@ const Diary = () => {
           max={today}
           style={{
             height: "3vh",
-            width: "10vw",
+            width: "auto",
             fontSize: "2vh",
             marginTop: "2vh",
           }}
@@ -193,8 +193,8 @@ const Diary = () => {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <button
           style={{
-            height: "5vh",
-            width: "10vw",
+            height: "auto",
+            width: "auto",
             background: `linear-gradient(to top left,teal, grey)`,
             fontWeight: "bold",
             fontSize: "2vh",
@@ -206,8 +206,8 @@ const Diary = () => {
         &nbsp;
         <button
           style={{
-            height: "5vh",
-            width: "10vw",
+            height: "auto",
+            width: "auto",
             background: `linear-gradient(to top left,teal, grey)`,
             fontWeight: "bold",
             fontSize: "2vh",

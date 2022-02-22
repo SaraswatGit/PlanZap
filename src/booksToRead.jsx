@@ -14,7 +14,6 @@ function Bookstoread() {
         <div className="bookname">Inferno</div>
         <div className="author">Dan Brown</div>
         <div className="bookdesc">
-          {" "}
           Robert Langdon saves the earth from a madman.
         </div>
       </div>

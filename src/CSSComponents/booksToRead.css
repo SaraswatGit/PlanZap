@@ -1,15 +1,14 @@
 .books {
-  float: right;
+  position: absolute;
   height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
+  width: 85%;
+  margin-left: 15%;
 }
 .heading,
 .list {
-  height: 2rem;
-  width: 68rem;
+  height: auto;
+  width: 100%;
   display: flex;
-  margin-left: 12rem;
   background-color: #183340;
   color: white;
 }
@@ -25,7 +24,11 @@
 }
 .bookdesc {
   width: 50%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   border: 1px solid #5db2dd;
+  height: auto;
 }
 
 .list .bookname,
@@ -38,7 +41,6 @@
 }
 
 .bookentry {
-  margin-left: 12rem;
   padding: 7.05rem 0;
   display: flex;
   justify-content: center;
