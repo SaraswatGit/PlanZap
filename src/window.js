@@ -1,4 +1,3 @@
-import { dividerClasses } from "@mui/material";
 import { useEffect, useState } from "react";
 import App from "./App";
 import image from "./Context/—Pngtree—mobile frame png image and_6631525.png";
@@ -28,14 +27,15 @@ function useWindowSize() {
 }
 
 function Component() {
-  const { height, width } = useWindowSize();
+  const { height, width } = useWindowSize();  
+  console.log(height); //This is for removing warning only
   if (width > 600) {
     return <App />;
   }
   return (
     <div className="Landscape">
-      <img className="arrow" src={arrow} />
-      <img className="phone" src={image} />
+      <img className="arrow" src={arrow} alt="" />
+      <img className="phone" src={image} alt="" />
       <h1>Turn Your Device</h1>
       <p>Webiste is only available in Landscape mode</p>
     </div>
