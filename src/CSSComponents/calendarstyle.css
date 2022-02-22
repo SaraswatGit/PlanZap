@@ -16,11 +16,12 @@
 }
 .bottompart {
   height: 9vh;
-  width: 85vw;
+  width: 84.5vw;
   background-color: darkgoldenrod;
   color: white;
   display: flex;
-  justify-content: center;
+  padding-right: 20px;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   margin-top: 91vh;
@@ -90,10 +91,9 @@
   color: black;
   width: 15vw;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-left: 1vw;
-  margin-right: 2vw;
+  justify-content: center;
+  text-align: center;
   height: 7vh;
   font-weight: bolder;
   font-size: 2.3vh;
@@ -103,7 +103,6 @@
   align-items: center;
   justify-content: center;
   margin-left: 3vw;
-  width: 20vw;
   font-size: 2vh;
   cursor: pointer;
 }
@@ -115,7 +114,7 @@
   );
   height: 3vh;
   width: 3vh;
-  margin-right: 1.5vw;
+  margin-right: 0.5vw;
 }
 .yellowbox {
   background-image: linear-gradient(
@@ -125,7 +124,7 @@
   );
   height: 3vh;
   width: 3vh;
-  margin-right: 1.5vw;
+  margin-right: 0.5vw;
 }
 .violetbox {
   background-image: linear-gradient(
@@ -135,7 +134,7 @@
   );
   height: 3vh;
   width: 3vh;
-  margin-right: 1.5vw;
+  margin-right: 0.5vw;
 }
 .newtaskbutton:hover {
   background-color: aqua;
@@ -143,13 +142,25 @@
   cursor: pointer;
 }
 
+.New-Task{
+  position: absolute;
+  width: 45vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+}
+
+.cross-div{
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 5px;
+  padding-right: 5px;
+}
+
 .crossbutton {
   width: 5.05vh;
   height: 5vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 42.5vw;
   font-size: 2vh;
 }
 .crossbutton:hover {
@@ -217,8 +228,16 @@
   color: black;
 }
 
+.Sort-Tasks{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+}
+
 .select-option {
-  width: 11vw;
+  width: auto;
   height: 5vh;
   font-size: 2.2vh;
   margin-top: 2vh;
@@ -239,7 +258,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .task-elem {
@@ -250,28 +269,35 @@
   font-size: 2.5vh;
   text-align: center;
 }
-.task-elem-heading:nth-of-type(1) {
-  width: 25%;
-}
-.task-elem-heading:nth-of-type(2) {
-  width: 20%;
-}
-.task-elem-heading:nth-of-type(3) {
-  width: 30%;
-}
-.task-elem-heading:nth-of-type(4) {
-  width: 25%;
+
+@media screen and (max-width: 1000px){
+  .Sort-Tasks{
+    width: 55vw;
+  }
+  .New-Task{
+    width :55vw;
+  }
 }
 
-.task-elem:nth-of-type(1) {
-  width: 25%;
+@media screen and (max-width: 800px){
+  .Sort-Tasks{
+    width: 65vw;
+  }
+  .New-Task{
+    width : 65vw;
+  }
 }
-.task-elem:nth-of-type(2) {
-  width: 20%;
-}
-.task-elem:nth-of-type(3) {
-  width: 30%;
-}
-.task-elem:nth-of-type(4) {
-  width: 25%;
+
+@media screen and (max-width: 700px){
+  .newtaskbutton{
+    font-size: 2vh;
+    margin-left: 1vw;
+    margin-right: 2vw;
+  }
+  .Sort-Tasks{
+    width: 69vw;
+  }
+  .New-Task{
+    width : 69vw;
+  }
 }

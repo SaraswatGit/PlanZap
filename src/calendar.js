@@ -424,6 +424,7 @@ const Calender = (props) => {
       </div>
 
       <Modal
+        className= 'Sort-Tasks'
         isOpen={isSortPopup}
         onRequestClose={toggleTaskSort}
         contentLabel="Sort Task"
@@ -432,9 +433,7 @@ const Calender = (props) => {
             backgroundColor: "rgba(255, 255, 255, 0.75)",
           },
           content: {
-            width: "40vw",
             height: "70vh",
-            margin: "auto",
             padding: "0",
             borderRadius: "10px",
             backgroundImage:
@@ -482,6 +481,7 @@ const Calender = (props) => {
       </Modal>
 
       <Modal
+        className= 'New-Task'
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="My dialog"
@@ -490,9 +490,7 @@ const Calender = (props) => {
             backgroundColor: "rgba(255, 255, 255, 0.75)",
           },
           content: {
-            width: "45vw",
             height: "43vh",
-            margin: "auto",
             padding: "0",
             borderRadius: "10px",
             backgroundImage:
@@ -506,7 +504,7 @@ const Calender = (props) => {
         centered
       >
         <div>
-          <div>
+          <div className="cross-div">
             <span className="crossbutton" onClick={toggleModal}>
               <CloseIcon />
             </span>
