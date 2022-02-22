@@ -59,10 +59,16 @@ button:hover{	opacity:0.7;}
 
     
 }
-.heading
+.heading-login
 {
-    width: 24vw;
-    height: 4vh;
+    width: auto;
+    height: auto;
+    font-size: 3.9vh;
+    text-align: center;
+}
+.heading-register{
+    width: auto;
+    height: auto;
     font-size: 3.9vh;
     text-align: center;
 }
