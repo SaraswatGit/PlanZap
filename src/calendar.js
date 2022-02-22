@@ -157,7 +157,7 @@ const Calender = (props) => {
       settasklist(response.data);
     });
     setLoading(false);
-  }, []);
+  }, [userid]);
 
   const addtask = () => {
     Axios.post("https://planzap.herokuapp.com/addtask", {
