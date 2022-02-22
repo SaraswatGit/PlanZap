@@ -29,6 +29,8 @@ const Ideas = () => {
 
   const [isPopup, setPopup] = useState(false);
 
+  console.log(setuserid); //This is for removing warning only
+
   function toggleModal() {
     setIsOpen(!isOpen);
   }
@@ -59,7 +61,7 @@ const Ideas = () => {
       setidealist(response.data);
     });
     setLoading(false);
-  }, []);
+  }, [userid]);
 
   const update = () => {
     Axios.put("https://planzap.herokuapp.com/updateideadesc", {
