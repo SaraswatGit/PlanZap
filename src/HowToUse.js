@@ -8,7 +8,7 @@ import stask3 from './images/stask3.png';
 import dtask4 from './images/dtask4.png';
 import movie1 from './images/movie1.png';
 import movie2 from './images/movie2.png';
-import movie3 from './images/movie3.png';
+// import movie3 from './images/movie3.png';
 import movie4 from './images/movie4.png';
 import movie5 from './images/movie5.png';
 import movie6 from './images/movie6.png';
