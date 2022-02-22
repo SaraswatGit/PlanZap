@@ -76,6 +76,7 @@ const Movies = () => {
     });
   };
 
+  console.log(setuserid); //This is for removing warning only
   useEffect(() => {
     setLoading(true);
     Axios.post("https://planzap.herokuapp.com/getdata", {
@@ -84,7 +85,7 @@ const Movies = () => {
       setmovielist(response.data);
     });
     setLoading(false);
-  }, []);
+  }, [userid]);
 
   const deletemovie = (id) => {
     Axios.delete(`https://planzap.herokuapp.com/deletemovie/${id}`).then(
