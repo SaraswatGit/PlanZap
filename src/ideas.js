@@ -8,6 +8,8 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CloseIcon from "@mui/icons-material/Close";
 import "./CSSComponents/delete.css";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { style } from "@mui/system";
+import Idea from "./idea";
 
 Modal.setAppElement("#root");
 
@@ -113,79 +115,6 @@ const Ideas = () => {
   return (
     <div className="ideaspage">
       <Modal
-        isOpen={isOpen2}
-        onRequestClose={toggleModal2}
-        contentLabel="My dialog"
-        style={{
-          overlay: {
-            backgroundColor: "rgba(255, 255, 255, 0.75)",
-          },
-          content: {
-            width: "41vw",
-            height: "50vh",
-            margin: "auto",
-            padding: "0",
-            borderRadius: "10px",
-            overflowX: "hidden",
-            display: "flex",
-            flexDirection: "column",
-            backgroundImage: "linear-gradient(to top left,grey, teal)",
-          },
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            marginLeft: "38.3vw",
-            marginTop: "0.2vh",
-          }}
-        >
-          <CloseIcon onClick={toggleModal2} />
-        </div>
-        <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
-          <label for="mname">Heading</label>
-          <br />
-          <input
-            type="text"
-            id="mname"
-            maxLength="40"
-            name="idea"
-            className="fields"
-            defaultValue={tempidea}
-            onChange={(event) => {
-              setnewidea(event.target.value);
-            }}
-          />
-          <br />
-          <br />
-          <label for="mdesc">Description</label>
-          <br />
-          <textarea
-            style={{
-              resize: "vertical",
-            }}
-            id="mdesc"
-            name="description"
-            rows="5"
-            cols="40"
-            className="fields"
-            defaultValue={tempideadesc}
-            onChange={(event) => {
-              setnewdesc(event.target.value);
-            }}
-          ></textarea>
-          <input
-            type="submit"
-            value="Submit"
-            className="subm2"
-            onClick={() => {
-              update();
-              toggleModal2();
-            }}
-          />
-        </div>
-      </Modal>
-      <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="My dialog"
@@ -257,101 +186,23 @@ const Ideas = () => {
         </div>
       </Modal>
 
-      <div>
-        {idea_list.map((val, key) => {
-          return (
-            <div className="ideabox">
-              <div className="ideaboxtop">
-                {val.idea_name} &nbsp;{" "}
-                <div
-                  style={{
-                    position: "absolute",
-                    marginLeft: "77vw",
-                    fontSize: "1.5vh",
-                  }}
-                >
-                  <EditIcon
-                    onClick={() => {
-                      settempidea(val.idea_name);
-                      settempdesc(val.idea_desc);
-                      setnewidea(val.idea_name);
-                      setnewdesc(val.idea_desc);
-                      settempid(val.ideaid);
-                      toggleModal2();
-                    }}
-                  />
-                  &nbsp;{" "}
-                  <CloseIcon
-                    onClick={() => {
-                      setPopup(true);
-                    }}
-                  />{" "}
-                </div>
-              </div>
+      {idea_list.map((val, key) => {
+        return (
+          <Idea
+            idea_list={val}
+            deletenote={deletenote}
+            update={update}
+            settempid={settempid}
+            setnewdesc={setnewdesc}
+            setnewidea={setnewidea}
+            settempdesc={settempdesc}
+            tempidea={tempidea}
+            tempideadesc={tempideadesc}
+            settempidea={settempidea}
+          />
+        );
+      })}
 
-              <div className="ideaboxbottom">
-                {val.idea_desc.split("\n").map((text) => (
-                  <div>
-                    {text}
-                    <br />
-                  </div>
-                ))}
-              </div>
-
-              <Modal
-                isOpen={isPopup}
-                onRequestClose={() => {
-                  setPopup(false);
-                }}
-                style={{
-                  overlay: {
-                    backgroundColor: "rgba(0, 0, 0, 0.75)",
-                  },
-                  content: {
-                    width: "35vw",
-                    height: "50vh",
-                    margin: "auto",
-                    padding: "1%",
-                    borderRadius: "7px",
-                    backgroundColor: "white",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "space-around",
-                  },
-                }}
-                centered
-              >
-                <CancelIcon className="cross" />
-                <h2 className="delete-message">
-                  Do you want to delete the idea?
-                </h2>
-                <div className="delete-btns">
-                  <button
-                    onClick={() => {
-                      deletenote(val.ideaid);
-                      setPopup(false);
-                    }}
-                    className="popupBtn confirm-btn"
-                    style={{ backgroundColor: "red" }}
-                  >
-                    confirm
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      setPopup(false);
-                    }}
-                    className="popupBtn cancel-btn"
-                  >
-                    cancel
-                  </button>
-                </div>
-              </Modal>
-            </div>
-          );
-        })}
-      </div>
       <div
         className="newideabutton"
         onClick={toggleModal}
