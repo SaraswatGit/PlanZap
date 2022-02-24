@@ -219,11 +219,11 @@ const Login = () => {
                     placeholder="Password"
                     onChange={(event) => {
                       setPassword(event.target.value);
-                      setPasssword(event.target.value);
+                      
                     }}
                   />
                    
-                   <PasswordStrengthMeter passM={passM} />
+                   
                    
                    <br />
                   <br />
@@ -237,10 +237,10 @@ const Login = () => {
                     placeholder="Confirm Password"
                     onChange={(event) => {
                       setConfirmPassword(event.target.value);
-                      
+                      setPasssword(event.target.value);
                     }}
                   />
-                    
+                    <PasswordStrengthMeter passM={passM} />
                   <br />
                   <br />
                   <br />
