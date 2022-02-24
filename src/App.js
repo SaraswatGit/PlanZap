@@ -25,6 +25,7 @@ import ConfettiCeleb from "./ConfettiCeleb";
 import MaintenanceImg from "./CSSComponents/maintenance.svg";
 import HowToUse from './HowToUse'
 
+
 Modal.setAppElement("#root");
 
 function App() {
