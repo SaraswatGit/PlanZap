@@ -5,6 +5,9 @@ import { usercontext } from "./Context/usercontext";
 import ReactModal from "react-modal";
 
 
+import PasswordStrengthMeter from  './PasswordStrengthMeter' ;
+
+
 const Login = () => {
   const { notloggedin, setloginstatus, userid, setuserid } = useContext(usercontext);
   const [useremail, setuseremail] = useState("");
@@ -14,7 +17,8 @@ const Login = () => {
   const [pass, setpass] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
   const [registerMessage, setRegisterMessage] = useState("");
-
+  const [ passM, setPasssword ] = useState(''); 
+  const [ passLogin, setLoginPasssword ] = useState(''); 
   const registeruser = (e) => {
     //console.log(useremail+password);    
     console.log(userid); //This is for removing warning only
@@ -119,8 +123,12 @@ const Login = () => {
                 placeholder="Password"
                 onChange={(event) => {
                   setpass(event.target.value);
+                  // setPasssword(event.target.value);
+                 
                 }}
               />
+                {/* <PasswordStrengthMeter passM={passM} /> */}
+                {/* Write PasswordMeter Code Here  */}
               <br />
               <br />
               <button onClick={loginuser}>
@@ -198,10 +206,13 @@ const Login = () => {
                     placeholder="Password"
                     onChange={(event) => {
                       setPassword(event.target.value);
+                      
                     }}
                   />
-
-                  <br />
+                   
+                   
+                   
+                   <br />
                   <br />
 
                   <input
@@ -213,9 +224,10 @@ const Login = () => {
                     placeholder="Confirm Password"
                     onChange={(event) => {
                       setConfirmPassword(event.target.value);
+                      setPasssword(event.target.value);
                     }}
                   />
-
+                    <PasswordStrengthMeter passM={passM} />
                   <br />
                   <br />
                   <br />
