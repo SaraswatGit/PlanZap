@@ -50,7 +50,7 @@ const Diary = () => {
   
   }, [])*/
   const update = (e) => {
-    e.preventDefault();
+  
     Axios.put("https://planzap.herokuapp.com/updatediary", {
       userid: userid,
       data_entry: newdesc,
@@ -60,7 +60,7 @@ const Diary = () => {
     });
   };
   const add = (e) => {
-    e.preventDefault();
+  
     Axios.post("https://planzap.herokuapp.com/insertdiary", {
       userid: userid,
       data_entry: desc,
@@ -138,7 +138,7 @@ const Diary = () => {
           <CloseIcon onClick={toggleModal} />
         </div>
         <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
-          <label for="mdesc" style={{ fontSize: "2.5vh" }}>
+          <label  style={{ fontSize: "2.5vh" }}>
             {format(new Date(date), "PPPP")}
           </label>
           <br />
