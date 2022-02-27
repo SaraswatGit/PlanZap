@@ -100,6 +100,7 @@ const Login = () => {
 
             <br />
             <div>
+	      <form autocomplete="on">
               <input
                 type="email"
                 id="emailid"
@@ -127,6 +128,7 @@ const Login = () => {
                  
                 }}
               />
+	      </form>
                 {/* <PasswordStrengthMeter passM={passM} /> */}
                 {/* Write PasswordMeter Code Here  */}
               <br />
