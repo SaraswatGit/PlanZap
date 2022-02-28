@@ -1,6 +1,6 @@
 <br/>
 <p align=center>
-    <h1 align="center"> 📓 PlanZap - Under Maintainence - Project Restructuring 📓 </h1>
+    <h1 align="center"> 📓 PlanZap 📓 </h1>
     <img align="center" src="https://i.postimg.cc/XJSmSqZV/planzap-2.png" alt="PlanZap logo" width="100%"/>
     <br/>
     <h3 align="center">
