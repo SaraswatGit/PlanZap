@@ -1,0 +1,33 @@
+.frame{
+    padding-left: 15vw;
+    width: 80vw;    
+}
+.head-txt{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.sub-frame>h3{
+    text-align: center;
+}
+.step-number{
+    font-weight: bold;
+    text-decoration: underline;
+    margin-right: 1rem;
+}
+.sub-frame>div{
+    display: flex;   
+    align-items: center;
+}
+.steps{
+    width: 25%;
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+}
+.steps>img{
+    width:80%;
+}
+.right-arrow{
+    width:5vh;
+    height: 5vh;
+}
