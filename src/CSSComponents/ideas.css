@@ -28,6 +28,7 @@
 height: auto;
 display: flex;
 flex-direction: column;
+align-items: center;
 width: 82vw;
 margin-bottom: 2.5vh;
 margin-top: 2vh;
@@ -46,7 +47,9 @@ margin-right: 2vh;
     color: white;
     font-weight: bold;
     display: flex;
+    flex-direction: row;
    align-items: center;
+   justify-content: space-between;
 
 }
 .ideaboxbottom
@@ -84,4 +87,55 @@ margin-right: 2vh;
 .newideabutton:hover
 {
     background-color:rgb(126, 123, 123);
+}
+
+.editableIdeaName{
+  
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+
+    
+        height: 4vh;
+        width: 60%;
+        padding: 0.5vh;
+        font-size: 3vh;
+        text-align: left;
+        background-color: teal;
+       
+        color: white;
+        font-weight: bold;
+        display: flex;
+       align-items: center;
+    
+    
+}
+
+.ideabtn{
+    padding: 10px;
+    height: 30px;
+    width: 80px;
+}
+
+.ideainput{
+
+    
+    padding: 6px;
+    height: 20px;
+    width: 360px;
+    border: 1px solid teal;
+    margin-bottom: 3px;
+   
+
+}
+.savebtn{
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   margin-left: 10px;
 }

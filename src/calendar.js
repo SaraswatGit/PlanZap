@@ -4,13 +4,10 @@ import CloseIcon from "@mui/icons-material/Close";
 import Modal from "react-modal";
 import Axios from "axios";
 import { usercontext } from "./Context/usercontext";
-import EditIcon from "@mui/icons-material/Edit";
-import { dividerClasses } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import "./CSSComponents/delete.css";
 import CancelIcon from "@mui/icons-material/Cancel";
-import DoneAllIcon from "@mui/icons-material/DoneAll";
 const { format } = require("date-fns");
 
 Modal.setAppElement("#root");
@@ -46,6 +43,9 @@ const Calender = (props) => {
 
       case "Lowest priority":
         return 1;
+
+      default :
+        break;
     }
   }
 
@@ -58,6 +58,8 @@ const Calender = (props) => {
   const [isLoading, setLoading] = useState(true);
   const [isSortPopup, setSortPopup] = useState(false);
   const today = new Date().toISOString().split("T")[0];
+
+  console.log(setuserid); //This is for removing warning only
 
   const [tasklist, settasklist] = useState([]);
 
@@ -155,7 +157,7 @@ const Calender = (props) => {
       settasklist(response.data);
     });
     setLoading(false);
-  }, []);
+  }, [userid]);
 
   const addtask = () => {
     Axios.post("https://planzap.herokuapp.com/addtask", {
@@ -424,6 +426,7 @@ const Calender = (props) => {
       </div>
 
       <Modal
+        className= 'Sort-Tasks'
         isOpen={isSortPopup}
         onRequestClose={toggleTaskSort}
         contentLabel="Sort Task"
@@ -432,9 +435,7 @@ const Calender = (props) => {
             backgroundColor: "rgba(255, 255, 255, 0.75)",
           },
           content: {
-            width: "40vw",
             height: "70vh",
-            margin: "auto",
             padding: "0",
             borderRadius: "10px",
             backgroundImage:
@@ -482,6 +483,7 @@ const Calender = (props) => {
       </Modal>
 
       <Modal
+        className= 'New-Task'
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="My dialog"
@@ -490,9 +492,7 @@ const Calender = (props) => {
             backgroundColor: "rgba(255, 255, 255, 0.75)",
           },
           content: {
-            width: "45vw",
             height: "43vh",
-            margin: "auto",
             padding: "0",
             borderRadius: "10px",
             backgroundImage:
@@ -506,7 +506,7 @@ const Calender = (props) => {
         centered
       >
         <div>
-          <div>
+          <div className="cross-div">
             <span className="crossbutton" onClick={toggleModal}>
               <CloseIcon />
             </span>

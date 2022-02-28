@@ -1,13 +1,12 @@
 import Axios from "axios";
 import React, { useState, useContext } from "react";
 import "./CSSComponents/loginpage.css";
-import { Route } from "react-router-dom";
 import { usercontext } from "./Context/usercontext";
 import ReactModal from "react-modal";
 
-import Calender from "./calendar";
-import { color } from "@mui/system";
-import { visibleDays } from "react-big-calendar/lib/utils/dates";
+
+import PasswordStrengthMeter from  './PasswordStrengthMeter' ;
+
 
 const Login = () => {
   const { notloggedin, setloginstatus, userid, setuserid } = useContext(usercontext);
@@ -18,9 +17,12 @@ const Login = () => {
   const [pass, setpass] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
   const [registerMessage, setRegisterMessage] = useState("");
-
+  const [ passM, setPasssword ] = useState(''); 
+  const [ passLogin, setLoginPasssword ] = useState(''); 
   const registeruser = (e) => {
-    //console.log(useremail+password);
+    //console.log(useremail+password);    
+    console.log(userid); //This is for removing warning only
+    console.log(notloggedin); //This is for removing warning only
 
     e.preventDefault(); // added this line so that the default submission of form (which caused refreshing of the page)can be prevented and we get submit using post method.
     if (password === confirmPassword) {
@@ -54,39 +56,30 @@ const Login = () => {
 
   return (
     <div className="loginpage">
-      <div
-        style={{
-          position: "Absolute",
-          marginTop: "5vh",
-          fontSize: "15vh",
+      <div className="logo-div">   
+        <h2 style={{
           fontFamily: "Pacificio",
           fontWeight: "bolder",
           color: "rgb(255, 183, 1)",
-          textAlign: "right",
-          width: "100vw",
-        }}
-      >
-        PlanZap &nbsp;{" "}
-      </div>
+          marginBottom: "0px",
+        }}> PlanZap</h2>
 
-      <div
-        style={{
-          position: "Absolute",
-          marginTop: "21.7vh",
+        <p style={{
           fontSize: "3vh",
           fontFamily: "cursive",
-          width: "100vw",
-          textAlign: "right",
+          textAlign: "center",
           color: "black",
-        }}
-      >
-        One Place for your notes, goals, movies, personal diary and more !
-        &nbsp; &nbsp; &nbsp;
+          marginTop: "0px",
+          padding: "20px"
+        }}>
+        One Place for your notes, goals, movies, personal diary and more!
+        </p>
+        <img
+        class = "logo-img"
+        src="https://image.freepik.com/free-vector/flat-creativity-concept-illustration_52683-64279.jpg" alt = ""
+        />
       </div>
-      <img
-        style={{ position: "fixed", bottom: 0, right: "5vw", width: "30vw" }}
-        src="https://image.freepik.com/free-vector/flat-creativity-concept-illustration_52683-64279.jpg"
-      />
+	  
       <div className="loginbox">
         <div className="loginform">
           <center>
@@ -94,7 +87,7 @@ const Login = () => {
             <br />
             <br />
             <div
-              className="heading"
+              className="heading-login"
               style={{
                 fontSize: "5vh",
                 fontWeight: "400",
@@ -107,6 +100,7 @@ const Login = () => {
 
             <br />
             <div>
+	      <form autocomplete="on">
               <input
                 type="email"
                 id="emailid"
@@ -130,8 +124,13 @@ const Login = () => {
                 placeholder="Password"
                 onChange={(event) => {
                   setpass(event.target.value);
+                  // setPasssword(event.target.value);
+                 
                 }}
               />
+	      </form>
+                {/* <PasswordStrengthMeter passM={passM} /> */}
+                {/* Write PasswordMeter Code Here  */}
               <br />
               <br />
               <button onClick={loginuser}>
@@ -149,6 +148,7 @@ const Login = () => {
           </center>
 
           <ReactModal
+			      className= "reg-modal"
             isOpen={modalIsOpen}
             onRequestClose={() => setModalisOpen(false)}
             style={{
@@ -158,14 +158,11 @@ const Login = () => {
 
               content: {
                 position: "absolute",
-                width: "44vw",
                 height: "90vh",
                 borderRadius: "20px 20px 20px 20px",
                 overflow: "visible",
                 outline: "none",
                 padding: "0px",
-                left: "25vw",
-                top: "5vh",
               },
             }}
           >
@@ -173,7 +170,7 @@ const Login = () => {
               <center>
                 <br />
                 <div
-                  className="heading"
+                  className="heading-register"
                   style={{
                     fontSize: "5vh",
                     fontWeight: "400",
@@ -211,10 +208,13 @@ const Login = () => {
                     placeholder="Password"
                     onChange={(event) => {
                       setPassword(event.target.value);
+                      
                     }}
                   />
-
-                  <br />
+                   
+                   
+                   
+                   <br />
                   <br />
 
                   <input
@@ -226,9 +226,10 @@ const Login = () => {
                     placeholder="Confirm Password"
                     onChange={(event) => {
                       setConfirmPassword(event.target.value);
+                      setPasssword(event.target.value);
                     }}
                   />
-
+                    <PasswordStrengthMeter passM={passM} />
                   <br />
                   <br />
                   <br />

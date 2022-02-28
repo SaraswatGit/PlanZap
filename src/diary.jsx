@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./CSSComponents/diary.css";
 import { usercontext } from "./Context/usercontext";
 import Modal from "react-modal";
 import CloseIcon from "@mui/icons-material/Close";
 import Axios from "axios";
-import DeleteIcon from "@mui/icons-material/Delete";
 
 const { format } = require("date-fns");
 
@@ -21,6 +20,9 @@ const Diary = () => {
   const today = new Date().toISOString().split('T')[0];
 
   const [id, setid] = useState(0);
+  
+  console.log(setuserid); //This is for removing warning only
+  console.log(id); //This is for removing warning only
 
   const toggleModal = () => {
     Axios.post("https://planzap.herokuapp.com/getentry", {
@@ -48,7 +50,7 @@ const Diary = () => {
   
   }, [])*/
   const update = (e) => {
-    e.preventDefault();
+  
     Axios.put("https://planzap.herokuapp.com/updatediary", {
       userid: userid,
       data_entry: newdesc,
@@ -58,7 +60,7 @@ const Diary = () => {
     });
   };
   const add = (e) => {
-    e.preventDefault();
+  
     Axios.post("https://planzap.herokuapp.com/insertdiary", {
       userid: userid,
       data_entry: desc,
@@ -136,7 +138,7 @@ const Diary = () => {
           <CloseIcon onClick={toggleModal} />
         </div>
         <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
-          <label for="mdesc" style={{ fontSize: "2.5vh" }}>
+          <label  style={{ fontSize: "2.5vh" }}>
             {format(new Date(date), "PPPP")}
           </label>
           <br />
@@ -179,7 +181,7 @@ const Diary = () => {
           max={today}
           style={{
             height: "3vh",
-            width: "10vw",
+            width: "auto",
             fontSize: "2vh",
             marginTop: "2vh",
           }}
@@ -193,8 +195,8 @@ const Diary = () => {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <button
           style={{
-            height: "5vh",
-            width: "10vw",
+            height: "auto",
+            width: "auto",
             background: `linear-gradient(to top left,teal, grey)`,
             fontWeight: "bold",
             fontSize: "2vh",
@@ -206,8 +208,8 @@ const Diary = () => {
         &nbsp;
         <button
           style={{
-            height: "5vh",
-            width: "10vw",
+            height: "auto",
+            width: "auto",
             background: `linear-gradient(to top left,teal, grey)`,
             fontWeight: "bold",
             fontSize: "2vh",

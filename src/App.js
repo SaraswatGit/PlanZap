@@ -2,10 +2,9 @@ import "./CSSComponents/App.css";
 import React, { useState, useEffect } from "react";
 import Login from "./loginpage";
 import Profile from "./profpage";
-import { Routes, Route, Link, DefaultRoute, Navigate } from "react-router-dom";
+import { Routes, Route, Link} from "react-router-dom";
 //import { useHistory } from "react-router-dom";
 import Calender from "./calendar";
-import Pgraphs from "./pgraphs";
 import Loader from "./LoadingScreen";
 import Movies from "./movies";
 import Ideas from "./ideas";
@@ -42,6 +41,18 @@ function App() {
   const [logoutstatus, setlogout] = useState(false);
   //const history=useHistory();
   const [isOpen, setIsOpen] = useState(false);
+  const [isHowToUseModal, setIsHowToUseModal] = useState(false);
+
+  function checkHowToUseModal() {
+    if (!localStorage.getItem("isVisited")) {
+      localStorage.setItem("isVisited", "yes");
+      setIsHowToUseModal(true);
+    }
+  }
+
+  useEffect(() => {
+    checkHowToUseModal();
+  }, [isHowToUseModal]);
 
   function toggleModal() {
     setIsOpen(!isOpen);
@@ -157,7 +168,7 @@ function App() {
                 },
                 content: {
                   width: "30vw",
-                  height: "19vh",
+                  height: "max-content",
                   margin: "auto",
                   padding: "0",
                   borderRadius: "10px",
@@ -170,9 +181,8 @@ function App() {
                 },
               }}
             >
-              <div>
+              <div className="quote-div">
                 <label for="quote">New Quote</label>
-                <br />
                 <textarea
                   id="quote"
                   name="userquote"
@@ -186,6 +196,7 @@ function App() {
                 ></textarea>
                 <br />
                 <button
+                  className="quote-btn"
                   onClick={() => {
                     updateuserquote();
                     toggleModal();
@@ -277,22 +288,6 @@ function App() {
                     Ideas and Notes <br />
                   </NavLink>
                   <NavLink
-                    to="/howtouse"
-                    className={({ isActive }) =>
-                      `link ${
-                        isActive
-                          ? "selected"
-                          : // Couldn't do this before!
-                            "barelement"
-                      }`
-                    }
-                  >
-                    <ListAltIcon
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                    How To Use <br />
-                  </NavLink>
-                  <NavLink
                     to="/bookstoread"
                     className={({ isActive }) =>
                       `link ${
@@ -308,6 +303,22 @@ function App() {
                     />{" "}
                     Books to Read <br />
                   </NavLink>
+                  <NavLink
+                    to="/howtouse"
+                    className={({ isActive }) =>
+                      `link ${
+                        isActive
+                          ? "selected"
+                          : // Couldn't do this before!
+                            "barelement"
+                      }`
+                    }
+                  >
+                    <ListAltIcon
+                      style={{ height: "2.8vh", marginRight: "1vw" }}
+                    />{" "}
+                    How To Use <br />
+                  </NavLink>
                   <div
                     className="logout"
                     onClick={logout}
@@ -320,6 +331,46 @@ function App() {
                   </div>
                 </div>
                 <div>
+                  <Modal
+                    isOpen={isHowToUseModal}
+                    onRequestClose={() => {
+                      setIsHowToUseModal(false);
+                    }}
+                    style={{
+                      overlay: {
+                        backgroundColor: "rgba(0, 0, 0, 0.75)",
+                      },
+                      content: {
+                        width: "25vw",
+                        height: "30vh",
+                        margin: "auto",
+                        padding: "1%",
+                        borderRadius: "7px",
+                        backgroundColor: "white",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "space-around",
+                      },
+                    }}
+                    centered
+                  >
+                    <h2>Welcome to Planzapp</h2>
+                    <h3>
+                      You are new here so, you can check how to use it properly
+                    </h3>
+
+                    <Link to="/howtouse">
+                      <button
+                        onClick={() => {
+                          setIsHowToUseModal(false);
+                        }}
+                      >
+                        How To Use
+                      </button>
+                    </Link>
+                  </Modal>
+
                   <Routes>
                     ]
                     <Route
@@ -334,11 +385,11 @@ function App() {
                     <Route path="/diary" element={<Diary />}></Route>
                     <Route path="/movieslist" element={<Movies />}></Route>
                     <Route path="/ideasnotes" element={<Ideas />}></Route>
-                    <Route path="/howtouse" element={<HowToUse />}></Route>
                     <Route
                       path="/bookstoread"
                       element={<Bookstoread />}
                     ></Route>
+                    <Route path="/howtouse" element={<HowToUse />}></Route>
                   </Routes>
                 </div>
               </div>

@@ -1,5 +1,13 @@
+.moviesback {
+  position: absolute;
+  height: 100%;
+  margin-left: 15%;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+}
 .topbar {
-  width: 85vw;
+  width: 100%;
   height: 5vh;
   background-color: burlywood;
   display: flex;
@@ -8,27 +16,18 @@
   border-bottom-style: solid;
 }
 .topbar2 {
-  width: 85vw;
+  width: 100%;
   height: 5vh;
   background-color: burlywood;
   display: flex;
-  font-size: 2vh;
+  font-size: 2.5vh;
   border-bottom: 1px;
   border-bottom-style: solid;
-}
-.moviesback {
-  height: 100%;
-  padding-left: 15vw;
-  width: 85vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .moviename {
   border-right: 1px;
-  width: 30vw;
+  width: 35%;
   border-right-style: solid;
   font-weight: bolder;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -37,9 +36,8 @@
   align-items: center;
 }
 .moviename2 {
-  padding-left: 1vw;
   border-right: 1px;
-  width: 28.8vw;
+  width: 35%;
   border-right-style: solid;
   font-weight: bolder;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -60,7 +58,7 @@
   justify-content: center;
   align-items: center;
 
-  width: 8vw;
+  width: 15%;
 }
 .movierating2 {
   border-right: 1px;
@@ -71,10 +69,10 @@
   align-items: center;
   justify-content: center;
 
-  width: 8vw;
+  width: 15%;
 }
 .moviedesc {
-  width: 65vw;
+  width: 50%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bolder;
   display: flex;
@@ -82,12 +80,11 @@
   align-items: center;
 }
 .moviedesc2 {
-  width: 63.8vw;
+  width: 50%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bolder;
   display: flex;
   align-items: center;
-  padding-left: 1vw;
 }
 .edit-icon:hover {
   color: rgb(70, 70, 70);
@@ -116,6 +113,7 @@
   border-radius: 10px;
   margin-top: 25px;
   color: aliceblue;
+  align-self: center;
 }
 .formbox {
   margin-top: 20px;
@@ -182,4 +180,11 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.rating-sort-btn {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  cursor: pointer;
 }
