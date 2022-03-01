@@ -27,8 +27,8 @@ const Movies = () => {
   const [isPopup, setPopup] = useState(false);
   const [isRatingAsc, setIsRatingAsc] = useState(null);
   const moviesListOrder = isRatingAsc
-    ? movielist.sort((a, b) => a.movie_rating < b.movie_rating ? 1 : -1)
-    : movielist.sort((a, b) => a.movie_rating > b.movie_rating ? 1 : -1);
+    ? movielist.sort((a, b) => (a.movie_rating < b.movie_rating ? 1 : -1))
+    : movielist.sort((a, b) => (a.movie_rating > b.movie_rating ? 1 : -1));
 
   function toggleModal() {
     setIsOpen(!isOpen);
@@ -61,7 +61,11 @@ const Movies = () => {
   };
 
   const addmovie = () => {
-    Axios.post("https://planzap.herokuapp.com/create", {
+    if (!movie_desc || !movie_name || !movie_rating) {
+      alert("Enter all the fields");
+      return;
+    }
+    const data = Axios.post("https://planzap.herokuapp.com/create", {
       movie_name: movie_name,
       movie_rating: movie_rating,
       movie_desc: movie_desc,
@@ -74,6 +78,11 @@ const Movies = () => {
       });
       console.log("success");
     });
+    if (data) {
+      setmoviedesc("");
+      setmoviename("");
+      setmovierating("");
+    }
   };
 
   console.log(setuserid); //This is for removing warning only
@@ -319,6 +328,7 @@ const Movies = () => {
             maxLength="40"
             name="moviename"
             className="donkey"
+            value={movie_name}
             placeholder="Eg: Mission Impossible : Rogue Nation "
             onChange={(event) => {
               setmoviename(event.target.value);
@@ -336,6 +346,7 @@ const Movies = () => {
             maxLength="3"
             name="movierating"
             className="donkey"
+            value={movie_rating}
             placeholder="Eg: 8.4"
             onChange={(event) => {
               setmovierating(event.target.value);
@@ -354,6 +365,7 @@ const Movies = () => {
             cols="40"
             maxLength="73"
             className="donkey"
+            value={movie_desc}
             placeholder="Eg:Oscar Nominated, Action,Directed By : Michael Scott , Based on Iraq Wars"
             onChange={(event) => {
               setmoviedesc(event.target.value);
@@ -374,3 +386,4 @@ const Movies = () => {
 };
 
 export default Movies;
+
