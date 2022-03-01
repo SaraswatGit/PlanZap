@@ -173,7 +173,9 @@ git push -u origin <your_branch_name>
 
 **13.** Add appropriate title and description to your pull request explaining your changes and efforts done.
 
-**14.** Click on `Create Pull Request`.
+**14.** Add a screenshot or screen-recording when submitting a PR.
+
+**15.** Click on `Create Pull Request`.
 
 ## 🌟 How to resolve merge conflicts
 
@@ -204,6 +206,9 @@ This project is a part of these Open Source Programs
 <tr>
  <td>
 <a href="https://jwoc.tech"><img src="https://jwoc.tech/assets/img/opengraph.png" width=100px height=100px /></a>
+ </td>
+ <td>
+<a href="https://gssoc.girlscript.tech/"><img src="https://github.com/girlscript/GirlScript-Summer-of-Code/blob/master/images/favicon/favicon.png" width=100px height=100px /></a>
  </td>
 </tr>
 </table>
