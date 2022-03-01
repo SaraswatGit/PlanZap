@@ -31,6 +31,18 @@ const Login = () => {
         password: password,
       }).then((response) => {
         setRegisterMessage(response.data.message);
+
+        Axios.post("https://planzap.herokuapp.com/userlogin", {
+          useremail: useremail,
+          password: password,
+        }).then((response) => {
+          if (response.data.message) {
+            setLoginMessage(response.data.message);
+          } else {
+            setuserid(response.data[0].userid);    
+            setloginstatus(false);
+          }
+        });
       });
     } else {
       setRegisterMessage("Please make sure your passwords match.");
