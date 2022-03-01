@@ -1,6 +1,5 @@
 const express = require("express");
-const db = require("../db");
-
+const db = require("../index.js");
 const movieRouter = express.Router();
 
 movieRouter.post(
