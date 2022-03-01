@@ -25,8 +25,6 @@ import MaintenanceImg from "./CSSComponents/maintenance.svg";
 import HowToUse from "./HowToUse";
 import Bookstoread from "./booksToRead";
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
-//Importing bootstrap
-import "bootstrap/dist/css/bootstrap.css";
 
 Modal.setAppElement("#root");
 
