@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './howtouse.css';
 import task1 from './images/task1.png';
 import task2 from './images/task2.png';
@@ -23,523 +24,531 @@ import note3 from './images/note3.png';
 import note4 from './images/note4.png';
 import note5 from './images/note5.png';
 import rarrow from './images/right-arrow.png';
+import loadingImg from './images/spinner.gif';
 
-function HowToUse()
-{
+function HowToUse() {
 
-    return(
-        <div className="frame">
-          <h1 className='head-txt'>How to use PlanZap</h1>
+  const [loading, setLoading] = useState(true);
 
-          {/* Add Task */}
-          <div className='sub-frame'>
-            <h3>How to add task?</h3>
 
-            <div>
+  setTimeout(() => {
+    setLoading(false);
+  }, 1000);
 
-              <div className='steps'>
-              <img src={task1} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to add task and progress
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
 
-              <div className='steps'>
-              <img src={task2} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the Add new Task button 
-                </p>
-              </div>
+  return (
+    <div className="frame">
+      <h1 className='head-txt'>How to use PlanZap</h1>
 
-              <img className='right-arrow' src={rarrow} alt="" />
+      {/* Add Task */}
+      <div className='sub-frame'>
+        <h3>How to add task?</h3>
 
-              <div className='steps'>
-              <img src={task3} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Fill the pop up modal 
-                </p>
-              </div>
+        <div>
 
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={task4} alt="" />
-                <p>
-                  <span className='step-number'>Step 4:</span> 
-                  Submit 
-                </p>
-              </div>
-            
-            </div>
-
+          <div className='steps'>
+            {loading ? <img src={loadingImg} alt="" /> : <img src={task1} alt=""/>}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to add task and progress
+            </p>
           </div>
 
-          {/* Sort Task */}
-          <div className='sub-frame'>
-            <h3>How to sort task?</h3>
+          <img className='right-arrow' src={rarrow} alt="" />
 
-            <div>
-
-              <div className='steps'>
-              <img src={task1} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to add task and progress
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={stask2} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the Sort task button 
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={stask3} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Choose the sorting option on the dropdown 
-                </p>
-              </div>
-            
-            </div>
-
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={task2} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the Add new Task button
+            </p>
           </div>
 
+          <img className='right-arrow' src={rarrow} alt="" />
 
-          {/* Delete Task */}
-          <div className='sub-frame'>
-            <h3>How to delete task?</h3>
-
-            <div>
-
-              <div className='steps'>
-              <img src={task1} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to add task and progress
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={task4} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the cross icon (on top right corner of exsisting task card) 
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={dtask4} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Click confirm on the popup modal
-                </p>
-              </div>
-            
-            </div>
-
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={task3} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Fill the pop up modal
+            </p>
           </div>
 
-          {/* Add Movie */}
-          <div className='sub-frame'>
-            <h3>How to add movie?</h3>
-
-            <div>
-
-              <div className='steps'>
-              <img src={movie5} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to movies to watch
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={movie1} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Fill the modal (details of the movie)
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={movie1} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Click Submit
-                </p>
-              </div>
-            
-            </div>
-
-          </div>
-
-          {/* Edit movies */}
-          <div className='sub-frame'>
-            <h3>How to edit movies to watch?</h3>
-
-            <div>
-
-              <div className='steps'>
-              <img src={movie5} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to movies to watch
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={movie2} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the edit icon
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={movie6} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Fill the pop up modal (re enter what you want to edit)
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={movie6} alt="" />
-                <p>
-                  <span className='step-number'>Step 4:</span> 
-                  Click Save
-                </p>
-              </div>
-            
-            </div>
-
-          </div>
-
-          {/* Delete Movie */}
-          <div className='sub-frame'>
-            <h3>How to delete movie from watch?</h3>
-
-            <div>
-
-              <div className='steps'>
-              <img src={movie5} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to movies to watch
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={movie2} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the delete icon (next to edit icon)
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={movie4} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Click confirm on the popup modal
-                </p>
-              </div>
-            
-            </div>
-
-          </div>
-
-          {/* Add diary */}
-          <div className='sub-frame'>
-            <h3>How to add in diary?</h3>
-
-            <div>
-
-              <div className='steps'>
-              <img src={diary4} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to personal diary
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={diary1} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the calender icon and choose the date
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={diary2} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Click add button
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={diary2} alt="" />
-                <p>
-                  <span className='step-number'>Step 4:</span> 
-                  Write what you want to add on the pop up modal and click entry
-                </p>
-              </div>
-            
-            </div>
-
-          </div>
-
-          {/* Update diary */}
-          <div className='sub-frame'>
-            <h3>How to update in diary?</h3>
-
-            <div>
-
-              <div className='steps'>
-              <img src={diary4} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to personal diary
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={diary1} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the calender icon and choose the date
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={diary3} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Click update button
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={diary3} alt="" />
-                <p>
-                  <span className='step-number'>Step 4:</span> 
-                  Write what you want to add on the pop up modal and click entry
-                </p>
-              </div>
-            
-            </div>
-
-          </div>
-
-          {/* View diary */}
-          <div className='sub-frame'>
-            <h3>How to view in diary?</h3>
-
-            <div>
-
-              <div className='steps'>
-              <img src={diary4} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to personal diary
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={diary1} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the calender icon and choose the date
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={diary5} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Click the view button
-                </p>
-              </div>
-            
-            </div>
-
-          </div>
-
-          {/* Add Notes */}
-          <div className='sub-frame'>
-            <h3>How to add notes?</h3>
-
-            <div>
-
-              <div className='steps'>
-              <img src={note5} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to idea and notes
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={note1} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the plus icon ( add notes) 
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={note3} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Write your note on the popup modal
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={note3} alt="" />
-                <p>
-                  <span className='step-number'>Step 4:</span> 
-                  Click Submit
-                </p>
-              </div>
-            
-            </div>
-
-          </div>
-
-          {/* Edit Notes */}
-          <div className='sub-frame'>
-            <h3>How to edit note?</h3>
-
-            <div>
-
-              <div className='steps'>
-              <img src={note5} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to idea and notes
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={note2} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the edit icon 
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={note3} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Write what you want to edit in the pop up modal
-                </p>
-              </div>
-            
-            </div>
-
-          </div>
-
-          {/* Delete Notes */}
-          <div className='sub-frame'>
-            <h3>How to delete note?</h3>
-
-            <div>
-
-              <div className='steps'>
-              <img src={note5} alt="" />
-                <p>
-                  <span className='step-number'>Step 1:</span>                
-                  Go to idea and notes
-                </p>              
-              </div>
-              
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={note2} alt="" />
-                <p>
-                  <span className='step-number'>Step 2:</span> 
-                  Click the cross icon 
-                </p>
-              </div>
-
-              <img className='right-arrow' src={rarrow} alt="" />
-
-              <div className='steps'>
-              <img src={note4} alt="" />
-                <p>
-                  <span className='step-number'>Step 3:</span> 
-                  Click confirm on the popup modal
-                </p>
-              </div>
-            
-            </div>
-
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={task4} alt="" />}
+            <p>
+              <span className='step-number'>Step 4:</span>
+              Submit
+            </p>
           </div>
 
         </div>
-    )
+
+      </div>
+
+      {/* Sort Task */}
+      <div className='sub-frame'>
+        <h3>How to sort task?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={task1} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to add task and progress
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={stask2} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the Sort task button
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={stask3} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Choose the sorting option on the dropdown
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      {/* Delete Task */}
+      <div className='sub-frame'>
+        <h3>How to delete task?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={task1} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to add task and progress
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={task4} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the cross icon (on top right corner of exsisting task card)
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={dtask4} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Click confirm on the popup modal
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Add Movie */}
+      <div className='sub-frame'>
+        <h3>How to add movie?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie5} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to movies to watch
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie1} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Fill the modal (details of the movie)
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie1} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Click Submit
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Edit movies */}
+      <div className='sub-frame'>
+        <h3>How to edit movies to watch?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie5} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to movies to watch
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie2} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the edit icon
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie6} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Fill the pop up modal (re enter what you want to edit)
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie6} alt="" />}
+            <p>
+              <span className='step-number'>Step 4:</span>
+              Click Save
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Delete Movie */}
+      <div className='sub-frame'>
+        <h3>How to delete movie from watch?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie5} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to movies to watch
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie2} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the delete icon (next to edit icon)
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie4} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Click confirm on the popup modal
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Add diary */}
+      <div className='sub-frame'>
+        <h3>How to add in diary?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary4} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to personal diary
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary1} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the calender icon and choose the date
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary2} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Click add button
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary2} alt="" />}
+            <p>
+              <span className='step-number'>Step 4:</span>
+              Write what you want to add on the pop up modal and click entry
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Update diary */}
+      <div className='sub-frame'>
+        <h3>How to update in diary?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary4} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to personal diary
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary1} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the calender icon and choose the date
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary3} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Click update button
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary3} alt="" />}
+            <p>
+              <span className='step-number'>Step 4:</span>
+              Write what you want to add on the pop up modal and click entry
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* View diary */}
+      <div className='sub-frame'>
+        <h3>How to view in diary?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary4} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to personal diary
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary1} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the calender icon and choose the date
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary5} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Click the view button
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Add Notes */}
+      <div className='sub-frame'>
+        <h3>How to add notes?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note5} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to idea and notes
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note1} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the plus icon ( add notes)
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note3} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Write your note on the popup modal
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note3} alt="" />}
+            <p>
+              <span className='step-number'>Step 4:</span>
+              Click Submit
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Edit Notes */}
+      <div className='sub-frame'>
+        <h3>How to edit note?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note5} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to idea and notes
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note2} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the edit icon
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note3} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Write what you want to edit in the pop up modal
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Delete Notes */}
+      <div className='sub-frame'>
+        <h3>How to delete note?</h3>
+
+        <div>
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note5} alt="" />}
+            <p>
+              <span className='step-number'>Step 1:</span>
+              Go to idea and notes
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note2} alt="" />}
+            <p>
+              <span className='step-number'>Step 2:</span>
+              Click the cross icon
+            </p>
+          </div>
+
+          <img className='right-arrow' src={rarrow} alt="" />
+
+          <div className='steps'>
+            {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note4} alt="" />}
+            <p>
+              <span className='step-number'>Step 3:</span>
+              Click confirm on the popup modal
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  )
 
 }
 
