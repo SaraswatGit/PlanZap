@@ -44,7 +44,7 @@ const Calender = (props) => {
       case "Lowest priority":
         return 1;
 
-      default :
+      default:
         break;
     }
   }
@@ -159,6 +159,18 @@ const Calender = (props) => {
     setLoading(false);
   }, [userid]);
 
+  const checktask = () => {
+    let tn = document.getElementById("taskname");
+    let d = document.getElementById("date");
+    let p = document.getElementById("priority");
+    console.log(tn.value);
+    if (tn.value != "" && d.value != "" && p.value != "") {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
+
   const addtask = () => {
     Axios.post("https://planzap.herokuapp.com/addtask", {
       taskname: taskname,
@@ -171,22 +183,28 @@ const Calender = (props) => {
       }).then((response) => {
         settasklist(response.data);
       });
-      console.log(typeof deadline);
-      console.log("success");
+      // console.log(typeof deadline);
+      // console.log("success");
+      // console.log(taskname);
     });
+
+    settask("");
+    setpriority("");
+    setdeadline("");
+
+    toggleModal();
   };
   const updateprogess = (id) => {
     Axios.put("https://planzap.herokuapp.com/updateprog", {
       id: id,
       progress: progress,
     }).then((response) => {
-       Axios.post("https://planzap.herokuapp.com/gettaskdata", {
+      Axios.post("https://planzap.herokuapp.com/gettaskdata", {
         userid: userid,
       }).then((response) => {
         settasklist(response.data);
       });
       console.log("updated");
-      
     });
   };
 
@@ -426,7 +444,7 @@ const Calender = (props) => {
       </div>
 
       <Modal
-        className= 'Sort-Tasks'
+        className="Sort-Tasks"
         isOpen={isSortPopup}
         onRequestClose={toggleTaskSort}
         contentLabel="Sort Task"
@@ -483,7 +501,7 @@ const Calender = (props) => {
       </Modal>
 
       <Modal
-        className= 'New-Task'
+        className="New-Task"
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="My dialog"
@@ -574,8 +592,9 @@ const Calender = (props) => {
               className="subbut"
               style={{ marginTop: "1.5vh", fontSize: "2vh" }}
               onClick={() => {
-                addtask();
-                toggleModal();
+                let a = checktask();
+                console.log(a);
+                a == 1 ? addtask() : alert("please fill all the fields");
               }}
             />
           </div>
