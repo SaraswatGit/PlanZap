@@ -1,0 +1,102 @@
+/* login page css */
+/*CSS for entire container*/
+
+/* left hand side */
+.logincard {
+  background-color: rgba(0, 0, 0, 0.096);
+
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 1.8rem;
+  padding: 1.4rem;
+}
+
+/* right hand side */
+.imagewrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* to give flex direction */
+.direction {
+  flex-direction: column;
+}
+/* css fro resizing image */
+.imgcss {
+  width: 24rem;
+  height: 24rem;
+}
+/* css fro input fields */
+input {
+  height: 3rem;
+  border-radius: 0.5rem;
+  border-bottom: 2px solid #ffb701;
+}
+/* css for buttons */
+.button {
+  border-radius: 0.8rem;
+  width: 80%;
+}
+.button:hover {
+  color: black;
+}
+/* css for input of regsiter form */
+.registerinput {
+  width: 80%;
+  padding: 2rem;
+  margin: 0.4rem;
+}
+
+/* css for content of register form */
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.8rem;
+}
+/* css for regsiteration status */
+.status {
+  color: black;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  background-color: #ffb701;
+  border-radius: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+/* Scroll bar incase of small strings for registration form */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+/* for aligning elements */
+.align {
+  justify-content: space-between;
+}
+
+/* wrapper for register form */
+
+.registerwrap {
+  border: 2px solid #ffb701;
+  border-radius: 1.2rem;
+}
+
+/* css for outer register content */
+
+.registerouter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  border: 2px solid #ffb701;
+}
+
+/* main wrapper of regsiter form */
+.regrow {
+  margin: 1rem;
+  margin-left: 1rem;
+}
