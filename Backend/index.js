@@ -1,7 +1,7 @@
 const express=require("express");
 const cors=require("cors");
 const app=express();
-const mysql = require("mysql");
+const db=require("./db");
 const bodyParser=require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -37,56 +37,24 @@ app.use(cors({ origin: ["http://localhost:3001","https://planzap.netlify.app","h
       },
     })
   );  
-
-
-var db_config = {
-    user: process.env.DATABASE_USERNAME,
-    host: "remotemysql.com",
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_USERNAME,
-};
-
-let db;
-
-function handleDisconnect() {
-    db = mysql.createConnection(db_config); // Recreate the connection, since
-    // the old one cannot be reused.
-
-    db.connect(function (err) {              // The server is either down
-        if (err) {                                     // or restarting (takes a while sometimes).
-            console.log('error when connecting to db:', err);
-            setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
-        }                                     // to avoid a hot loop, and to allow our node script to
-    });                                     // process asynchronous requests in the meantime.
-    // If you're also serving http, display a 503 error.
-    db.on('error', function (err) {
-        console.log('db error', err);
-        if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-            handleDisconnect();                         // lost due to either server restart, or a
-        } else {                                      // connnection idle timeout (the wait_timeout
-            handleDisconnect();
-        }
-    });
-    return db;
-}    
-
-handleDisconnect();
-
-module.exports={default: handleDisconnect()};
-
-app.post(
-    "/getquote",(req,res)=>{
-        const userid=req.body.userid;
-        db.query("SELECT * FROM user_database WHERE userid=?",[userid],(err,result)=>{
-            if(err){
-                console.log(err);
-            }
-            else
-            {  
-                res.send(result[0]);
-            }
+    
+    app.post(
+        "/getquote",(req,res)=>{
+            const userid=req.body.userid;
+            db.query("SELECT * FROM user_database WHERE userid=?",[userid],(err,result)=>{
+                if(err){
+                    console.log(err);
+                }
+                else
+                {  
+                    res.send(result[0]);
+                }
+            });
         });
-});
+
+   
+    
+        
 
 //============================================== D I A R Y ====================================================================================================
 app.use("/", require('./routers/diary.js'));
