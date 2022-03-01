@@ -72,16 +72,40 @@ To get a local copy up and running follow these simple steps.
    cd PlanZap
    ```
 
-4. In the project directory, install the packages using
+4. In the project directory, navigate to "Backend" directory
+
+   ```sh
+   cd Backend
+   ```
+
+5. In the Backend directory, install the packages using
 
    ```sh
    npm install
    ```
 
-5. Run the app on your local server using
+6. Now move out of the Backend directory, to the project directory using
+
+   ```
+   cd ..
+   ```
+
+7. In the project directory, navigate to "Frontend" directory
 
    ```sh
-   npm run start
+   cd Frontend
+   ```
+
+8. In the Frontend directory, install the packages using
+
+   ```sh
+   npm install
+   ```
+
+9. Once all the packages are installed, run the app on your local server using
+
+   ```sh
+   npm start
    ```
 
 Open [http://localhost:3000](http://localhost:3000) or [http://localhost:3001](http://localhost:3001) to view it in the browser.
