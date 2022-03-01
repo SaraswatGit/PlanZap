@@ -197,6 +197,58 @@ git push -u origin <your_branch_name>
 
   - If above are not resolving your issue you can checkout this [url](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts)
 
+## 🌟 Contributing using Github Desktop
+
+Use this method if you have github desktop downloaded.
+
+**1.** Fork [this](https://github.com/SaraswatGit/PlanZap) repository by clicking on the fork. Forking would create a copy of this repository so you can make changes freely without affecting the original repository.
+
+![image](https://user-images.githubusercontent.com/76390773/156126009-a1991e8d-9fa3-4721-8c3a-442c2bf42d6b.png)
+
+**2.** Open you github desktop, go to file and click on clone repository.
+
+![image](https://user-images.githubusercontent.com/76390773/156126417-a871f7d3-3cab-4f79-b3f1-4ae40ac71d2f.png)
+
+**3.** Choose the forked repository from the options and click on clone.
+
+![image](https://user-images.githubusercontent.com/76390773/156126776-f7d065bf-29e4-4aee-ab56-d8d5eeeec027.png)
+
+**4.** Then click "to contribute on the parent project" option and then continue
+
+**5.** Make a new branch by Clicking on Current Branch, then click on new branch.
+
+![image](https://user-images.githubusercontent.com/76390773/156127373-aafe1680-b650-4ea0-bb82-f36ca4bc59f8.png)
+
+**6.** Give your branch a new name.
+
+**7.** Click on "open in visual studio code" option. This would create a new workspace in your vsc.
+
+![image](https://user-images.githubusercontent.com/76390773/156127803-ef31c105-6adf-4536-8214-5a1567c1d921.png)
+
+**8.** Make the changes you want to make and save. For example the one below:
+
+![image](https://user-images.githubusercontent.com/76390773/156128151-62f96818-b4d4-4799-8a40-8f314dd05e72.png)
+
+**9.** Now go back to the github desktop and you will automatically see the changes.
+
+![image](https://user-images.githubusercontent.com/76390773/156128305-ad76f340-e17c-41f8-914b-83fcc92c9a2e.png)
+
+**10.** Add the title of your change and description and commit.
+
+![image](https://user-images.githubusercontent.com/76390773/156128520-ca17860e-497b-4951-8a19-881a27fdd9e6.png)
+
+**11.** Now click on publish branch.
+
+**12.** Now click on create pull request.This will redirect you to the github website where you can see your changes. Click on "create pull request" .
+
+![image](https://user-images.githubusercontent.com/76390773/156129104-3e3764f9-93de-46c4-a33c-8cbb0f8eea83.png)
+
+**13.** Your work is now done, wait for the creater to merge your changes. Happy contributing! :))
+
+![image](https://user-images.githubusercontent.com/76390773/156129451-2f62604a-593c-4a24-a317-46082c17c197.png)
+
+
+
 ## 🌟 Open Source Participation
 
 This project is a part of these Open Source Programs
