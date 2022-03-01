@@ -100,6 +100,13 @@ See the [open issues](https://github.com/SaraswatGit/PlanZap/issues) for a list 
 - Improving the Modals (that pops up to create new movie entry or new diary entry)
 - Improving the User experience of the Personal Diary
 
+## 🌟 Code of Conduct
+
+- Only npm should be used for managing packages.
+- Only the libraries with 1000+ downloads per week should be used.
+- Spamming issues may lead to banning user from contributing to the project.
+- No disrespectful comments towards any gender, sex, caste or nationality will be tolerated.
+
 ## 🌟 Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
