@@ -76,10 +76,10 @@ const Diary = () => {
 
     })
   }*/
-  const getentry = () => {
+  const getentry = (datadate) => {
     Axios.post("https://planzap.herokuapp.com/getentry", {
       userid: userid,
-      entry_date: date,
+      entry_date: datadate,
     }).then((response) => {
       if (response.data.message) {
         seterrormessage(response.data.message);
@@ -167,6 +167,7 @@ const Diary = () => {
               onClick={() => {
                 entryexists ? update() : add();
                 toggleModal();
+                getentry(date)
               }}
             >
               {entryexists ? "Update" : "Add Entry"}
@@ -186,7 +187,7 @@ const Diary = () => {
             marginTop: "2vh",
           }}
           onChange={(event) => {
-            setdate(event.target.value); getentry()
+            setdate(event.target.value); getentry(event.target.value)
           }}
         />
       </div>
