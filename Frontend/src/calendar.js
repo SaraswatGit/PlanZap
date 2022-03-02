@@ -55,7 +55,7 @@ const Calender = (props) => {
   const [isPopup, setPopup] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { userid, setuserid } = useContext(usercontext);
-  const [isLoading, setLoading] = useState(true);
+  
   const [isSortPopup, setSortPopup] = useState(false);
   const today = new Date().toISOString().split("T")[0];
 
@@ -149,14 +149,14 @@ const Calender = (props) => {
   }
 
   useEffect(() => {
-    setLoading(true);
+  
 
     Axios.post("https://planzap.herokuapp.com/gettaskdata", {
       userid: userid,
     }).then((response) => {
       settasklist(response.data);
     });
-    setLoading(false);
+  
   }, [userid]);
 
   const checktask = () => {
@@ -208,27 +208,6 @@ const Calender = (props) => {
     });
   };
 
-  const mystyle = {
-    color: "black",
-    backgroundColor: "coral",
-
-    fontFamily: "Arial",
-    display: " flex",
-    flexDirection: "column",
-    width: "85vw",
-    marginLeft: "15vw",
-    height: "100vh",
-    justifyContent: "center",
-    alignItems: "center",
-  };
-
-  if (isLoading) {
-    return (
-      <div style={mystyle}>
-        <h2>Loading...</h2>
-      </div>
-    );
-  }
 
   return (
     <div className="calpage">

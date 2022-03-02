@@ -27,7 +27,7 @@ const Ideas = () => {
   const [newdesc, setnewdesc] = useState("");
   const [tempid, settempid] = useState(0);
 
-  const [isLoading, setLoading] = useState(true);
+ 
 
   const [isPopup, setPopup] = useState(false);
 
@@ -55,14 +55,14 @@ const Ideas = () => {
   };
 
   useEffect(() => {
-    setLoading(true);
+ 
 
     Axios.post("https://planzap.herokuapp.com/getideadata", {
       userid: userid,
     }).then((response) => {
       setidealist(response.data);
     });
-    setLoading(false);
+   
   }, [userid]);
 
   const update = () => {
@@ -93,27 +93,7 @@ const Ideas = () => {
     );
   };
 
-  const mystyle = {
-    color: "black",
-    backgroundColor: "coral",
-
-    fontFamily: "Arial",
-    display: " flex",
-    flexDirection: "column",
-    width: "85vw",
-    marginLeft: "15vw",
-    height: "100vh",
-    justifyContent: "center",
-    alignItems: "center",
-  };
-
-  if (isLoading) {
-    return (
-      <div style={mystyle}>
-        <h2>Loading...</h2>
-      </div>
-    );
-  }
+ 
   return (
     <div className="ideaspage">
       <Modal

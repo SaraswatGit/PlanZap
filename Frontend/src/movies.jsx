@@ -22,7 +22,7 @@ const Movies = () => {
   const [isOpen, setIsOpen] = useState(false);
   //const [defaulttext, setdefaulttext] = useState("");
   const [tempid, settempid] = useState(0);
-  const [isLoading, setLoading] = useState(true);
+  
   const { userid, setuserid } = useContext(usercontext);
   const [isPopup, setPopup] = useState(false);
   const [isRatingAsc, setIsRatingAsc] = useState(null);
@@ -87,13 +87,13 @@ const Movies = () => {
 
   console.log(setuserid); //This is for removing warning only
   useEffect(() => {
-    setLoading(true);
+  
     Axios.post("https://planzap.herokuapp.com/getdata", {
       userid: userid,
     }).then((response) => {
       setmovielist(response.data);
     });
-    setLoading(false);
+    
   }, [userid]);
 
   const deletemovie = (id) => {
@@ -108,27 +108,7 @@ const Movies = () => {
     );
   };
 
-  const mystyle = {
-    color: "black",
-    backgroundColor: "coral",
 
-    fontFamily: "Arial",
-    display: " flex",
-    flexDirection: "column",
-    width: "85vw",
-    marginLeft: "15vw",
-    height: "100vh",
-    justifyContent: "center",
-    alignItems: "center",
-  };
-
-  if (isLoading) {
-    return (
-      <div style={mystyle}>
-        <h2>Loading...</h2>
-      </div>
-    );
-  }
   return (
     <div className="moviesback">
       <Modal
