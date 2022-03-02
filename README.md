@@ -229,7 +229,7 @@ Use this method if you have github desktop downloaded.
 
 ![image](https://user-images.githubusercontent.com/76390773/156126009-a1991e8d-9fa3-4721-8c3a-442c2bf42d6b.png)
 
-**2.** Open you github desktop, go to file and click on clone repository.
+**2.** Open you github desktop, go to file and click on clone repository .
 
 ![image](https://user-images.githubusercontent.com/76390773/156126417-a871f7d3-3cab-4f79-b3f1-4ae40ac71d2f.png)
 
