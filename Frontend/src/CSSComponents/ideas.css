@@ -124,8 +124,25 @@ margin-right: 2vh;
     padding: 6px;
     height: 20px;
     width: 360px;
-    border: 1px solid teal;
+    border: 0.5px solid white;
+    background-color: teal;
     margin-bottom: 3px;
+    color: white;
+    border-radius: 3px;
+   
+
+}
+.ideainput2{
+
+    
+    padding: 6px;
+    height: 20px;
+    width: 360px;
+    border: 0.5px solid teal;
+    background-color:white;
+    margin-bottom: 3px;
+    color: black;
+    border-radius: 3px;
    
 
 }

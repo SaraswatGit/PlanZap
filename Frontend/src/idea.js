@@ -94,7 +94,7 @@ function Idea({
               {" "}
               <input
                 type="text"
-                className="ideainput"
+                className="ideainput2"
                 defaultValue={tempideadesc}
                 onChange={(event) => {
                   setnewdesc(event.target.value);
