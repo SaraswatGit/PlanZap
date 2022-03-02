@@ -172,7 +172,7 @@ const Login = () => {
                 position: "absolute",
                 height: "90vh",
                 borderRadius: "20px 20px 20px 20px",
-                overflow: "visible",
+                
                 outline: "none",
                 padding: "0px",
               },
