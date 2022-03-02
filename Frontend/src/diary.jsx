@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./CSSComponents/diary.css";
 import { usercontext } from "./Context/usercontext";
 import Modal from "react-modal";
@@ -17,14 +17,14 @@ const Diary = () => {
   const [errormessage, seterrormessage] = useState("");
   const [extracteddesc, setextracteddesc] = useState("");
   const [extractdate, setextractdate] = useState(false);
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split("T")[0];
 
   const [id, setid] = useState(0);
-  
+
   console.log(setuserid); //This is for removing warning only
   console.log(id); //This is for removing warning only
 
-  const toggleModal = () => {
+  const toggleModal = async () => {
     Axios.post("https://planzap.herokuapp.com/getentry", {
       userid: userid,
       entry_date: date,
@@ -46,11 +46,10 @@ const Diary = () => {
       }
     });
   };
-  /* useEffect(() => {
-  
-  }, [])*/
+  //  useEffect(() => {
+  //   toggleModal();
+  // }, [])
   const update = (e) => {
-  
     Axios.put("https://planzap.herokuapp.com/updatediary", {
       userid: userid,
       data_entry: newdesc,
@@ -60,7 +59,6 @@ const Diary = () => {
     });
   };
   const add = (e) => {
-  
     Axios.post("https://planzap.herokuapp.com/insertdiary", {
       userid: userid,
       data_entry: desc,
@@ -76,10 +74,11 @@ const Diary = () => {
 
     })
   }*/
-  const getentry = () => {
+  const getentry = (datadate) => {
+    alert(` showing diary entry for date: ${datadate}`);
     Axios.post("https://planzap.herokuapp.com/getentry", {
       userid: userid,
-      entry_date: date,
+      entry_date: datadate,
     }).then((response) => {
       if (response.data.message) {
         seterrormessage(response.data.message);
@@ -138,7 +137,7 @@ const Diary = () => {
           <CloseIcon onClick={toggleModal} />
         </div>
         <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
-          <label  style={{ fontSize: "2.5vh" }}>
+          <label style={{ fontSize: "2.5vh" }}>
             {format(new Date(date), "PPPP")}
           </label>
           <br />
@@ -167,6 +166,7 @@ const Diary = () => {
               onClick={() => {
                 entryexists ? update() : add();
                 toggleModal();
+                getentry(date);
               }}
             >
               {entryexists ? "Update" : "Add Entry"}
@@ -186,7 +186,8 @@ const Diary = () => {
             marginTop: "2vh",
           }}
           onChange={(event) => {
-            setdate(event.target.value); getentry()
+            setdate(event.target.value);
+            getentry(event.target.value);
           }}
         />
       </div>
@@ -201,12 +202,11 @@ const Diary = () => {
             fontWeight: "bold",
             fontSize: "2vh",
           }}
-          onClick={toggleModal}
+          onClick={() => toggleModal()}
         >
           Update / Add
         </button>
         &nbsp;
-        
       </div>
       <br />
       <div
