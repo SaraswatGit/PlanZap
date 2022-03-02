@@ -132,6 +132,20 @@ margin-right: 2vh;
    
 
 }
+.ideainput2{
+
+    
+    padding: 6px;
+    height: 20px;
+    width: 360px;
+    border: 0.5px solid teal;
+    background-color:white;
+    margin-bottom: 3px;
+    color: black;
+    border-radius: 3px;
+   
+
+}
 .savebtn{
     width: 60px;
     height: 20px;
