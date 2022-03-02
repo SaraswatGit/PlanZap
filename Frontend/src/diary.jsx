@@ -186,7 +186,7 @@ const Diary = () => {
             marginTop: "2vh",
           }}
           onChange={(event) => {
-            setdate(event.target.value);
+            setdate(event.target.value); getentry()
           }}
         />
       </div>
@@ -206,18 +206,7 @@ const Diary = () => {
           Update / Add
         </button>
         &nbsp;
-        <button
-          style={{
-            height: "auto",
-            width: "auto",
-            background: `linear-gradient(to top left,teal, grey)`,
-            fontWeight: "bold",
-            fontSize: "2vh",
-          }}
-          onClick={getentry}
-        >
-          View
-        </button>
+        
       </div>
       <br />
       <div
