@@ -75,7 +75,7 @@ const Diary = () => {
     })
   }*/
   const getentry = (datadate) => {
-  
+    alert(` showing diary entry for date: ${datadate}`);
     Axios.post("https://planzap.herokuapp.com/getentry", {
       userid: userid,
       entry_date: datadate,
