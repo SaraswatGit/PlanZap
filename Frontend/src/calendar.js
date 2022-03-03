@@ -458,6 +458,11 @@ const Calender = (props) => {
           },
         }}
       >
+         <div style={{width:"100%"}}>
+          <span className ="crossbutton" style={{float:"right", display:"unset"}} onClick={toggleTaskSort}>
+              <CloseIcon />
+          </span> 
+        </div>
         <label style={{ fontSize: "2.4vh" }}>
           {" "}
           Sort by &nbsp;
