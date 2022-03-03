@@ -165,6 +165,8 @@
   
   padding-top: 5px;
   padding-right: 5px;
+  position: relative;
+  transform: translate(5px,-5px);
 }
 
 .crossbutton {
