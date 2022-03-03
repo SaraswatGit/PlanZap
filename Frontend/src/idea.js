@@ -48,10 +48,10 @@ function Idea({
 
           <div
             style={{
-             
+
               fontSize: "1.5vh",
-              display:"flex",
-              flexDirection:"row"
+              display: "flex",
+              flexDirection: "row"
             }}
           >
             {isedit ? (
@@ -92,14 +92,17 @@ function Idea({
           {isedit ? (
             <div>
               {" "}
-              <input
-                type="text"
+              <textarea
+                style={{
+                  resize: "vertical",
+                }}
                 className="ideainput2"
                 defaultValue={tempideadesc}
                 onChange={(event) => {
                   setnewdesc(event.target.value);
                 }}
-              />{" "}
+              ></textarea>
+              {" "}
             </div>
           ) : (
             idea_list.idea_desc.split("\n").map((text) => (
