@@ -8,6 +8,7 @@ import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import "./CSSComponents/delete.css";
 import CancelIcon from "@mui/icons-material/Cancel";
+import CircularProgress from '@mui/material/CircularProgress';
 const { format } = require("date-fns");
 
 Modal.setAppElement("#root");
@@ -55,6 +56,7 @@ const Calender = (props) => {
   const [isPopup, setPopup] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { userid, setuserid } = useContext(usercontext);
+  const [isLoader, setIsLoader]= useState(true);
   
   const [isSortPopup, setSortPopup] = useState(false);
   const today = new Date().toISOString().split("T")[0];
@@ -149,11 +151,14 @@ const Calender = (props) => {
   }
 
   useEffect(() => {
+
+    setIsLoader(true);
   
 
     Axios.post("https://planzap.herokuapp.com/gettaskdata", {
       userid: userid,
     }).then((response) => {
+      setIsLoader(false);
       settasklist(response.data);
     });
   
@@ -207,6 +212,15 @@ const Calender = (props) => {
       console.log("updated");
     });
   };
+
+  if(isLoader){
+    return (
+      <div className="loader">
+        <CircularProgress   color="inherit" size="80px"   value={progress} />
+      </div>
+      
+    )
+  }
 
 
   return (
