@@ -87,11 +87,11 @@
   align-items: center;
 }
 .edit-icon:hover {
-  color: rgb(238, 255, 0);
+  color: rgb(70, 70, 70);
 }
 
 .trash-icon:hover {
-  color: rgb(255, 0, 0);
+  color: rgb(70, 70, 70);
 }
 
 .Heading {
