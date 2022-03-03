@@ -95,6 +95,7 @@ function Idea({
               <textarea
                 style={{
                   resize: "vertical",
+                  width: "80%"
                 }}
                 className="ideainput2"
                 defaultValue={tempideadesc}
