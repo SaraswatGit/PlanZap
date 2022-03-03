@@ -118,6 +118,7 @@ const Movies = () => {
         style={{
           overlay: {
             backgroundColor: "rgba(255, 255, 255, 0.75)",
+           
           },
           content: {
             width: "40vw",
@@ -127,6 +128,8 @@ const Movies = () => {
             borderRadius: "10px",
             borderColor: "red",
             backgroundColor: "green",
+            backgroundColor: "#5de6de",
+            backgroundImage: "linear-gradient(315deg, #5de6de 0%, #b58ecc 74%)",
             paddingLeft: "15px",
             paddingTop: "15px",
           },
@@ -218,6 +221,7 @@ const Movies = () => {
                 <p>{val.movie_desc}</p>
                 <EditIcon
                   className="edit-icon"
+                 
                   style={{ paddingLeft: "30px", height: "3.2vh" }}
                   onClick={() => {
                     settempname(val.movie_name);

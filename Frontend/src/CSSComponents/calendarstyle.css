@@ -1,3 +1,12 @@
+.loader{
+  color:darkgoldenrod;
+  position: absolute;
+  top: 62%;
+  left: 65%;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%,-50%);
+}
 .calpage {
   display: flex;
   flex-direction: column;
@@ -153,14 +162,19 @@
 .cross-div{
   display: flex;
   justify-content: flex-end;
+  
   padding-top: 5px;
   padding-right: 5px;
+  position: relative;
+  transform: translate(5px,-5px);
 }
 
 .crossbutton {
   width: 5.05vh;
   height: 5vh;
   display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 2vh;
 }
 .crossbutton:hover {

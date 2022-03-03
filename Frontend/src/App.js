@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Login from "./loginpage";
 import Profile from "./profpage";
 import { Routes, Route, Link} from "react-router-dom";
-//import { useHistory } from "react-router-dom";
 import Calender from "./calendar";
 import Loader from "./LoadingScreen";
 import Movies from "./movies";
