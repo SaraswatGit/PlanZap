@@ -50,6 +50,8 @@ margin-right: 2vh;
     flex-direction: row;
    align-items: center;
    justify-content: space-between;
+   border-top-left-radius: 8px;
+   border-top-right-radius: 8px;
 
 }
 .ideaboxbottom
@@ -63,9 +65,8 @@ margin-right: 2vh;
     border-bottom: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
-
-
-
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .newideabutton
