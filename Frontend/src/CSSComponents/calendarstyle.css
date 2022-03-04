@@ -38,6 +38,11 @@
   margin-top: 91vh;
 }
 
+.sider{
+  position: relative;
+  left: 17.5%;
+}
+
 .commonbox {
   margin-top: 1rem;
   border-radius: 5px;
