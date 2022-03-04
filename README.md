@@ -58,81 +58,6 @@ To get a local copy up and running follow these simple steps.
 
 ## 🌟 Contributing
 
-1. Fork the project first
-
-2. Clone the forked repo
-
-   ```sh
-   git clone https://github.com/<your_user_name>/PlanZap.git
-   ```
-
-3. Navigate to the project directory
-
-   ```sh
-   cd PlanZap
-   ```
-
-4. In the project directory, navigate to "Backend" directory
-
-   ```sh
-   cd Backend
-   ```
-
-5. In the Backend directory, install the packages using
-
-   ```sh
-   npm install
-   ```
-
-6. Now move out of the Backend directory, to the project directory using
-
-   ```
-   cd ..
-   ```
-
-7. In the project directory, navigate to "Frontend" directory
-
-   ```sh
-   cd Frontend
-   ```
-
-8. In the Frontend directory, install the packages using
-
-   ```sh
-   npm install
-   ```
-
-9. Once all the packages are installed, run the app on your local server using
-
-   ```sh
-   npm start
-   ```
-
-Open [http://localhost:3000](http://localhost:3000) or [http://localhost:3001](http://localhost:3001) to view it in the browser.
-The page will reload if you make edits.\
- You will also see any lint errors in the console.
-
-## 🌟 Roadmap
-
-See the [open issues](https://github.com/SaraswatGit/PlanZap/issues) for a list of proposed features . Feel free to raise new issues.
-
-### Thnigs that can be improved
-
-- On login page confirm password and password don't yet have matching ability
-- Improing the UI of the login page
-- Implementing responsiveness
-- Improving the Modals (that pops up to create new movie entry or new diary entry)
-- Improving the User experience of the Personal Diary
-
-## 🌟 Code of Conduct
-
-- Only npm should be used for managing packages.
-- Only the libraries with 1000+ downloads per week should be used.
-- Spamming issues may lead to banning user from contributing to the project.
-- No disrespectful comments towards any gender, sex, caste or nationality will be tolerated.
-
-## 🌟 Contributing
-
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 **1.** To contribute to this project you first need to fork this repository
@@ -200,6 +125,76 @@ git push -u origin <your_branch_name>
 **14.** Add a screenshot or screen-recording when submitting a PR.
 
 **15.** Click on `Create Pull Request`.
+
+
+## 🌟 Installation and Setup
+
+**1.** Navigate to the project directory
+
+   ```sh
+   cd PlanZap
+   ```
+
+**2.** In the project directory, navigate to "Backend" directory
+
+   ```sh
+   cd Backend
+   ```
+
+**3.** In the Backend directory, install the packages using
+
+   ```sh
+   npm install
+   ```
+
+**4.** Now move out of the Backend directory, to the project directory using
+
+   ```
+   cd ..
+   ```
+
+**5.** In the project directory, navigate to "Frontend" directory
+
+   ```sh
+   cd Frontend
+   ```
+
+ **6.** In the Frontend directory, install the packages using
+
+   ```sh
+   npm install
+   ```
+
+**7.** Once all the packages are installed, run the app on your local server using
+
+   ```sh
+   npm start
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) or [http://localhost:3001](http://localhost:3001) to view it in the browser.
+The page will reload if you make edits.\
+ You will also see any lint errors in the console.
+
+
+## 🌟 Roadmap
+
+See the [open issues](https://github.com/SaraswatGit/PlanZap/issues) for a list of proposed features . Feel free to raise new issues.
+
+### Thnigs that can be improved
+
+- On login page confirm password and password don't yet have matching ability
+- Improving the UI of the login page
+- Implementing responsiveness
+- Improving the Modals (that pops up to create new movie entry or new diary entry)
+- Improving the User experience of the Personal Diary
+
+## 🌟 Code of Conduct
+
+- Only npm should be used for managing packages.
+- Only the libraries with 1000+ downloads per week should be used.
+- Spamming issues may lead to banning user from contributing to the project.
+- No disrespectful comments towards any gender, sex, caste or nationality will be tolerated.
+
 
 ## 🌟 How to resolve merge conflicts
 
