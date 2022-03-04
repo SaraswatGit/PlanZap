@@ -1,11 +1,13 @@
-.loader{
-  color:darkgoldenrod;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+.loader {
+  color: darkgoldenrod;
   position: absolute;
   top: 62%;
   left: 65%;
   width: 400px;
   height: 400px;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 .calpage {
   display: flex;
@@ -36,21 +38,44 @@
   margin-top: 91vh;
 }
 
-.taskbox {
-  margin: 0vh;
-  margin-left: 1.7vh;
-  margin-top: 1.7vh;
-  background-image: linear-gradient(to top left, Cornsilk, rgba(255, 0, 0, 1));
+.commonbox {
+  margin-top: 1rem;
+  border-radius: 5px;
+  color: white;
   height: 33vh;
   width: 13vw;
   display: flex;
   flex-direction: column;
-  box-shadow: 5px 8px rgb(139, 139, 139, 0.9);
-
-  border-radius: 5%;
-  /*justify-content: center;
-    align-items: center;*/
+  padding: 0.2rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  padding-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
+  transition: 0.5s;
 }
+.commonbox::before {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+.commonbox:hover {
+  transform: scale(1.1);
+}
+
+.taskbox {
+  background-image: linear-gradient(-45deg, #ffec61, #f321d7);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.taskbox .buthover {
+  background-image: linear-gradient(45deg, #ffec61, #f321d7);
+}
+
 .popupBtn {
   padding: 10px 20px;
   border-radius: 10px;
@@ -58,40 +83,20 @@
   color: white;
 }
 .mediumtaskbox {
-  margin: 2vh;
-  background-image: linear-gradient(
-    to top left,
-    Cornsilk,
-    rgba(148, 0, 211, 1)
-  );
-  height: 33vh;
-  width: 13vw;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 5px 8px rgb(139, 139, 139, 0.9);
-
-  border-radius: 5%;
-  cursor: pointer;
-  /*justify-content: center;
-    align-items: center;*/
+  background-image: linear-gradient(-45deg, #f403d1, #64b5f6);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.mediumtaskbox .buthover {
+  background-image: linear-gradient(45deg, #f403d1, #64b5f6);
 }
 .lowtaskbox {
-  margin: 2vh;
-  background-image: linear-gradient(
-    to top left,
-    Cornsilk,
-    rgba(255, 255, 0, 1)
-  );
-  height: 33vh;
-  width: 13vw;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 5px 8px rgb(139, 139, 139, 0.9);
-
-  border-radius: 5%;
-  cursor: pointer;
-  /*justify-content: center;
-    align-items: center;*/
+  background-image: linear-gradient(-45deg, #24ff72, #9a4eff);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.lowtaskbox .buthover {
+  background-image: linear-gradient(45deg, #24ff72, #9a4eff);
 }
 
 .newtaskbutton {
@@ -116,31 +121,19 @@
   cursor: pointer;
 }
 .redbox {
-  background-image: linear-gradient(
-    to top left,
-    rgba(255, 255, 255),
-    rgba(255, 0, 0, 1)
-  );
+  background-image: linear-gradient(-45deg, #ffec61, #f321d7);
   height: 3vh;
   width: 3vh;
   margin-right: 0.5vw;
 }
 .yellowbox {
-  background-image: linear-gradient(
-    to top left,
-    rgba(255, 255, 255),
-    rgba(148, 0, 211, 1)
-  );
+  background-image: linear-gradient(-45deg, #24ff72, #9a4eff);
   height: 3vh;
   width: 3vh;
   margin-right: 0.5vw;
 }
 .violetbox {
-  background-image: linear-gradient(
-    to top left,
-    rgba(255, 255, 255),
-    rgba(255, 255, 0, 1)
-  );
+  background-image: linear-gradient(-45deg, #f403d1, #64b5f6);
   height: 3vh;
   width: 3vh;
   margin-right: 0.5vw;
@@ -151,12 +144,12 @@
   cursor: pointer;
 }
 
-.New-Task{
+.New-Task {
   position: absolute;
   width: 45vw;
   top: 50%;
   left: 50%;
-  transform: translate(-50% , -50%);
+  transform: translate(-50%, -50%);
 }
 
 .new-task-div {
@@ -214,17 +207,19 @@
   cursor: pointer;
 }
 .buthover {
-  background-color: #45a049;
   color: black;
   font-weight: 600;
   cursor: pointer;
+  font-size: 1rem;
+  padding: 0.1rem 1rem;
+  border-radius: 50rem;
+  color: white;
 }
 .buthover:hover {
-  background-color: #3cb371;
   color: black;
 }
 
-.Sort-Tasks{
+.Sort-Tasks {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -266,34 +261,34 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1000px){
-  .Sort-Tasks{
+@media screen and (max-width: 1000px) {
+  .Sort-Tasks {
     width: 55vw;
   }
-  .New-Task{
-    width :55vw;
+  .New-Task {
+    width: 55vw;
   }
 }
 
-@media screen and (max-width: 800px){
-  .Sort-Tasks{
+@media screen and (max-width: 800px) {
+  .Sort-Tasks {
     width: 65vw;
   }
-  .New-Task{
-    width : 65vw;
+  .New-Task {
+    width: 65vw;
   }
 }
 
-@media screen and (max-width: 700px){
-  .newtaskbutton{
+@media screen and (max-width: 700px) {
+  .newtaskbutton {
     font-size: 2vh;
     margin-left: 1vw;
     margin-right: 2vw;
   }
-  .Sort-Tasks{
+  .Sort-Tasks {
     width: 69vw;
   }
-  .New-Task{
-    width : 69vw;
+  .New-Task {
+    width: 69vw;
   }
 }

@@ -8,7 +8,7 @@ import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import "./CSSComponents/delete.css";
 import CancelIcon from "@mui/icons-material/Cancel";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 const { format } = require("date-fns");
 
 Modal.setAppElement("#root");
@@ -56,8 +56,8 @@ const Calender = (props) => {
   const [isPopup, setPopup] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { userid, setuserid } = useContext(usercontext);
-  const [isLoader, setIsLoader]= useState(true);
-  
+  const [isLoader, setIsLoader] = useState(true);
+
   const [isSortPopup, setSortPopup] = useState(false);
   const today = new Date().toISOString().split("T")[0];
 
@@ -151,9 +151,7 @@ const Calender = (props) => {
   }
 
   useEffect(() => {
-
     setIsLoader(true);
-  
 
     Axios.post("https://planzap.herokuapp.com/gettaskdata", {
       userid: userid,
@@ -161,7 +159,6 @@ const Calender = (props) => {
       setIsLoader(false);
       settasklist(response.data);
     });
-  
   }, [userid]);
 
   const checktask = () => {
@@ -213,15 +210,13 @@ const Calender = (props) => {
     });
   };
 
-  if(isLoader){
+  if (isLoader) {
     return (
       <div className="loader">
-        <CircularProgress   color="inherit" size="80px"   value={progress} />
+        <CircularProgress color="inherit" size="80px" value={progress} />
       </div>
-      
-    )
+    );
   }
-
 
   return (
     <div className="calpage">
@@ -232,17 +227,17 @@ const Calender = (props) => {
               key={index}
               className={
                 val.priority === "Highest Priority"
-                  ? "taskbox"
+                  ? "commonbox taskbox"
                   : val.priority === "Medium Priority"
-                  ? "mediumtaskbox"
-                  : "lowtaskbox"
+                  ? "commonbox mediumtaskbox"
+                  : "commonbox lowtaskbox"
               }
             >
               <div
                 className="toppar2"
                 style={{
                   width: "13vw",
-                  marginTop: "0vh",
+
                   paddingTop: "0.5vh",
                   height: "4vh",
                   fontSize: "2vh",
@@ -396,12 +391,6 @@ const Calender = (props) => {
               >
                 <div
                   className="buthover"
-                  style={{
-                    fontSize: "2vh",
-                    borderRadius: "15%",
-                    width: "4vw",
-                    textAlign: "center",
-                  }}
                   onClick={() => {
                     taskComplete(val.taskid);
                   }}
