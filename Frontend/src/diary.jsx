@@ -128,15 +128,6 @@ const Diary = () => {
           },
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            marginLeft: "38.3vw",
-            marginTop: "0.2vh",
-          }}
-        >
-          <CloseIcon onClick={toggleModal} />
-        </div>
         <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
           <label  style={{ fontSize: "2.5vh" }}>
             {format(new Date(date), "PPPP")}
