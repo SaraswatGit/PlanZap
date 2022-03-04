@@ -458,11 +458,6 @@ const Calender = (props) => {
           },
         }}
       >
-         <div style={{width:"100%"}}>
-          <span className ="crossbutton" style={{float:"right", display:"unset"}} onClick={toggleTaskSort}>
-              <CloseIcon />
-          </span> 
-        </div>
         <label style={{ fontSize: "2.4vh" }}>
           {" "}
           Sort by &nbsp;
@@ -515,18 +510,14 @@ const Calender = (props) => {
               "linear-gradient(to top left,grey, rgb(200, 187, 0))",
 
             display: "flex",
-            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
             overflowX: "hidden",
           },
         }}
         centered
       >
-        <div>
-          <div className="cross-div">
-            <span className="crossbutton" onClick={toggleModal}>
-              <CloseIcon />
-            </span>
-          </div>
+        <div className="new-task-div">
           <div className="formarea">
             <label
               style={{ fontSize: "2.2vh", marginBottom: "0vh" }}
