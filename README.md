@@ -56,6 +56,55 @@ To get a local copy up and running follow these simple steps.
 
 - You need to install [Node js](https://nodejs.org/en/) to successfully run this project on your local machine.
 
+
+## 🌟 Installation and Setup
+
+**1.** Navigate to the project directory
+
+   ```sh
+   cd PlanZap
+   ```
+
+**2.** In the project directory, navigate to "Backend" directory
+
+   ```sh
+   cd Backend
+   ```
+
+**3.** In the Backend directory, install the packages using
+
+   ```sh
+   npm install
+   ```
+
+**4.** Now move out of the Backend directory, to the project directory using
+
+   ```
+   cd ..
+   ```
+
+**5.** In the project directory, navigate to "Frontend" directory
+
+   ```sh
+   cd Frontend
+   ```
+
+ **6.** In the Frontend directory, install the packages using
+
+   ```sh
+   npm install
+   ```
+
+**7.** Once all the packages are installed, run the app on your local server using
+
+   ```sh
+   npm start
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) or [http://localhost:3001](http://localhost:3001) to view it in the browser.
+The page will reload if you make edits.\
+ You will also see any lint errors in the console.
+
 ## 🌟 Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -125,55 +174,6 @@ git push -u origin <your_branch_name>
 **14.** Add a screenshot or screen-recording when submitting a PR.
 
 **15.** Click on `Create Pull Request`.
-
-
-## 🌟 Installation and Setup
-
-**1.** Navigate to the project directory
-
-   ```sh
-   cd PlanZap
-   ```
-
-**2.** In the project directory, navigate to "Backend" directory
-
-   ```sh
-   cd Backend
-   ```
-
-**3.** In the Backend directory, install the packages using
-
-   ```sh
-   npm install
-   ```
-
-**4.** Now move out of the Backend directory, to the project directory using
-
-   ```
-   cd ..
-   ```
-
-**5.** In the project directory, navigate to "Frontend" directory
-
-   ```sh
-   cd Frontend
-   ```
-
- **6.** In the Frontend directory, install the packages using
-
-   ```sh
-   npm install
-   ```
-
-**7.** Once all the packages are installed, run the app on your local server using
-
-   ```sh
-   npm start
-   ```
-
-Open [http://localhost:3000](http://localhost:3000) or [http://localhost:3001](http://localhost:3001) to view it in the browser.
-The page will reload if you make edits.\
- You will also see any lint errors in the console.
 
 
 ## 🌟 Roadmap
