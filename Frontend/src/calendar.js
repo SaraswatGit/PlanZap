@@ -212,9 +212,34 @@ const Calender = (props) => {
 
   if (isLoader) {
     return (
+      <div>
       <div className="loader">
         <CircularProgress color="inherit" size="80px" value={progress} />
       </div>
+
+<div className="bottompart sider" >
+<div className="prioritydesc">
+  <div className="redbox"></div>
+  High Priority
+</div>
+<div className="prioritydesc">
+  <div className="yellowbox"></div>
+  Medium Priority
+</div>
+<div className="prioritydesc">
+  <div className="violetbox"></div>
+  Low Priority
+</div>
+
+<div className="newtaskbutton" onClick={toggleModal}>
+  Add new task
+</div>
+
+<div className="newtaskbutton" onClick={toggleTaskSort}>
+  Sort tasks
+</div>
+</div>
+</div>
     );
   }
 
