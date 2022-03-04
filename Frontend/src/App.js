@@ -355,7 +355,7 @@ function App() {
                     centered
                   >
                     <h2>Welcome to Planzapp</h2>
-                    <h3>
+                    {/* <h3>
                       You are new here so, you can check how to use it properly
                     </h3>
 
@@ -367,7 +367,7 @@ function App() {
                       >
                         How To Use
                       </button>
-                    </Link>
+                    </Link> */}
                   </Modal>
 
                   <Routes>
