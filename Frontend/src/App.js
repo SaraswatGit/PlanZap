@@ -302,7 +302,7 @@ function App() {
                     />{" "}
                     Books to Read <br />
                   </NavLink>
-                  <NavLink
+                  {/* <NavLink
                     to="/howtouse"
                     className={({ isActive }) =>
                       `link ${
@@ -317,7 +317,7 @@ function App() {
                       style={{ height: "2.8vh", marginRight: "1vw" }}
                     />{" "}
                     How To Use <br />
-                  </NavLink>
+                  </NavLink> */}
                   <div
                     className="logout"
                     onClick={logout}
