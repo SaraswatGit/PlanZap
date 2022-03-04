@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState} from "react";
 import "./CSSComponents/ideas.css";
 
 import EditIcon from "@mui/icons-material/Edit";
 import Modal from "react-modal";
 
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+
 import CloseIcon from "@mui/icons-material/Close";
 import "./CSSComponents/delete.css";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { Update } from "@mui/icons-material";
+
 
 function Idea({
   idea_list,

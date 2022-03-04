@@ -166,7 +166,7 @@ const Calender = (props) => {
     let d = document.getElementById("date");
     let p = document.getElementById("priority");
     console.log(tn.value);
-    if (tn.value != "" && d.value != "" && p.value != "") {
+    if (tn.value !== "" && d.value !== "" && p.value !== "") {
       return 1;
     } else {
       return 0;
@@ -572,7 +572,7 @@ const Calender = (props) => {
               onClick={() => {
                 let a = checktask();
                 console.log(a);
-                a == 1 ? addtask() : alert("please fill all the fields");
+                a === 1 ? addtask() : alert("please fill all the fields");
               }}
             />
           </div>
