@@ -102,6 +102,7 @@ function Idea({
                 onChange={(event) => {
                   setnewdesc(event.target.value);
                 }}
+                style={{height:"10rem"}}
               ></textarea>
               {" "}
             </div>
