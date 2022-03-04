@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./CSSComponents/ideas.css";
 import Axios from "axios";
-import EditIcon from "@mui/icons-material/Edit";
+
 import Modal from "react-modal";
 import { usercontext } from "./Context/usercontext";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CloseIcon from "@mui/icons-material/Close";
 import "./CSSComponents/delete.css";
-import CancelIcon from "@mui/icons-material/Cancel";
-import { style } from "@mui/system";
+
 import Idea from "./idea";
 
 Modal.setAppElement("#root");
@@ -19,7 +18,7 @@ const Ideas = () => {
   const [idea_desc, setideadesc] = useState("");
   const [idea_list, setidealist] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
+  
 
   const [tempidea, settempidea] = useState("");
   const [tempideadesc, settempdesc] = useState("");
@@ -29,16 +28,14 @@ const Ideas = () => {
 
  
 
-  const [isPopup, setPopup] = useState(false);
+
 
   console.log(setuserid); //This is for removing warning only
 
   function toggleModal() {
     setIsOpen(!isOpen);
   }
-  function toggleModal2() {
-    setIsOpen2(!isOpen2);
-  }
+ 
   const addidea = () => {
     Axios.post("https://planzap.herokuapp.com/addidea", {
       idea_name: idea_name,

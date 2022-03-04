@@ -18,7 +18,7 @@ const Login = () => {
   const [loginMessage, setLoginMessage] = useState("");
   const [registerMessage, setRegisterMessage] = useState("");
   const [ passM, setPasssword ] = useState(''); 
-  const [ passLogin, setLoginPasssword ] = useState(''); 
+  
   const registeruser = (e) => {
     //console.log(useremail+password);    
     console.log(userid); //This is for removing warning only

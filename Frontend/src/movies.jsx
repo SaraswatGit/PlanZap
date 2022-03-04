@@ -127,7 +127,7 @@ const Movies = () => {
             padding: "0",
             borderRadius: "10px",
             borderColor: "red",
-            backgroundColor: "green",
+            
             backgroundColor: "#5de6de",
             backgroundImage: "linear-gradient(315deg, #5de6de 0%, #b58ecc 74%)",
             paddingLeft: "15px",
