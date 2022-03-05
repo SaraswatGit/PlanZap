@@ -303,8 +303,8 @@ const Calender = (props) => {
                       backgroundColor: "rgba(0, 0, 0, 0.75)",
                     },
                     content: {
-                      width: "35vw",
-                      height: "45vh",
+                      width: "30vw",
+            height: "30vh",
                       margin: "auto",
                       padding: "1%",
                       borderRadius: "7px",
@@ -317,7 +317,7 @@ const Calender = (props) => {
                   }}
                   centered
                 >
-                  <CancelIcon className="cross" />
+                  
                   <h2 className="delete-message">
                     Do you want to delete the task?
                   </h2>
