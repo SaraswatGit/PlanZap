@@ -37,6 +37,10 @@
   position: fixed;
   margin-top: 91vh;
 }
+.hoverOnCursor:hover{
+  cursor: pointer;
+}
+
 
 .sider{
   position: relative;

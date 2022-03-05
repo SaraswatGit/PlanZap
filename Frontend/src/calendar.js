@@ -286,6 +286,7 @@ const Calender = (props) => {
                 >
                   {" "}
                   <CloseIcon
+                   className="hoverOnCursor"
                     onClick={() => {
                       setPopup(true);
                     }}
@@ -476,14 +477,15 @@ const Calender = (props) => {
           {" "}
           Sort by &nbsp;
           <select
+         
             value={sortType.sortBy}
             onChange={handleChange}
-            className="select-option"
+            className="select-option hoverOnCursor decorated"
           >
-            <option value="default"> --Select-- </option>
-            <option value="deadline"> By nearest deadline </option>
-            <option value="workleft">By most work left</option>
-            <option value="both"> By both(weighted) </option>
+            <option   value="default"> --Select-- </option>
+            <option   value="deadline"> By nearest deadline </option>
+            <option  value="workleft"  >By most work left</option>
+            <option  value="both"> By both(weighted) </option>
           </select>
         </label>
 

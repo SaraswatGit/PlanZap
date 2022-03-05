@@ -6,6 +6,9 @@
   display: flex;
   flex-direction: column;
 }
+.hoverOnCursor:hover{
+  cursor: pointer;
+}
 .topbar {
   width: 100%;
   height: 5vh;

@@ -121,7 +121,7 @@ const Ideas = () => {
             marginTop: "0.2vh",
           }}
         >
-          <CloseIcon onClick={toggleModal} />
+          <CloseIcon onClick={toggleModal} className="hoverOnCursor"/>
         </div>
         <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
           <label for="mname">Heading</label>
@@ -183,11 +183,11 @@ const Ideas = () => {
       })}
 
       <div
-        className="newideabutton"
+        className="newideabutton hoverOnCursor"
         onClick={toggleModal}
         style={{ fontSize: "2.5vh" }}
       >
-        New Note &nbsp; <AddCircleOutlineIcon />
+        New Note &nbsp; <AddCircleOutlineIcon className="hoverOnCursor" />
       </div>
     </div>
   );
