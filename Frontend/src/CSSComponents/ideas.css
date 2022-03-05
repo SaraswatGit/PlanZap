@@ -9,6 +9,9 @@
     
     
 }
+.hoverOnCursor:hover{
+    cursor: pointer;
+  }
 .fields {
     width: 88%;
     border: none;

@@ -220,7 +220,7 @@ const Movies = () => {
               <div className="moviedesc2">
                 <p>{val.movie_desc}</p>
                 <EditIcon
-                  className="edit-icon"
+                  className="edit-icon hoverOnCursor"
                  
                   style={{ paddingLeft: "30px", height: "3.2vh" }}
                   onClick={() => {
@@ -233,7 +233,7 @@ const Movies = () => {
                   }}
                 />
                 <DeleteIcon
-                  className="trash-icon"
+                  className="trash-icon hoverOnCursor"
                   style={{ paddingLeft: "30px", height: "3.2vh" }}
                   onClick={() => {
                     setPopup(true);

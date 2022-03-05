@@ -74,6 +74,7 @@ function Idea({
               </div>
             ) : (
               <EditIcon
+              className="hoverOnCursor"
                 onClick={() => {
                   settempidea(idea_list.idea_name);
                   settempdesc(idea_list.idea_desc);
@@ -86,6 +87,9 @@ function Idea({
             )}
             &nbsp;{" "}
             <CloseIcon
+            className="hoverOnCursor"
+            
+            
               onClick={() => {
                 setIsedit(false);
                 setPopup(true);
