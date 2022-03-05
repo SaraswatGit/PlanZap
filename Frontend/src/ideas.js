@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./CSSComponents/ideas.css";
-import Axios from "axios";
+import { putRequest, postRequest, deleteRequest } from './axiosClient';
 
 import Modal from "react-modal";
 import { usercontext } from "./Context/usercontext";
@@ -37,12 +37,12 @@ const Ideas = () => {
   }
  
   const addidea = () => {
-    Axios.post("https://planzap.herokuapp.com/addidea", {
+    postRequest("addidea", {
       idea_name: idea_name,
       idea_desc: idea_desc,
       userid: userid,
     }).then(() => {
-      Axios.post("https://planzap.herokuapp.com/getideadata", {
+      postRequest("getideadata", {
         userid: userid,
       }).then((response) => {
         setidealist(response.data);
@@ -54,7 +54,7 @@ const Ideas = () => {
   useEffect(() => {
  
 
-    Axios.post("https://planzap.herokuapp.com/getideadata", {
+    postRequest("getideadata", {
       userid: userid,
     }).then((response) => {
       setidealist(response.data);
@@ -63,12 +63,12 @@ const Ideas = () => {
   }, [userid]);
 
   const update = () => {
-    Axios.put("https://planzap.herokuapp.com/updateideadesc", {
+    putRequest("updateideadesc", {
       id: tempid,
       new_idea: newidea,
       new_desc: newdesc,
     }).then((response) => {
-      Axios.post("https://planzap.herokuapp.com/getideadata", {
+      postRequest("getideadata", {
         userid: userid,
       }).then((response) => {
         setidealist(response.data);
@@ -79,7 +79,7 @@ const Ideas = () => {
   };
 
   const deletenote = (id) => {
-    Axios.delete(`https://planzap.herokuapp.com/deleteidea/${id}`).then(
+    deleteRequest(`deleteidea/${id}`).then(
       (respose) => {
         setidealist(
           idea_list.filter((val) => {

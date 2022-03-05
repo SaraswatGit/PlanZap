@@ -17,7 +17,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import { usercontext } from "./Context/usercontext";
 import LogoutIcon from "@mui/icons-material/Logout";
-import Axios from "axios";
+import { getRequest, postRequest, putRequest } from './axiosClient';
 import Modal from "react-modal";
 import ConfettiCeleb from "./ConfettiCeleb";
 import MaintenanceImg from "./CSSComponents/maintenance.svg";
@@ -28,8 +28,6 @@ import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 Modal.setAppElement("#root");
 
 function App() {
-  Axios.defaults.withCredentials = true;
-
   const [confetti, setConfetti] = useState(false);
   const [notloggedin, setloginstatus] = useState(true);
   const underMaintenance = false;
@@ -61,7 +59,7 @@ function App() {
     setlogout(true);
     setloginstatus(true);
     setloading(true);
-    Axios.put("https://planzap.herokuapp.com/logout", { status: true }).then(
+    putRequest("logout", { status: true }).then(
       (response) => {
         setloginstatus(true);
         setloading(false);
@@ -71,7 +69,7 @@ function App() {
 
   //loggedin=
   useEffect(() => {
-    Axios.get("https://planzap.herokuapp.com/slogin").then((response) => {
+    getRequest("slogin").then((response) => {
       if (response.data.loggedin === true && logoutstatus === false) {
         setloginstatus(false);
         setuserid(response.data.user.userid);
@@ -79,7 +77,7 @@ function App() {
       }
       setloading(false);
     });
-    Axios.post("https://planzap.herokuapp.com/getquote", {
+    postRequest("getquote", {
       userid: userid,
     }).then((response) => {
       setuserquote(response.data.userquote);
@@ -88,11 +86,11 @@ function App() {
   });
   const updateuserquote = () => {
     console.log(userid + " ok " + userquote);
-    Axios.put("https://planzap.herokuapp.com/updatequote", {
+    putRequest("updatequote", {
       id: userid,
       userquote: usernewquote ? usernewquote : userquote,
     }).then((response) => {
-      Axios.post("https://planzap.herokuapp.com/getquote", {
+      postRequest("getquote", {
         userid: userid,
       }).then((response) => {
         setuserquote(response.data.userquote);
