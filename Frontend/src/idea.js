@@ -134,8 +134,8 @@ function Idea({
             backgroundColor: "rgba(0, 0, 0, 0.75)",
           },
           content: {
-            width: "35vw",
-            height: "50vh",
+            width: "30vw",
+            height: "30vh",
             margin: "auto",
             padding: "1%",
             borderRadius: "7px",
@@ -148,7 +148,7 @@ function Idea({
         }}
         centered
       >
-        <CancelIcon className="cross" />
+        
         <h2 className="delete-message">Do you want to delete the idea?</h2>
         <div className="delete-btns">
           <button
