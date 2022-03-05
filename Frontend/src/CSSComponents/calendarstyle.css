@@ -260,10 +260,12 @@
 .task-elem {
   font-size: 2vh;
   text-align: center;
+  width: 25%;
 }
 .task-elem-heading {
   font-size: 2.5vh;
   text-align: center;
+  width: 25%;
 }
 
 @media screen and (max-width: 1000px) {
