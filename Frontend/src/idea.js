@@ -86,15 +86,37 @@ function Idea({
               />
             )}
             &nbsp;{" "}
-            <CloseIcon
-            className="hoverOnCursor"
-            
-            
-              onClick={() => {
-                setIsedit(false);
-                setPopup(true);
-              }}
-            />{" "}
+
+            {isedit?(
+                <div>
+                
+                <button
+                className="hoverOnCursor cancelbtn"
+                
+                
+                  onClick={() => {
+                    setIsedit(false);
+                    
+                  }}
+                >Cancel</button>
+                 </div>
+
+            ):(
+              <div>
+
+              <CloseIcon
+              className="hoverOnCursor"
+              
+              
+                onClick={() => {
+                  setIsedit(false);
+                  setPopup(true);
+                }}
+              />{" "}
+               </div>
+
+            )}
+           
           </div>
         </div>
 

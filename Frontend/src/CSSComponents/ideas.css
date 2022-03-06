@@ -160,3 +160,14 @@ margin-right: 2vh;
    justify-content: space-between;
    margin-left: 10px;
 }
+
+.cancelbtn{
+    width: 70px;
+    height: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   margin-left: 10px;
+}
