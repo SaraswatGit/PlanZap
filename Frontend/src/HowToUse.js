@@ -44,7 +44,7 @@ function HowToUse() {
       <div className='sub-frame'>
         <h3>How to add task?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} alt="" /> : <img src={task1} alt=""/>}
@@ -88,11 +88,13 @@ function HowToUse() {
 
       </div>
 
+      <hr></hr>
+
       {/* Sort Task */}
       <div className='sub-frame'>
         <h3>How to sort task?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={task1} alt="" />}
@@ -126,12 +128,14 @@ function HowToUse() {
 
       </div>
 
+      <hr></hr>
+
 
       {/* Delete Task */}
       <div className='sub-frame'>
         <h3>How to delete task?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={task1} alt="" />}
@@ -165,11 +169,13 @@ function HowToUse() {
 
       </div>
 
+      <hr></hr>
+
       {/* Add Movie */}
       <div className='sub-frame'>
         <h3>How to add movie?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie5} alt="" />}
@@ -203,11 +209,13 @@ function HowToUse() {
 
       </div>
 
+      <hr></hr>
+
       {/* Edit movies */}
       <div className='sub-frame'>
         <h3>How to edit movies to watch?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie5} alt="" />}
@@ -251,11 +259,13 @@ function HowToUse() {
 
       </div>
 
+      <hr></hr>
+
       {/* Delete Movie */}
       <div className='sub-frame'>
         <h3>How to delete movie from watch?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={movie5} alt="" />}
@@ -289,11 +299,13 @@ function HowToUse() {
 
       </div>
 
+      <hr></hr>
+
       {/* Add diary */}
       <div className='sub-frame'>
         <h3>How to add in diary?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary4} alt="" />}
@@ -337,11 +349,13 @@ function HowToUse() {
 
       </div>
 
+      <hr></hr>
+
       {/* Update diary */}
       <div className='sub-frame'>
         <h3>How to update in diary?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary4} alt="" />}
@@ -385,11 +399,13 @@ function HowToUse() {
 
       </div>
 
+      <hr></hr>
+
       {/* View diary */}
       <div className='sub-frame'>
         <h3>How to view in diary?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={diary4} alt="" />}
@@ -423,11 +439,13 @@ function HowToUse() {
 
       </div>
 
+      <hr></hr>
+
       {/* Add Notes */}
       <div className='sub-frame'>
         <h3>How to add notes?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note5} alt="" />}
@@ -470,12 +488,13 @@ function HowToUse() {
         </div>
 
       </div>
+      <hr></hr>
 
       {/* Edit Notes */}
       <div className='sub-frame'>
         <h3>How to edit note?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note5} alt="" />}
@@ -509,11 +528,13 @@ function HowToUse() {
 
       </div>
 
+      <hr></hr>
+
       {/* Delete Notes */}
       <div className='sub-frame'>
         <h3>How to delete note?</h3>
 
-        <div>
+        <div className='steps-container'>
 
           <div className='steps'>
             {loading ? <img src={loadingImg} width="30" alt="" /> : <img src={note5} alt="" />}
