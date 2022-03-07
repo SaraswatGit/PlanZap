@@ -245,6 +245,7 @@ const Login = () => {
                   <br />
                   <br />
                   <br />
+
                   <div>
                     {registerMessage}
                     {}
@@ -252,8 +253,6 @@ const Login = () => {
                   <button onClick={registeruser}>
                     <b>Register Me!</b>
                   </button>
-
-                  <div>{loginMessage}</div>
                 </form>
               </center>
               <br />
