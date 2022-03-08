@@ -22,7 +22,7 @@ const Movies = () => {
   const [isOpen, setIsOpen] = useState(false);
   //const [defaulttext, setdefaulttext] = useState("");
   const [tempid, settempid] = useState(0);
-  
+
   const { userid, setuserid } = useContext(usercontext);
   const [isPopup, setPopup] = useState(false);
   const [isRatingAsc, setIsRatingAsc] = useState(null);
@@ -87,13 +87,11 @@ const Movies = () => {
 
   console.log(setuserid); //This is for removing warning only
   useEffect(() => {
-  
     Axios.post("https://planzap.herokuapp.com/getdata", {
       userid: userid,
     }).then((response) => {
       setmovielist(response.data);
     });
-    
   }, [userid]);
 
   const deletemovie = (id) => {
@@ -108,7 +106,6 @@ const Movies = () => {
     );
   };
 
-
   return (
     <div className="moviesback">
       <Modal
@@ -117,19 +114,18 @@ const Movies = () => {
         contentLabel="My dialog2"
         style={{
           overlay: {
-            backgroundColor: "rgba(255, 255, 255, 0.75)",
-           
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
           },
           content: {
             width: "40vw",
-            height: "50vh",
+            height: "55vh",
             margin: "auto",
             padding: "0",
-            borderRadius: "10px",
+            borderRadius: "6px",
             borderColor: "red",
-            
-            backgroundColor: "#5de6de",
-            backgroundImage: "linear-gradient(315deg, #5de6de 0%, #b58ecc 74%)",
+
+            background: "white",
+
             paddingLeft: "15px",
             paddingTop: "15px",
           },
@@ -140,7 +136,7 @@ const Movies = () => {
             <b>Edit Movie Name</b>
           </label>
           <br />
-          <textarea
+          <input
             id="mname"
             name="moviename"
             rows="2"
@@ -151,9 +147,9 @@ const Movies = () => {
             onChange={(event) => {
               setnewname(event.target.value);
             }}
-          ></textarea>
+          />
           <br />
-
+          <br />
           <label for="mdesc">
             <b>Edit Movie Description</b>
           </label>
@@ -170,6 +166,7 @@ const Movies = () => {
               setnewdesc(event.target.value);
             }}
           ></textarea>
+          <br />
           <br />
           <button
             className="save-button"
@@ -215,30 +212,33 @@ const Movies = () => {
         {moviesListOrder.map((val, key) => {
           return (
             <div className="topbar2">
-              <div className="moviename2">{val.movie_name}</div>
+              <div className="moviename2">
+                <p>{val.movie_name}</p>
+              </div>
               <div className="movierating2">{val.movie_rating}</div>
               <div className="moviedesc2">
                 <p>{val.movie_desc}</p>
-                <EditIcon
-                  className="edit-icon hoverOnCursor"
-                 
-                  style={{ paddingLeft: "30px", height: "3.2vh" }}
-                  onClick={() => {
-                    settempname(val.movie_name);
-                    settempdesc(val.movie_desc);
-                    setnewname(val.movie_name);
-                    setnewdesc(val.movie_desc);
-                    settempid(val.id);
-                    toggleModal();
-                  }}
-                />
-                <DeleteIcon
-                  className="trash-icon hoverOnCursor"
-                  style={{ paddingLeft: "30px", height: "3.2vh" }}
-                  onClick={() => {
-                    setPopup(true);
-                  }}
-                />
+                <div>
+                  <EditIcon
+                    className="edit-icon hoverOnCursor"
+                    style={{ paddingLeft: "30px", height: "3.2vh" }}
+                    onClick={() => {
+                      settempname(val.movie_name);
+                      settempdesc(val.movie_desc);
+                      setnewname(val.movie_name);
+                      setnewdesc(val.movie_desc);
+                      settempid(val.id);
+                      toggleModal();
+                    }}
+                  />
+                  <DeleteIcon
+                    className="trash-icon hoverOnCursor"
+                    style={{ paddingLeft: "30px", height: "3.2vh" }}
+                    onClick={() => {
+                      setPopup(true);
+                    }}
+                  />
+                </div>
               </div>
 
               <Modal
@@ -252,7 +252,7 @@ const Movies = () => {
                   },
                   content: {
                     width: "30vw",
-            height: "30vh",
+                    height: "30vh",
                     margin: "auto",
                     padding: "1%",
                     borderRadius: "7px",
@@ -265,7 +265,6 @@ const Movies = () => {
                 }}
                 centered
               >
-                
                 <h2 className="delete-message">
                   Do you want to delete the movie?
                 </h2>
@@ -297,70 +296,68 @@ const Movies = () => {
       </div>
 
       <div className="entrybox">
-        <div className="Heading" style={{ fontSize: "3vh" }}>
-          Enter the Movie Details here
-        </div>
+        <div className="Heading">Enter the Movie Details here</div>
+        <br />
         <div className="formbox">
-          <label for="mname" style={{ fontSize: "2vh" }}>
-            Movie Name
-          </label>
+          <label for="mname">Movie Name</label>
+          <br />
           <br />
           <input
-            style={{ fontSize: "2vh" }}
             type="text"
             id="mname"
             maxLength="40"
             name="moviename"
             className="donkey"
             value={movie_name}
-            placeholder="Eg: Mission Impossible : Rogue Nation "
+            placeholder="Mission Impossible : Rogue Nation "
             onChange={(event) => {
               setmoviename(event.target.value);
             }}
           />
           <br />
-          <label style={{ fontSize: "2vh" }} for="mrating">
-            IMDb rating
-          </label>
+          <br />
+          <label for="mrating">IMDb rating</label>
+          <br />
           <br />
           <input
-            style={{ fontSize: "2vh" }}
             type="text"
             id="mrating"
             maxLength="3"
             name="movierating"
             className="donkey"
             value={movie_rating}
-            placeholder="Eg: 8.4"
+            placeholder="8.4"
             onChange={(event) => {
               setmovierating(event.target.value);
             }}
           />
           <br />
-          <label style={{ fontSize: "2vh" }} for="mdesc">
-            Movie Description
-          </label>
+          <br />
+          <label for="mdesc">Movie Description</label>
           <br />
           <textarea
-            style={{ fontSize: "2vh" }}
+            style={{
+              resize: "vertical",
+            }}
             id="mdesc"
             name="moviedescription"
             rows="2"
             cols="40"
             maxLength="73"
-            className="donkey"
             value={movie_desc}
-            placeholder="Eg:Oscar Nominated, Action,Directed By : Michael Scott , Based on Iraq Wars"
+            placeholder="Oscar Nominated, Action, Directed By: Michael Scott , Based on Iraq Wars"
             onChange={(event) => {
               setmoviedesc(event.target.value);
             }}
           ></textarea>
-          <input
-            type="submit"
-            value="Submit"
-            className="subm2"
-            onClick={addmovie}
-          />
+          <div className="center">
+            <input
+              type="submit"
+              value="ADD"
+              className="subm2"
+              onClick={addmovie}
+            />
+          </div>
         </div>
       </div>
 
@@ -370,4 +367,3 @@ const Movies = () => {
 };
 
 export default Movies;
-
