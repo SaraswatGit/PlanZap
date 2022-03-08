@@ -60,6 +60,7 @@ const Calender = (props) => {
 
   const [isSortPopup, setSortPopup] = useState(false);
   const today = new Date().toISOString().split("T")[0];
+  const [deleteTaskID, setDeleteTaskID] = useState(null);
 
   console.log(setuserid); //This is for removing warning only
 
@@ -289,6 +290,7 @@ const Calender = (props) => {
                     className="hoverOnCursor"
                     onClick={() => {
                       setPopup(true);
+                      setDeleteTaskID(val.taskid);
                     }}
                     style={{ width: "1.6vw", height: "1.6vw" }}
                   />
@@ -324,7 +326,7 @@ const Calender = (props) => {
                   <div className="delete-btns">
                     <button
                       onClick={() => {
-                        deletetask(val.taskid);
+                        deletetask(deleteTaskID);
                         setPopup(false);
                       }}
                       className="popupBtn confirm-btn"
