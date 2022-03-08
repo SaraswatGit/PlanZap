@@ -9,13 +9,8 @@
   display: flex;
 }
 
-.form-control {
-  margin-bottom: 1.25rem;
-}
-
 .togglebtn {
-  margin-top: 0.75rem;
-  padding-top: 1rem;
+  padding-top: 0.75rem;
   padding-right: 0.5rem;
   display: block;
   min-width: min-content;
@@ -119,12 +114,12 @@ button:hover {
   font-size: 3.9vh;
   text-align: center;
 }
+
 .holders {
   background-color: white;
   border: none;
   border-bottom: 2px solid rgb(255, 183, 1);
-  width: 100%;
-  margin-top: 1.5vh;
+  width: 95%;
 }
 
 .modal {

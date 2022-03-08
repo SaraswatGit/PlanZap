@@ -236,7 +236,7 @@ const Login = () => {
                   />
                   <br />
                   <br />
-                  <div className="form-control password">
+                  <div className="password">
                     <input
                       type={!passwordVisible ? "password" : "text"}
                       id="password"
@@ -259,8 +259,7 @@ const Login = () => {
                   </div>
 
                   <br />
-                  <br />
-                  <div className="form-control password">
+                  <div className="password">
                     <input
                       type={!confirmPasswordVisible ? "password" : "text"}
                       id="Cpassword"
@@ -283,7 +282,7 @@ const Login = () => {
                   </div>
                   <PasswordStrengthMeter passM={passM} />
                   <br />
-                  <br />
+
                   <br />
 
                   <div>
