@@ -37,12 +37,11 @@
   position: fixed;
   margin-top: 91vh;
 }
-.hoverOnCursor:hover{
+.hoverOnCursor:hover {
   cursor: pointer;
 }
 
-
-.sider{
+.sider {
   position: relative;
   left: 17.5%;
 }
@@ -122,8 +121,6 @@
   font-size: 2.3vh;
 }
 
-
-
 .prioritydesc {
   display: flex;
   align-items: center;
@@ -165,7 +162,8 @@
 }
 
 .new-task-div {
-  width: 100%;
+  width: 90%;
+  max-width: 600px;
 }
 
 .forhover :hover {
@@ -201,8 +199,8 @@
 
 .subbut {
   width: 30%;
-  background-color: #4caf50;
-  color: white;
+  background-color: #04ef0d;
+  color: #000;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -212,10 +210,13 @@
   margin-top: 2%;
   height: 14%;
   font-size: 2.5vh;
+  font-weight: bold;
 }
-
+.subbut:active {
+  transform: translate(0px, 2px);
+}
 .subbut:hover {
-  background-color: #45a049;
+  background-color: #2ec633;
   cursor: pointer;
 }
 .buthover {
@@ -305,4 +306,7 @@
   .New-Task {
     width: 69vw;
   }
+}
+option {
+  color: #000;
 }
