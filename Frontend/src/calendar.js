@@ -213,33 +213,33 @@ const Calender = (props) => {
   if (isLoader) {
     return (
       <div>
-      <div className="loader">
-        <CircularProgress color="inherit" size="80px" value={progress} />
+        <div className="loader">
+          <CircularProgress color="inherit" size="80px" value={progress} />
+        </div>
+
+        <div className="bottompart sider">
+          <div className="prioritydesc">
+            <div className="redbox"></div>
+            High Priority
+          </div>
+          <div className="prioritydesc">
+            <div className="yellowbox"></div>
+            Medium Priority
+          </div>
+          <div className="prioritydesc">
+            <div className="violetbox"></div>
+            Low Priority
+          </div>
+
+          <div className="newtaskbutton" onClick={toggleModal}>
+            Add new task
+          </div>
+
+          <div className="newtaskbutton" onClick={toggleTaskSort}>
+            Sort tasks
+          </div>
+        </div>
       </div>
-
-<div className="bottompart sider" >
-<div className="prioritydesc">
-  <div className="redbox"></div>
-  High Priority
-</div>
-<div className="prioritydesc">
-  <div className="yellowbox"></div>
-  Medium Priority
-</div>
-<div className="prioritydesc">
-  <div className="violetbox"></div>
-  Low Priority
-</div>
-
-<div className="newtaskbutton" onClick={toggleModal}>
-  Add new task
-</div>
-
-<div className="newtaskbutton" onClick={toggleTaskSort}>
-  Sort tasks
-</div>
-</div>
-</div>
     );
   }
 
@@ -286,7 +286,7 @@ const Calender = (props) => {
                 >
                   {" "}
                   <CloseIcon
-                   className="hoverOnCursor"
+                    className="hoverOnCursor"
                     onClick={() => {
                       setPopup(true);
                     }}
@@ -305,7 +305,7 @@ const Calender = (props) => {
                     },
                     content: {
                       width: "30vw",
-            height: "30vh",
+                      height: "30vh",
                       margin: "auto",
                       padding: "1%",
                       borderRadius: "7px",
@@ -318,7 +318,6 @@ const Calender = (props) => {
                   }}
                   centered
                 >
-                  
                   <h2 className="delete-message">
                     Do you want to delete the task?
                   </h2>
@@ -477,15 +476,14 @@ const Calender = (props) => {
           {" "}
           Sort by &nbsp;
           <select
-         
             value={sortType.sortBy}
             onChange={handleChange}
             className="select-option hoverOnCursor decorated"
           >
-            <option   value="default"> --Select-- </option>
-            <option   value="deadline"> By nearest deadline </option>
-            <option  value="workleft"  >By most work left</option>
-            <option  value="both"> By both(weighted) </option>
+            <option value="default"> --Select-- </option>
+            <option value="deadline"> By nearest deadline </option>
+            <option value="workleft">By most work left</option>
+            <option value="both"> By both(weighted) </option>
           </select>
         </label>
 
@@ -522,8 +520,8 @@ const Calender = (props) => {
             height: "43vh",
             padding: "0",
             borderRadius: "10px",
-            backgroundImage:
-              "linear-gradient(to top left,grey, rgb(200, 187, 0))",
+            backgroundColor: "#222",
+            color: "#fff",
 
             display: "flex",
             justifyContent: "center",

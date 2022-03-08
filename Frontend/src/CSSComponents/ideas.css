@@ -87,12 +87,15 @@
   margin-top: 7px;
   padding: 0%;
   padding-left: 6px;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #fff;
   background-color: rgba(128, 128, 124, 0);
-  color: black;
+  color: #fff;
   text-decoration: solid;
   font-size: 2vh;
   margin-bottom: 13px;
+}
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
 .ideabox {
   height: auto;
