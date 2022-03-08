@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import "./CSSComponents/diary.css";
 import { usercontext } from "./Context/usercontext";
 import Modal from "react-modal";
-import CloseIcon from "@mui/icons-material/Close";
 import Axios from "axios";
 
 const { format } = require("date-fns");
