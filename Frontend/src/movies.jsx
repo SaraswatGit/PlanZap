@@ -5,7 +5,6 @@ import EditIcon from "@mui/icons-material/Edit";
 import Modal from "react-modal";
 import { usercontext } from "./Context/usercontext";
 import "./CSSComponents/delete.css";
-import CancelIcon from "@mui/icons-material/Cancel";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 Modal.setAppElement("#root");

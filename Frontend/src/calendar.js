@@ -7,7 +7,6 @@ import { usercontext } from "./Context/usercontext";
 import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import "./CSSComponents/delete.css";
-import CancelIcon from "@mui/icons-material/Cancel";
 import CircularProgress from "@mui/material/CircularProgress";
 const { format } = require("date-fns");
 

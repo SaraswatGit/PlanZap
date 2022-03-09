@@ -9,7 +9,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import "./CSSComponents/delete.css";
 
 import Idea from "./idea";
-import { Button } from "@mui/material";
 
 Modal.setAppElement("#root");
 
