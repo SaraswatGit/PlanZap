@@ -3,13 +3,13 @@ import React, { useState, useContext } from "react";
 import "./CSSComponents/loginpage.css";
 import { usercontext } from "./Context/usercontext";
 import ReactModal from "react-modal";
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
-
-import PasswordStrengthMeter from  './PasswordStrengthMeter' ;
-
+import PasswordStrengthMeter from "./PasswordStrengthMeter";
 
 const Login = () => {
-  const { notloggedin, setloginstatus, userid, setuserid } = useContext(usercontext);
+  const { notloggedin, setloginstatus, userid, setuserid } =
+    useContext(usercontext);
   const [useremail, setuseremail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -17,10 +17,15 @@ const Login = () => {
   const [pass, setpass] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
   const [registerMessage, setRegisterMessage] = useState("");
-  const [ passM, setPasssword ] = useState(''); 
-  
+  const [passM, setPasssword] = useState("");
+  const [visible, setVisible] = useState(false);
+
+  function togglePasswordView() {
+    setVisible(!visible);
+  }
+
   const registeruser = (e) => {
-    //console.log(useremail+password);    
+    //console.log(useremail+password);
     console.log(userid); //This is for removing warning only
     console.log(notloggedin); //This is for removing warning only
 
@@ -39,7 +44,7 @@ const Login = () => {
           if (response.data.message) {
             setLoginMessage(response.data.message);
           } else {
-            setuserid(response.data[0].userid);    
+            setuserid(response.data[0].userid);
             setloginstatus(false);
           }
         });
@@ -65,33 +70,51 @@ const Login = () => {
   };
 
   const [modalIsOpen, setModalisOpen] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+  const [passwordVisible, setPassswordVisible] = useState(false);
+
+  function togglePassword() {
+    setPassswordVisible(!passwordVisible);
+  }
+
+  function toggleConfirmPassword() {
+    setConfirmPasswordVisible(!confirmPasswordVisible);
+  }
 
   return (
     <div className="loginpage">
-      <div className="logo-div">   
-        <h2 style={{
-          fontFamily: "Pacificio",
-          fontWeight: "bolder",
-          color: "rgb(255, 183, 1)",
-          marginBottom: "0px",
-        }}> PlanZap</h2>
+      <div className="logo-div">
+        <h2
+          style={{
+            fontFamily: "Pacificio",
+            fontWeight: "bolder",
+            color: "rgb(255, 183, 1)",
+            marginBottom: "0px",
+          }}
+        >
+          {" "}
+          PlanZap
+        </h2>
 
-        <p style={{
-          fontSize: "3vh",
-          fontFamily: "cursive",
-          textAlign: "center",
-          color: "black",
-          marginTop: "0px",
-          padding: "20px"
-        }}>
-        One Place for your notes, goals, movies, personal diary and more!
+        <p
+          style={{
+            fontSize: "3vh",
+            fontFamily: "cursive",
+            textAlign: "center",
+            color: "black",
+            marginTop: "0px",
+            padding: "20px",
+          }}
+        >
+          One Place for your notes, goals, movies, personal diary and more!
         </p>
         <img
-        class = "logo-img"
-        src="https://image.freepik.com/free-vector/flat-creativity-concept-illustration_52683-64279.jpg" alt = ""
+          class="logo-img"
+          src="https://image.freepik.com/free-vector/flat-creativity-concept-illustration_52683-64279.jpg"
+          alt=""
         />
       </div>
-	  
+
       <div className="loginbox">
         <div className="loginform">
           <center>
@@ -112,37 +135,41 @@ const Login = () => {
 
             <br />
             <div>
-	      <form autocomplete="on">
-              <input
-                type="email"
-                id="emailid"
-                maxLength="40"
-                name="emailid"
-                className="holders"
-                placeholder="Email"
-                onChange={(event) => {
-                  setlmail(event.target.value);
-                }}
-              />
-              <br />
-              <br />
-              <input
-                type="password"
-                id="lpassword"
-                maxLength="10"
-                name="password"
-                autoComplete="new-password"
-                className="holders"
-                placeholder="Password"
-                onChange={(event) => {
-                  setpass(event.target.value);
-                  // setPasssword(event.target.value);
-                 
-                }}
-              />
-	      </form>
-                {/* <PasswordStrengthMeter passM={passM} /> */}
-                {/* Write PasswordMeter Code Here  */}
+              <form autocomplete="on">
+                <input
+                  type="email"
+                  id="emailid"
+                  maxLength="40"
+                  name="emailid"
+                  className="holders"
+                  placeholder="Email"
+                  onChange={(event) => {
+                    setlmail(event.target.value);
+                  }}
+                />
+                <br />
+                <br />
+                <div className="password form-control">
+                  <input
+                    type={!visible ? "password" : "text"}
+                    id="lpassword"
+                    maxLength="10"
+                    name="password"
+                    autoComplete="new-password"
+                    className="holders"
+                    placeholder="Password"
+                    onChange={(event) => {
+                      setpass(event.target.value);
+                      // setPasssword(event.target.value);
+                    }}
+                  />
+                  <div className="togglebtn" onClick={togglePasswordView}>
+                    {!visible ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
+                  </div>
+                </div>
+              </form>
+              {/* <PasswordStrengthMeter passM={passM} /> */}
+              {/* Write PasswordMeter Code Here  */}
               <br />
               <br />
               <button onClick={loginuser}>
@@ -160,7 +187,7 @@ const Login = () => {
           </center>
 
           <ReactModal
-			      className= "reg-modal"
+            className="reg-modal"
             isOpen={modalIsOpen}
             onRequestClose={() => setModalisOpen(false)}
             style={{
@@ -172,7 +199,7 @@ const Login = () => {
                 position: "absolute",
                 height: "90vh",
                 borderRadius: "20px 20px 20px 20px",
-                
+
                 outline: "none",
                 padding: "0px",
               },
@@ -209,41 +236,53 @@ const Login = () => {
                   />
                   <br />
                   <br />
+                  <div className="password">
+                    <input
+                      type={!passwordVisible ? "password" : "text"}
+                      id="password"
+                      maxLength="10"
+                      autoComplete="new-password"
+                      name="password"
+                      className="holders"
+                      placeholder="Password"
+                      onChange={(event) => {
+                        setPassword(event.target.value);
+                      }}
+                    />
+                    <div className="togglebtn" onClick={togglePassword}>
+                      {!passwordVisible ? (
+                        <BsFillEyeSlashFill />
+                      ) : (
+                        <BsFillEyeFill />
+                      )}
+                    </div>
+                  </div>
 
-                  <input
-                    type="password"
-                    id="password"
-                    maxLength="10"
-                    autoComplete="new-password"
-                    name="password"
-                    className="holders"
-                    placeholder="Password"
-                    onChange={(event) => {
-                      setPassword(event.target.value);
-                      
-                    }}
-                  />
-                   
-                   
-                   
-                   <br />
+                  <br />
+                  <div className="password">
+                    <input
+                      type={!confirmPasswordVisible ? "password" : "text"}
+                      id="Cpassword"
+                      maxLength="10"
+                      name="Cpassword"
+                      className="holders"
+                      placeholder="Confirm Password"
+                      onChange={(event) => {
+                        setConfirmPassword(event.target.value);
+                        setPasssword(event.target.value);
+                      }}
+                    />
+                    <div className="togglebtn" onClick={toggleConfirmPassword}>
+                      {!confirmPasswordVisible ? (
+                        <BsFillEyeSlashFill />
+                      ) : (
+                        <BsFillEyeFill />
+                      )}
+                    </div>
+                  </div>
+                  <PasswordStrengthMeter passM={passM} />
                   <br />
 
-                  <input
-                    type="password"
-                    id="Cpassword"
-                    maxLength="10"
-                    name="Cpassword"
-                    className="holders"
-                    placeholder="Confirm Password"
-                    onChange={(event) => {
-                      setConfirmPassword(event.target.value);
-                      setPasssword(event.target.value);
-                    }}
-                  />
-                    <PasswordStrengthMeter passM={passM} />
-                  <br />
-                  <br />
                   <br />
 
                   <div>
