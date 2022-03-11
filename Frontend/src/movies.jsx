@@ -349,7 +349,7 @@ const Movies = () => {
             cols="40"
             // maxLength="73"
             value={movie_desc}
-            placeholder="Oscar Nominated, Action, Directed By: Michael Scott , Based on Iraq Wars"
+            placeholder="Description"
             onChange={(event) => {
               setmoviedesc(event.target.value);
             }}
