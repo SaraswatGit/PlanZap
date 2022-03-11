@@ -261,8 +261,7 @@ const Calender = (props) => {
               <div
                 className="toppar2"
                 style={{
-                  width: "13vw",
-
+                  textAlign: 'left',
                   paddingTop: "0.5vh",
                   height: "4vh",
                   fontSize: "2vh",
@@ -273,7 +272,6 @@ const Calender = (props) => {
                   style={{
                     width: "1.3vw",
                     height: "1.4vw",
-                    marginRight: "11vw",
                     padding: "0.5vh",
                     fontSize: "2vh",
                   }}
@@ -348,7 +346,6 @@ const Calender = (props) => {
               <div
                 style={{
                   height: "10vh",
-                  width: "13vw",
                   fontStyle: "italic",
                   fontWeight: "bold",
                   textAlign: "center",
@@ -362,7 +359,7 @@ const Calender = (props) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  width: "13vw",
+                  marginTop: '1rem',
                   fontWeight: "bolder",
                   fontSize: "2.1vh",
                 }}
@@ -393,7 +390,7 @@ const Calender = (props) => {
                       setprogress(event.target.value);
                       updateprogess(val.taskid);
                     }}
-                    style={{ width: "10vw" }}
+                    style={{ width: "30vw", marginLeft: '30px' }}
                   />
                 </Box>
               </div>{" "}
@@ -403,6 +400,7 @@ const Calender = (props) => {
                   fontWeight: "bold",
                   textAlign: "center",
                   fontSize: "2vh",
+                  margin: '2rem'
                 }}
               >
                 Deadline : {format(new Date(val.deadline), "PPPP")}
