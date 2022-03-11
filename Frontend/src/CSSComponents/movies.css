@@ -257,3 +257,21 @@
   color: #03a9f4;
   font-weight: bold;
 }
+/* 
+.inputWithButton {
+  position: relative;
+  height: 100px;
+  width: 200px;
+}
+
+.inputWithButton input {
+  width: 70%;
+  height: 25px;
+  padding-right: 60px;
+}
+
+.inputWithButton button {
+  position: absolute;
+  right: 0;
+  top: 5px;
+} */
