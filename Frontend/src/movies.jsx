@@ -212,7 +212,7 @@ const Movies = () => {
           return (
             <div className="topbar2">
               <div className="moviename2">
-                <p>{val.movie_name}</p>
+              <p><a href={"https://www.google.com/search?q= "+val.movie_name}>{val.movie_name}</a></p>
               </div>
               <div className="movierating2">{val.movie_rating}</div>
               <div className="moviedesc2">
