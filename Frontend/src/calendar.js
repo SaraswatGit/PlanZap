@@ -390,7 +390,6 @@ const Calender = (props) => {
                       setprogress(event.target.value);
                       updateprogess(val.taskid);
                     }}
-                    // style={{ width: "30vw", marginLeft: '30px' }}
                   />
                 </Box>
               </div>{" "}
