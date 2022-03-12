@@ -135,41 +135,37 @@ const Login = () => {
 
             <br />
             <div>
-              <form autocomplete="on">
-                <input
-                  type="email"
-                  id="emailid"
-                  maxLength="40"
-                  name="emailid"
-                  className="holders"
-                  placeholder="Email"
-                  onChange={(event) => {
-                    setlmail(event.target.value);
-                  }}
-                />
-                <br />
-                <br />
-                <div className="password form-control">
-                  <input
-                    type={!visible ? "password" : "text"}
-                    id="lpassword"
-                    maxLength="10"
-                    name="password"
-                    autoComplete="new-password"
-                    className="holders"
-                    placeholder="Password"
-                    onChange={(event) => {
-                      setpass(event.target.value);
-                      // setPasssword(event.target.value);
-                    }}
-                  />
-                  <div className="togglebtn" onClick={togglePasswordView}>
-                    {!visible ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
-                  </div>
-                </div>
-              </form>
-              {/* <PasswordStrengthMeter passM={passM} /> */}
-              {/* Write PasswordMeter Code Here  */}
+	      <form autoComplete="on">
+              <input
+                type="email"
+                id="emailid"
+                maxLength="40"
+                name="emailid"
+                className="holders"
+                placeholder="Email"
+                onChange={(event) => {
+                  setlmail(event.target.value);
+                }}
+              />
+              <br />
+              <br />
+              <input
+                type="password"
+                id="lpassword"
+                maxLength="10"
+                name="password"
+                autoComplete="new-password"
+                className="holders"
+                placeholder="Password"
+                onChange={(event) => {
+                  setpass(event.target.value);
+                  // setPasssword(event.target.value);
+                 
+                }}
+              />
+	      </form>
+                {/* <PasswordStrengthMeter passM={passM} /> */}
+                {/* Write PasswordMeter Code Here  */}
               <br />
               <br />
               <button onClick={loginuser}>
