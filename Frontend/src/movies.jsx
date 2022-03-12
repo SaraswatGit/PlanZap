@@ -347,7 +347,7 @@ const Movies = () => {
             name="moviedescription"
             rows="2"
             cols="40"
-            // maxLength="73"
+            maxLength="73"
             value={movie_desc}
             placeholder="Description"
             onChange={(event) => {
