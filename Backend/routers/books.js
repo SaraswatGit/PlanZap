@@ -22,7 +22,6 @@ bookRouter.post("/book/create", (req, res) => {
   );
 });
 
-
 bookRouter.put("/updatequote", (req, res) => {
   const userid = req.body.id;
   const userquote = req.body.userquote;
@@ -41,7 +40,6 @@ bookRouter.put("/updatequote", (req, res) => {
   );
 });
 
-
 bookRouter.post("/book/list", (req, res) => {
   const user_id = req.body.userid;
   db.query(
@@ -56,7 +54,6 @@ bookRouter.post("/book/list", (req, res) => {
     }
   );
 });
-
 
 bookRouter.put("/update/description", (req, res) => {
   const id = req.body.id;
@@ -73,7 +70,6 @@ bookRouter.put("/update/description", (req, res) => {
     }
   );
 });
-
 
 bookRouter.delete("/book/delete/:id", (req, res) => {
   const id = req.params.id;

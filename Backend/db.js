@@ -2,17 +2,14 @@ const mysql = require("mysql");
 // require('dotenv').config();
 
 var db_config = {
-    connectionLimit : 10,
+  connectionLimit: 10,
 
- user:"b5X2l394qY",
-           host:"remotemysql.com",
-           password:"YJgzFpNOr7",
-           database:"b5X2l394qY",
+  user: process.env.DATABASE_USERNAME,
+  host: "remotemysql.com",
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE_USERNAME,
+};
 
-   };
+var db = mysql.createPool(db_config);
 
-var db=mysql.createPool(db_config);
-
-
-
-module.exports =  db;
+module.exports = db;

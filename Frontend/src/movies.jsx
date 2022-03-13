@@ -8,8 +8,6 @@ import "./CSSComponents/delete.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SimpleDialogDemo from "./modalBox";
 
-
-
 Modal.setAppElement("#root");
 
 const Movies = () => {
@@ -35,8 +33,6 @@ const Movies = () => {
   function toggleModal() {
     setIsOpen(!isOpen);
   }
-
- 
 
   const updatemovie = () => {
     console.log(tempid);

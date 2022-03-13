@@ -24,9 +24,7 @@ function SimpleDialog(props) {
   console.log(emails);
   return (
     <Dialog onClose={handleClose} open={open}>
-      <DialogTitle>
-        Select Movie
-      </DialogTitle>
+      <DialogTitle>Select Movie</DialogTitle>
       <List sx={{ pt: 0 }}>
         {emails
           ? emails.map((email) => (

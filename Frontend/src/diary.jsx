@@ -16,10 +16,10 @@ const Diary = () => {
   const [errormessage, seterrormessage] = useState("");
   const [extracteddesc, setextracteddesc] = useState("");
   const [extractdate, setextractdate] = useState(false);
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split("T")[0];
 
   const [id, setid] = useState(0);
-  
+
   console.log(setuserid); //This is for removing warning only
   console.log(id); //This is for removing warning only
 
@@ -49,7 +49,6 @@ const Diary = () => {
   
   }, [])*/
   const update = (e) => {
-  
     Axios.put("https://planzap.herokuapp.com/updatediary", {
       userid: userid,
       data_entry: newdesc,
@@ -59,7 +58,6 @@ const Diary = () => {
     });
   };
   const add = (e) => {
-  
     Axios.post("https://planzap.herokuapp.com/insertdiary", {
       userid: userid,
       data_entry: desc,
@@ -128,7 +126,7 @@ const Diary = () => {
         }}
       >
         <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
-          <label  style={{ fontSize: "2.5vh" }}>
+          <label style={{ fontSize: "2.5vh" }}>
             {format(new Date(date), "PPPP")}
           </label>
           <br />
@@ -157,7 +155,7 @@ const Diary = () => {
               onClick={() => {
                 entryexists ? update() : add();
                 toggleModal();
-                getentry(date)
+                getentry(date);
               }}
             >
               {entryexists ? "Update" : "Add Entry"}
@@ -177,7 +175,8 @@ const Diary = () => {
             marginTop: "2vh",
           }}
           onChange={(event) => {
-            setdate(event.target.value); getentry(event.target.value)
+            setdate(event.target.value);
+            getentry(event.target.value);
           }}
         />
       </div>
@@ -197,7 +196,6 @@ const Diary = () => {
           Update / Add
         </button>
         &nbsp;
-        
       </div>
       <br />
       <div

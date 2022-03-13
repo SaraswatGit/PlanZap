@@ -83,13 +83,15 @@ const Books = () => {
   }, [userid]);
 
   const deletebook = (id) => {
-    Axios.delete(`https://planzap.herokuapp.com/book/delete/${id}`).then((respose) => {
-      setbooklist(
-        booklist.filter((val) => {
-          return val.id !== id;
-        })
-      );
-    });
+    Axios.delete(`https://planzap.herokuapp.com/book/delete/${id}`).then(
+      (respose) => {
+        setbooklist(
+          booklist.filter((val) => {
+            return val.id !== id;
+          })
+        );
+      }
+    );
   };
 
   return (

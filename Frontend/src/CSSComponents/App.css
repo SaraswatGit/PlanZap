@@ -8,7 +8,7 @@ select:focus,
 textarea:focus {
   outline: none;
 }
-.editbutton:hover{
+.editbutton:hover {
   cursor: pointer;
 }
 .sidebar {
@@ -297,19 +297,18 @@ textarea:focus {
 }
 
 /* Quote Popup modal Css at App.js file */
-.quote-div{
+.quote-div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin:1rem 1rem;
+  margin: 1rem 1rem;
 }
 
-.quote-div>label{
+.quote-div > label {
   font-size: 1.5rem;
   font-weight: 500;
 }
 
-.quote-btn{
-  width: 60%!important;
+.quote-btn {
+  width: 60% !important;
 }
-
