@@ -50,8 +50,7 @@
   border-radius: 5px;
   color: white;
   height: 33vh;
- min-width: 20vw;
- max-width: 33vw;
+  width: 13vw;
   display: flex;
   flex-direction: column;
   padding: 0.2rem;
@@ -60,6 +59,11 @@
   padding-bottom: 1rem;
   font-family: "Poppins", sans-serif;
   transition: 0.5s;
+}
+@media(max-width: 1800px){
+  .commonbox{
+    width: 30vw;
+  }  
 }
 .commonbox::before {
   content: "";
