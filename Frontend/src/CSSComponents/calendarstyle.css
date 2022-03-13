@@ -19,10 +19,9 @@
 .toppart {
   height: 100vh;
   width: 85vw;
-  display: grid;
-  grid-template-columns: 14vw 14vw 14vw 14vw 14vw 14vw;
-  grid-column-gap: 0.2vh;
-  grid-row-gap: 0.5vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding-bottom: 15vh;
 }
 .bottompart {
@@ -63,8 +62,13 @@
 }
 @media(max-width: 1800px){
   .commonbox{
-    width: 30vw;
+    width: 18vw;
   }  
+}
+@media(max-width: 1500px){
+  .commonbox{
+    width: 25vw;
+  }
 }
 .commonbox::before {
   content: "";
@@ -181,9 +185,7 @@
 .topbar {
   margin: 0%;
 }
-.slider-progress{
-  
-}
+
 
 .formarea {
   padding: 0vw 0vw 0vw 1vw;

@@ -262,7 +262,6 @@ const Calender = (props) => {
                 className="toppar2"
                 style={{
                   width: "13vw",
-
                   paddingTop: "0.5vh",
                   height: "4vh",
                   fontSize: "2vh",
@@ -393,13 +392,9 @@ const Calender = (props) => {
                       setprogress(event.target.value);
                       updateprogess(val.taskid);
                     }}
-<<<<<<< HEAD
-=======
-                    style={{ width: "10vw" }}
->>>>>>> c7dcd273598ce70a1d11baa371644d2ecc913656
                   />
                 </Box>
-              </div>{" "}
+              </div>
               <div
                 style={{
                   height: "7vh",
