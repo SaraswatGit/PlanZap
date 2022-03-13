@@ -19,9 +19,10 @@
 .toppart {
   height: 100vh;
   width: 85vw;
-  display: flex;  
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 14vw 14vw 14vw 14vw 14vw 14vw;
+  grid-column-gap: 0.2vh;
+  grid-row-gap: 0.5vh;
   padding-bottom: 15vh;
 }
 .bottompart {

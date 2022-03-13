@@ -6,6 +6,9 @@ import Modal from "react-modal";
 import { usercontext } from "./Context/usercontext";
 import "./CSSComponents/delete.css";
 import DeleteIcon from "@mui/icons-material/Delete";
+import SimpleDialogDemo from "./modalBox";
+
+
 
 Modal.setAppElement("#root");
 
@@ -33,14 +36,7 @@ const Movies = () => {
     setIsOpen(!isOpen);
   }
 
-  // function updatedesc(num,text,text){
-
-  //     setdefaulttext(text);
-  //     setnewname(text);
-  //     setnewdesc(text);
-  //     settempid(num);
-  //     toggleModal();
-  // }
+ 
 
   const updatemovie = () => {
     console.log(tempid);
@@ -197,9 +193,9 @@ const Movies = () => {
               fill="currentColor"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
             </svg>
           </div>
@@ -212,7 +208,7 @@ const Movies = () => {
           return (
             <div className="topbar2">
               <div className="moviename2">
-                <p>{val.movie_name}</p>
+              <p><a href={"https://www.google.com/search?q= "+val.movie_name}>{val.movie_name}</a></p>
               </div>
               <div className="movierating2">{val.movie_rating}</div>
               <div className="moviedesc2">
@@ -313,7 +309,16 @@ const Movies = () => {
               setmoviename(event.target.value);
             }}
           />
-          <br />
+          {/* <Button style={{ visibility: "inline-block" }} onClick={handleSearch}>
+            Search
+          </Button> */}
+          <SimpleDialogDemo
+            title={movie_name}
+            setIMDB={setmovierating}
+            setDescription={setmoviedesc}
+          />
+          {/* <br /> */}
+
           <br />
           <label for="mrating">IMDb rating</label>
           <br />
@@ -344,7 +349,7 @@ const Movies = () => {
             cols="40"
             maxLength="73"
             value={movie_desc}
-            placeholder="Oscar Nominated, Action, Directed By: Michael Scott , Based on Iraq Wars"
+            placeholder="Description"
             onChange={(event) => {
               setmoviedesc(event.target.value);
             }}
