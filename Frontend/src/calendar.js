@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import Axios from "axios";
 import { usercontext } from "./Context/usercontext";
 import Slider from "@mui/material/Slider";
-import Box from "@mui/material/Box";
+import Box from "@mui/material/Box";  
 import "./CSSComponents/delete.css";
 import CircularProgress from "@mui/material/CircularProgress";
 const { format } = require("date-fns");
@@ -499,7 +499,7 @@ const Calender = (props) => {
             return (
               <div className="task-object">
                 <p className="task-elem">{val.taskname}</p>
-                <p className="task-elem">{val.progress}%</p>
+                <p className="task-elem">{0+val.progress}%</p>
                 <p className="task-elem">{val.priority}</p>
                 <p className="task-elem">{getFormattedDate(val.deadline)}</p>
               </div>
