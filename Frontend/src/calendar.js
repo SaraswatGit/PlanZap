@@ -375,12 +375,12 @@ const Calender = (props) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  width: "13vw",
                   fontSize: "2vh",
                 }}
               >
                 <Box style={{ textAlign: "center" }} width={150}>
                   <Slider
+                    className="slider"
                     size="small"
                     defaultValue={val.progress}
                     aria-label="Small"
@@ -393,7 +393,7 @@ const Calender = (props) => {
                       setprogress(event.target.value);
                       updateprogess(val.taskid);
                     }}
-                    style={{ width: "10vw" }}
+                    // style={{ width: "10vw" }}
                   />
                 </Box>
               </div>{" "}
