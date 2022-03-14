@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./CSSComponents/movies.css";
-import Axios from "axios";
+import { putRequest, postRequest, deleteRequest } from './axiosClient';
 import EditIcon from "@mui/icons-material/Edit";
 import Modal from "react-modal";
 import { usercontext } from "./Context/usercontext";
@@ -40,12 +40,12 @@ const Movies = () => {
 
   const updatemovie = () => {
     console.log(tempid);
-    Axios.put("https://planzap.herokuapp.com/updatedesc", {
+    putRequest("updatedesc", {
       id: tempid,
       movie_name: newname,
       movie_desc: newdesc,
     }).then((response) => {
-      Axios.post("https://planzap.herokuapp.com/getdata", {
+      postRequest("getdata", {
         userid: userid,
       }).then((response) => {
         setmovielist(response.data);
@@ -60,13 +60,13 @@ const Movies = () => {
       alert("Enter all the fields");
       return;
     }
-    const data = Axios.post("https://planzap.herokuapp.com/create", {
+    const data = postRequest("create", {
       movie_name: movie_name,
       movie_rating: movie_rating,
       movie_desc: movie_desc,
       userid: userid,
     }).then(() => {
-      Axios.post("https://planzap.herokuapp.com/getdata", {
+      postRequest("getdata", {
         userid: userid,
       }).then((response) => {
         setmovielist(response.data);
@@ -82,7 +82,7 @@ const Movies = () => {
 
   console.log(setuserid); //This is for removing warning only
   useEffect(() => {
-    Axios.post("https://planzap.herokuapp.com/getdata", {
+    postRequest("getdata", {
       userid: userid,
     }).then((response) => {
       setmovielist(response.data);
@@ -90,7 +90,7 @@ const Movies = () => {
   }, [userid]);
 
   const deletemovie = (id) => {
-    Axios.delete(`https://planzap.herokuapp.com/deletemovie/${id}`).then(
+    deleteRequest(`deletemovie/${id}`).then(
       (respose) => {
         setmovielist(
           movielist.filter((val) => {

@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import "./CSSComponents/diary.css";
 import { usercontext } from "./Context/usercontext";
 import Modal from "react-modal";
-import Axios from "axios";
+import CloseIcon from "@mui/icons-material/Close";
+import { putRequest, postRequest } from './axiosClient';
 
 const { format } = require("date-fns");
 
@@ -24,7 +25,7 @@ const Diary = () => {
   console.log(id); //This is for removing warning only
 
   const toggleModal = () => {
-    Axios.post("https://planzap.herokuapp.com/getentry", {
+    postRequest("getentry", {
       userid: userid,
       entry_date: date,
     }).then((response) => {
@@ -50,7 +51,7 @@ const Diary = () => {
   }, [])*/
   const update = (e) => {
   
-    Axios.put("https://planzap.herokuapp.com/updatediary", {
+    putRequest("updatediary", {
       userid: userid,
       data_entry: newdesc,
       entry_date: date,
@@ -60,7 +61,7 @@ const Diary = () => {
   };
   const add = (e) => {
   
-    Axios.post("https://planzap.herokuapp.com/insertdiary", {
+    postRequest("insertdiary", {
       userid: userid,
       data_entry: desc,
       entry_date: date,
@@ -70,13 +71,13 @@ const Diary = () => {
   };
   /*const deleteentry=(tid)=>{
     
-    Axios.delete(`http://localhost:3001/deleteentry/${tid}`).then((respose)=>{
+    deleteRequest(`http://localhost:3001/deleteentry/${tid}`).then((respose)=>{
       setentrystatus(false);
 
     })
   }*/
   const getentry = (datadate) => {
-    Axios.post("https://planzap.herokuapp.com/getentry", {
+    postRequest("getentry", {
       userid: userid,
       entry_date: datadate,
     }).then((response) => {
