@@ -1,33 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 .frame{
     padding-left: 15vw;
-    width: 80vw;    
+    width: 84vw;  
 }
 .head-txt{
     text-align: center;
     margin-bottom: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.sub-frame{
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 .sub-frame>h3{
     text-align: center;
+    font-family: Nunito;
+    font-size: 1.4rem;
 }
 .step-number{
     font-weight: bold;
-    text-decoration: underline;
     margin-right: 1rem;
 }
 .sub-frame>div{
     display: flex;   
     align-items: center;
 }
+
+.steps-container{
+    display: flex;
+    justify-content: center;
+}
 .steps{
     width: 25%;
     display: flex;    
     flex-direction: column;
     align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .steps>img{
     width:80%;
 }
+.steps p{
+    text-align: center;
+    margin-left: 0px;
+}
 .right-arrow{
     width:5vh;
     height: 5vh;
+}
+hr{
+    margin-left: 10px;
 }

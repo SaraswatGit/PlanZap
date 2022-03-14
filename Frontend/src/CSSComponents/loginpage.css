@@ -1,199 +1,209 @@
-.loginpage
-{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: row-reverse;
+.loginpage {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
-.logo-div{
-    height: 90%;
-    width: 55%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+.password {
+  display: flex;
 }
 
-.logo-div h2{
-    font-size: 15vh;
-    height: auto;
-    padding: 0px;
+.togglebtn {
+  padding-top: 0.75rem;
+  padding-right: 0.5rem;
+  display: block;
+  min-width: min-content;
+  background-color: white;
+  border-bottom: 2px solid rgb(255, 183, 1);
 }
 
-.logo-div img{
-    width: 50%;
+.logo-div {
+  height: 90%;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.loginbox
-{
-    margin-top: 0vh;
-    margin-left: 5vw;
-    width: 45%;
-    height: fit-content;
-    padding: 6vh;
-    padding-bottom: 23vh;
-    align-content: center;
-    background-color: rgba(0, 0, 0, 0.096);
-    border-radius: 0 0 20px 20px;
+.logo-div h2 {
+  font-size: 15vh;
+  height: auto;
+  padding: 0px;
 }
 
-.regform{
-    width: auto;
-    height: 80vh;
-    padding-inline: 2vw;
-    padding-block: 5vh;
-    align-content: center;
-    background-color: rgba(0, 0, 0, 0.096);
-    border-radius: 20px 20px 20px 20px;
+.logo-div img {
+  width: 50%;
+}
+
+.loginbox {
+  margin-top: 0vh;
+  margin-left: 5vw;
+  width: 45%;
+  height: fit-content;
+  padding: 6vh;
+  padding-bottom: 23vh;
+  align-content: center;
+  background-color: rgba(0, 0, 0, 0.096);
+  border-radius: 0 0 20px 20px;
+}
+
+.regform {
+  width: auto;
+  height: 80vh;
+  padding-inline: 2vw;
+  padding-block: 5vh;
+  align-content: center;
+  background-color: rgba(0, 0, 0, 0.096);
+  border-radius: 20px 20px 20px 20px;
 }
 
 .loginform {
-    position: relative;
-    padding: 0px;
-    color: black;
-}
-  
-
-    input{	width: 100%;
-		padding: 15px;
-		font-size: 15px;
-        background-color: white;
-		border:none;}
-
-button{	background-color: rgb(255, 183, 1);
-		color:white;
-		padding: 15px;
-		font-size: 15px;
-		border: none;
-		cursor: pointer;
-		width:100%;}
-		
-button:hover{	opacity:0.7;}
-
-.signinbox
-{
-  
-
-    
-}
-.heading-login
-{
-    width: auto;
-    height: auto;
-    font-size: 3.9vh;
-    text-align: center;
+  position: relative;
+  padding: 0px;
+  color: black;
 }
 
-.reg-modal{
-    width: 46%;
-    background-color: rgb(241 , 241 , 241);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    /* css for making register modal scrollable */
-    overflow-y: scroll !important;
+input {
+  width: 100%;
+  padding: 15px;
+  font-size: 15px;
+  background-color: white;
+  border: none;
 }
-::-webkit-scrollbar{
-    width: 0.1rem;
+
+button {
+  background-color: rgb(255, 183, 1);
+  color: white;
+  padding: 15px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
-.heading-register{
-    width: auto;
-    height: auto;
-    font-size: 3.9vh;
-    text-align: center;
+
+button:hover {
+  opacity: 0.7;
 }
-.holders
-{
-    background-color: white;
-    border: none;
-    border-bottom: 2px solid rgb(255, 183, 1);
-    width: 90%;
-    margin-top: 1.5vh;
+
+.signinbox {
+}
+.heading-login {
+  width: auto;
+  height: auto;
+  font-size: 3.9vh;
+  text-align: center;
+}
+
+.reg-modal {
+  width: 46%;
+  background-color: rgb(241, 241, 241);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* css for making register modal scrollable */
+  overflow-y: scroll !important;
+}
+::-webkit-scrollbar {
+  width: 0.1rem;
+}
+.heading-register {
+  width: auto;
+  height: auto;
+  font-size: 3.9vh;
+  text-align: center;
+}
+
+.holders {
+  background-color: white;
+  border: none;
+  border-bottom: 2px solid rgb(255, 183, 1);
+  width: 95%;
 }
 
 .modal {
-    position: absolute;
-    top: 30px;
-    left: 20vw;
-    right: 20vw;
-    bottom: 40px;
-    background-color: grey;
-  }
+  position: absolute;
+  top: 30px;
+  left: 20vw;
+  right: 20vw;
+  bottom: 40px;
+  background-color: grey;
+}
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black;
-    opacity : 0.8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 1600px) {
+  .logo-div {
+    height: 89%;
   }
 
-  @media screen and (max-width: 1600px){
-      .logo-div{
-          height: 89%;
-      }
+  .logo-div h2 {
+    font-size: 10vh;
+    margin-top: 3vh;
+  }
+  .logo-div img {
+    width: 50%;
+  }
+}
 
-      .logo-div h2{
-          font-size: 10vh;
-          margin-top: 3vh;
-      }
-      .logo-div img{
-          width: 50%;
-      }
+@media screen and (max-width: 1400px) {
+  .logo-div img {
+    width: 60%;
+  }
+  .logo-div {
+    height: 93%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .logo-div {
+    height: 99%;
+  }
+  .logo-div img {
+    width: 70%;
+  }
+  .loginbox {
+    padding-bottom: 21vh;
+  }
+  .reg-modal {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .loginpage {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
   }
 
-  @media screen and (max-width: 1400px){
-    .logo-div img{
-        width: 60%;
-    }  
-    .logo-div{
-          height: 93%;
-      }
+  .logo-div {
+    width: 70%;
+    padding-left: 6vh;
+    padding-right: 6vh;
   }
 
-  @media screen and (max-width: 1100px){
-      .logo-div{
-          height: 99%;
-      }
-      .logo-div img{
-          width: 70%;
-      }
-      .loginbox{
-          padding-bottom: 21vh;
-      }
-      .reg-modal{
-          width: 60%;
-      }
+  .logo-div img {
+    width: 60%;
   }
 
-  @media screen and (max-width: 870px){
-      .loginpage{
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          height: auto;
-      }
-
-      .logo-div{
-          width: 70%;
-          padding-left: 6vh;
-          padding-right: 6vh;
-      }
-
-      .logo-div img{
-          width: 60%;
-      }
-
-      .loginbox{
-          margin-left: 0px;
-          width: 70%;
-          padding-bottom: 6vh;
-          margin-bottom: 20px;
-      }
-      .reg-modal{
-          width: 70%;
-      }
+  .loginbox {
+    margin-left: 0px;
+    width: 70%;
+    padding-bottom: 6vh;
+    margin-bottom: 20px;
   }
+  .reg-modal {
+    width: 70%;
+  }
+}

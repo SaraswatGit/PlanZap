@@ -18,7 +18,6 @@ const Ideas = () => {
   const [idea_desc, setideadesc] = useState("");
   const [idea_list, setidealist] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  
 
   const [tempidea, settempidea] = useState("");
   const [tempideadesc, settempdesc] = useState("");
@@ -26,16 +25,12 @@ const Ideas = () => {
   const [newdesc, setnewdesc] = useState("");
   const [tempid, settempid] = useState(0);
 
- 
-
-
-
   console.log(setuserid); //This is for removing warning only
 
   function toggleModal() {
     setIsOpen(!isOpen);
   }
- 
+
   const addidea = () => {
     postRequest("addidea", {
       idea_name: idea_name,
@@ -52,14 +47,11 @@ const Ideas = () => {
   };
 
   useEffect(() => {
- 
-
     postRequest("getideadata", {
       userid: userid,
     }).then((response) => {
       setidealist(response.data);
     });
-   
   }, [userid]);
 
   const update = () => {
@@ -90,7 +82,6 @@ const Ideas = () => {
     );
   };
 
- 
   return (
     <div className="ideaspage">
       <Modal
@@ -99,95 +90,98 @@ const Ideas = () => {
         contentLabel="My dialog"
         style={{
           overlay: {
-            backgroundColor: "rgba(255, 255, 255, 0.75)",
+            backgroundColor: "rgba(0, 0, 0, 0.75)",
           },
           content: {
             width: "41vw",
-            height: "50vh",
+            height: "55vh",
             margin: "auto",
             padding: "0",
-            borderRadius: "10px",
+            borderRadius: "5px",
             overflowX: "hidden",
             display: "flex",
             flexDirection: "column",
-            backgroundImage: "linear-gradient(to top left,grey, teal)",
+            backgroundColor: "white",
           },
         }}
       >
         <div
           style={{
-            position: "absolute",
-            marginLeft: "38.3vw",
-            marginTop: "0.2vh",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderBottom: "1px solid #D9D9D9 ",
+            paddingLeft: "1rem",
+            fontWeight: "200",
+            fontSize: "1.3rem",
           }}
         >
-          <CloseIcon onClick={toggleModal} />
+          Create New Note
+          <CloseIcon onClick={toggleModal} className="hoverOnCursor dclose" />
         </div>
-        <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
-          <label for="mname">Heading</label>
+        <div style={{ marginLeft: "2vw" }}>
           <br />
           <input
             type="text"
-            id="mname"
+            id="dname"
             maxLength="40"
             name="moviename"
-            className="fields"
+            placeholder="Title"
             onChange={(event) => {
               setideaname(event.target.value);
             }}
           />
-          <br />
-          <br />
-          <label for="mdesc">Description</label>
-          <br />
+
           <textarea
             style={{
               resize: "vertical",
             }}
-            id="mdesc"
+            id="ddesc"
             name="moviedescription"
             rows="5"
             cols="40"
-            className="fields"
+            placeholder="Your notes here..."
             onChange={(event) => {
               setideadesc(event.target.value);
             }}
           ></textarea>
-          <input
-            type="submit"
-            value="Submit"
-            className="subm2"
+          <div
+            className="douter"
             onClick={() => {
               addidea();
               toggleModal();
             }}
-          />
+          >
+            <span className="dsubmit" b>
+              ADD
+            </span>
+          </div>
         </div>
       </Modal>
-
-      {idea_list.map((val, key) => {
-        return (
-          <Idea
-            idea_list={val}
-            deletenote={deletenote}
-            update={update}
-            settempid={settempid}
-            setnewdesc={setnewdesc}
-            setnewidea={setnewidea}
-            settempdesc={settempdesc}
-            tempidea={tempidea}
-            tempideadesc={tempideadesc}
-            settempidea={settempidea}
-          />
-        );
-      })}
-
+      <div className="idea-box">
+        {idea_list.map((val, key) => {
+          return (
+            <Idea
+              idea_list={val}
+              deletenote={deletenote}
+              update={update}
+              settempid={settempid}
+              setnewdesc={setnewdesc}
+              setnewidea={setnewidea}
+              settempdesc={settempdesc}
+              tempidea={tempidea}
+              tempideadesc={tempideadesc}
+              settempidea={settempidea}
+            />
+          );
+        })}
+      </div>
       <div
-        className="newideabutton"
+        className="newideabutton hoverOnCursor"
         onClick={toggleModal}
         style={{ fontSize: "2.5vh" }}
       >
-        New Note &nbsp; <AddCircleOutlineIcon />
+        <AddCircleOutlineIcon className="hoverOnCursor" />
       </div>
     </div>
   );

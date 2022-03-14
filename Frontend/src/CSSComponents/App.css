@@ -8,6 +8,9 @@ select:focus,
 textarea:focus {
   outline: none;
 }
+.editbutton:hover{
+  cursor: pointer;
+}
 .sidebar {
   display: flex;
   background-color: black;

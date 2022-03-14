@@ -1,36 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800;900&display=swap");
+
 .moviesback {
   position: absolute;
-  height: 100%;
+  height: auto;
   margin-left: 15%;
   width: 85%;
   display: flex;
   flex-direction: column;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  background-color: #181a1c;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 10vh 0;
+}
+.moviesback > * {
+  width: 100%;
+}
+.hoverOnCursor:hover {
+  cursor: pointer;
 }
 .topbar {
   width: 100%;
   height: 5vh;
-  background-color: burlywood;
+  background-color: #0b6d9b;
+  color: white;
   display: flex;
-  font-size: 2.5vh;
+  font-size: 1.5rem;
+  font-weight: 400;
   border-bottom: 1px;
   border-bottom-style: solid;
 }
 .topbar2 {
   width: 100%;
-  height: 5vh;
-  background-color: burlywood;
+  height: auto;
   display: flex;
-  font-size: 2.5vh;
+  font-size: 1rem;
   border-bottom: 1px;
   border-bottom-style: solid;
+  font-weight: 300;
+  background-color: #8ec5df;
+}
+
+.topbar2 p {
+  margin: 0.5rem 0;
+}
+
+.topbar2:nth-of-type(even) {
+  background-color: #0b6d9b;
+  color: white;
 }
 
 .moviename {
   border-right: 1px;
   width: 35%;
+  border-color: white;
   border-right-style: solid;
   font-weight: bolder;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,10 +67,14 @@
   border-right: 1px;
   width: 35%;
   border-right-style: solid;
+  border-color: white;
   font-weight: bolder;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Poppins", sans-serif;
   display: flex;
   align-items: center;
+}
+.moviename2 p {
+  padding-left: 1rem;
 }
 .box {
   width: 10vh;
@@ -52,7 +84,7 @@
 .movierating {
   border-right: 1px;
   border-right-style: solid;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-color: white;
   font-weight: bolder;
   display: flex;
   justify-content: center;
@@ -63,7 +95,7 @@
 .movierating2 {
   border-right: 1px;
   border-right-style: solid;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-color: white;
   font-weight: bolder;
   display: flex;
   align-items: center;
@@ -73,7 +105,6 @@
 }
 .moviedesc {
   width: 50%;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bolder;
   display: flex;
   justify-content: center;
@@ -81,11 +112,19 @@
 }
 .moviedesc2 {
   width: 50%;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
   font-weight: bolder;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
+.moviedesc2 p {
+  padding-left: 1rem;
+}
+.moviedesc2 div {
+  padding-right: 1rem;
+}
+
 .edit-icon:hover {
   color: rgb(70, 70, 70);
 }
@@ -95,47 +134,34 @@
 }
 
 .Heading {
-  height: 30px;
   border: 0;
-  width: 28vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: larger;
-  font-weight: bolder;
-  margin-top: 10px;
+  font-size: 1.5rem;
 }
 .entrybox {
-  width: auto;
   padding: 1vw;
   height: auto;
-  background-color: #ffee00;
-  background-color: #f7b42c;
-  background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+  margin-bottom: 20rem;
+  background-color: #181a1c;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.5),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.1),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.5);
 
   border-radius: 10px;
-  margin-top: 25px;
-  color: aliceblue;
-  align-self: center;
+  margin-top: 2rem;
+  font-family: "Poppins", sans-serif;
+  width: 24rem;
+  color: white;
 }
+
 .formbox {
   margin-top: 20px;
   margin-left: 10px;
 }
 
-.donkey {
-  width: 88%;
-  border: none;
-  margin-top: 7px;
-  padding: 0%;
-  padding-left: 6px;
-  border-bottom: 2px solid red;
-  background-color: rgba(128, 128, 124, 0);
-  color: aliceblue;
-  text-decoration: solid;
-  font-size: 2vh;
-  margin-bottom: 13px;
-}
 .numbin {
   border: none;
   margin-top: 7px;
@@ -148,11 +174,11 @@
   margin-bottom: 13px;
 }
 
-textarea {
+.moviesback textarea {
   width: 88%;
   border: none;
   margin-top: 7px;
-  border-bottom: 2px solid red;
+  font-family: "Poppins", sans-serif;
   background-color: rgba(128, 128, 124, 0);
   color: aliceblue;
   text-decoration: solid;
@@ -160,38 +186,42 @@ textarea {
   padding: 0%;
   padding-left: 6px;
 }
+.center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .subm2 {
-  width: 30%;
-  background: linear-gradient(315deg, #fc575e 0%, #f7b42c 74%);
+  border-radius: 40px;
   color: white;
-  border-radius: 0.6rem;
-  border: 2px solid red;
+
+  background-color: #181a1c;
   cursor: pointer;
-  align-self: center;
-  margin-left: 35%;
-  margin-right: 35%;
-  margin-top: 2%;
-  height: 14%;
-  transition: all 3s;
+
+  padding: 1rem;
+  box-shadow: inset -2px 2px 6px rgba(255, 255, 255, 0.25),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+  transition: all 1s;
+  font-weight: bold;
+  margin: auto;
+  width: 30%;
 }
 .subm2:hover {
-  background-color: #f7b42c;
-  background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+  background-color: #03a9f4;
+
   color: black;
 }
 .save-button {
   width: 15rem;
   margin: auto;
   border-radius: 0.6rem;
-  border: 2px solid red;
-  transition: all 2s;
-  background-color: #5de6de;
-  background-image: linear-gradient(315deg, #b58ecc 0%, #5de6de 74%);
+  background-color: #181a1c;
+  transition: all 1s;
 }
 .save-button:hover {
   color: black;
-  background-color: #5de6de;
-  background-image: linear-gradient(315deg, #5de6de 0%, #b58ecc 74%);
+  background-color: #03a9f4;
 }
 
 .movie-edit {
@@ -205,4 +235,29 @@ textarea {
   align-items: center;
   margin-left: 10px;
   cursor: pointer;
+}
+
+.donkey {
+  width: 80%;
+  font-family: "Poppins", sans-serif;
+  background-color: #181a1c;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding: 10px 15px;
+  color: white;
+
+  box-shadow: inset -2px 2px 6px rgba(255, 255, 255, 0.25),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+#mdesc {
+  resize: vertical;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+
+.formbox label {
+  color: #03a9f4;
+  font-weight: bold;
 }

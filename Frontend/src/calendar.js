@@ -7,7 +7,6 @@ import { usercontext } from "./Context/usercontext";
 import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import "./CSSComponents/delete.css";
-import CancelIcon from "@mui/icons-material/Cancel";
 import CircularProgress from "@mui/material/CircularProgress";
 const { format } = require("date-fns");
 
@@ -60,6 +59,7 @@ const Calender = (props) => {
 
   const [isSortPopup, setSortPopup] = useState(false);
   const today = new Date().toISOString().split("T")[0];
+  const [deleteTaskID, setDeleteTaskID] = useState(null);
 
   console.log(setuserid); //This is for removing warning only
 
@@ -213,33 +213,33 @@ const Calender = (props) => {
   if (isLoader) {
     return (
       <div>
-      <div className="loader">
-        <CircularProgress color="inherit" size="80px" value={progress} />
+        <div className="loader">
+          <CircularProgress color="inherit" size="80px" value={progress} />
+        </div>
+
+        <div className="bottompart sider">
+          <div className="prioritydesc">
+            <div className="redbox"></div>
+            High Priority
+          </div>
+          <div className="prioritydesc">
+            <div className="yellowbox"></div>
+            Medium Priority
+          </div>
+          <div className="prioritydesc">
+            <div className="violetbox"></div>
+            Low Priority
+          </div>
+
+          <div className="newtaskbutton" onClick={toggleModal}>
+            Add new task
+          </div>
+
+          <div className="newtaskbutton" onClick={toggleTaskSort}>
+            Sort tasks
+          </div>
+        </div>
       </div>
-
-<div className="bottompart sider" >
-<div className="prioritydesc">
-  <div className="redbox"></div>
-  High Priority
-</div>
-<div className="prioritydesc">
-  <div className="yellowbox"></div>
-  Medium Priority
-</div>
-<div className="prioritydesc">
-  <div className="violetbox"></div>
-  Low Priority
-</div>
-
-<div className="newtaskbutton" onClick={toggleModal}>
-  Add new task
-</div>
-
-<div className="newtaskbutton" onClick={toggleTaskSort}>
-  Sort tasks
-</div>
-</div>
-</div>
     );
   }
 
@@ -286,8 +286,10 @@ const Calender = (props) => {
                 >
                   {" "}
                   <CloseIcon
+                    className="hoverOnCursor"
                     onClick={() => {
                       setPopup(true);
+                      setDeleteTaskID(val.taskid);
                     }}
                     style={{ width: "1.6vw", height: "1.6vw" }}
                   />
@@ -304,7 +306,7 @@ const Calender = (props) => {
                     },
                     content: {
                       width: "30vw",
-            height: "30vh",
+                      height: "30vh",
                       margin: "auto",
                       padding: "1%",
                       borderRadius: "7px",
@@ -317,14 +319,13 @@ const Calender = (props) => {
                   }}
                   centered
                 >
-                  
                   <h2 className="delete-message">
                     Do you want to delete the task?
                   </h2>
                   <div className="delete-btns">
                     <button
                       onClick={() => {
-                        deletetask(val.taskid);
+                        deletetask(deleteTaskID);
                         setPopup(false);
                       }}
                       className="popupBtn confirm-btn"
@@ -374,12 +375,12 @@ const Calender = (props) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  width: "13vw",
                   fontSize: "2vh",
                 }}
               >
                 <Box style={{ textAlign: "center" }} width={150}>
                   <Slider
+                    className="slider"
                     size="small"
                     defaultValue={val.progress}
                     aria-label="Small"
@@ -392,7 +393,7 @@ const Calender = (props) => {
                       setprogress(event.target.value);
                       updateprogess(val.taskid);
                     }}
-                    style={{ width: "10vw" }}
+                    // style={{ width: "10vw" }}
                   />
                 </Box>
               </div>{" "}
@@ -478,7 +479,7 @@ const Calender = (props) => {
           <select
             value={sortType.sortBy}
             onChange={handleChange}
-            className="select-option"
+            className="select-option hoverOnCursor decorated"
           >
             <option value="default"> --Select-- </option>
             <option value="deadline"> By nearest deadline </option>
@@ -520,8 +521,8 @@ const Calender = (props) => {
             height: "43vh",
             padding: "0",
             borderRadius: "10px",
-            backgroundImage:
-              "linear-gradient(to top left,grey, rgb(200, 187, 0))",
+            backgroundColor: "#222",
+            color: "#fff",
 
             display: "flex",
             justifyContent: "center",
