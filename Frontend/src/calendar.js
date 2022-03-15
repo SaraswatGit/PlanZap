@@ -2,10 +2,10 @@ import React, { useState, useContext, useEffect } from "react";
 import "./CSSComponents/calendarstyle.css";
 import CloseIcon from "@mui/icons-material/Close";
 import Modal from "react-modal";
-import Axios from "axios";
+import { putRequest, postRequest, deleteRequest } from './axiosClient';
 import { usercontext } from "./Context/usercontext";
 import Slider from "@mui/material/Slider";
-import Box from "@mui/material/Box";
+import Box from "@mui/material/Box";  
 import "./CSSComponents/delete.css";
 import CircularProgress from "@mui/material/CircularProgress";
 const { format } = require("date-fns");
@@ -111,7 +111,7 @@ const Calender = (props) => {
   };
 
   const deletetask = (id) => {
-    Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
+    deleteRequest(`deletetask/${id}`).then(
       (response) => {
         settasklist(
           tasklist.filter((val) => {
@@ -126,7 +126,7 @@ const Calender = (props) => {
     //when finishes a task, confetti celeb action
     props.setConfetti(true);
 
-    Axios.delete(`https://planzap.herokuapp.com/deletetask/${id}`).then(
+    deleteRequest(`deletetask/${id}`).then(
       (response) => {
         settasklist(
           tasklist.filter((val) => {
@@ -153,7 +153,7 @@ const Calender = (props) => {
   useEffect(() => {
     setIsLoader(true);
 
-    Axios.post("https://planzap.herokuapp.com/gettaskdata", {
+    postRequest("gettaskdata", {
       userid: userid,
     }).then((response) => {
       setIsLoader(false);
@@ -174,13 +174,13 @@ const Calender = (props) => {
   };
 
   const addtask = () => {
-    Axios.post("https://planzap.herokuapp.com/addtask", {
+    postRequest("addtask", {
       taskname: taskname,
       priority: priority,
       deadline: deadline,
       userid: userid,
     }).then(() => {
-      Axios.post("https://planzap.herokuapp.com/gettaskdata", {
+      postRequest("gettaskdata", {
         userid: userid,
       }).then((response) => {
         settasklist(response.data);
@@ -197,11 +197,11 @@ const Calender = (props) => {
     toggleModal();
   };
   const updateprogess = (id) => {
-    Axios.put("https://planzap.herokuapp.com/updateprog", {
+    putRequest("updateprog", {
       id: id,
       progress: progress,
     }).then((response) => {
-      Axios.post("https://planzap.herokuapp.com/gettaskdata", {
+      postRequest("gettaskdata", {
         userid: userid,
       }).then((response) => {
         settasklist(response.data);
@@ -375,12 +375,12 @@ const Calender = (props) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  width: "13vw",
                   fontSize: "2vh",
                 }}
               >
                 <Box style={{ textAlign: "center" }} width={150}>
                   <Slider
+                    className="slider"
                     size="small"
                     defaultValue={val.progress}
                     aria-label="Small"
@@ -393,7 +393,7 @@ const Calender = (props) => {
                       setprogress(event.target.value);
                       updateprogess(val.taskid);
                     }}
-                    style={{ width: "10vw" }}
+                    // style={{ width: "10vw" }}
                   />
                 </Box>
               </div>{" "}
@@ -499,7 +499,7 @@ const Calender = (props) => {
             return (
               <div className="task-object">
                 <p className="task-elem">{val.taskname}</p>
-                <p className="task-elem">{val.progress}%</p>
+                <p className="task-elem">{0+val.progress}%</p>
                 <p className="task-elem">{val.priority}</p>
                 <p className="task-elem">{getFormattedDate(val.deadline)}</p>
               </div>

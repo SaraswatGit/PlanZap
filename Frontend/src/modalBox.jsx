@@ -6,10 +6,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-
 import Axios from "axios";
-
-// const emails = ['username@gmail.com', 'user02@gmail.com'];
 
 function SimpleDialog(props) {
   const { onClose, selectedValue, open, emails } = props;
@@ -37,13 +34,6 @@ function SimpleDialog(props) {
               </ListItem>
             ))
           : null}
-        {/* {emails === []
-          ? () => (
-              <ListItem button key={"null"}>
-                <ListItemText primary={"No movie Found"} />
-              </ListItem>
-            )
-          : null} */}
       </List>
     </Dialog>
   );
@@ -72,7 +62,7 @@ export default function SimpleDialogDemo({ title, setIMDB, setDescription }) {
       url: `https://data-imdb1.p.rapidapi.com/movie/imdb_id/byTitle/${title}/`,
       headers: {
         "x-rapidapi-host": "data-imdb1.p.rapidapi.com",
-        "x-rapidapi-key": "4d9a5d0385msh520a8009f617595p1ac0c4jsn66f1251519a3",
+        "x-rapidapi-key": process.env.REACT_APP_PUBLIC_IMDB_API_KEY,
       },
     };
 
