@@ -2,8 +2,7 @@ import React, { useState, useContext } from "react";
 import "./CSSComponents/diary.css";
 import { usercontext } from "./Context/usercontext";
 import Modal from "react-modal";
-import CloseIcon from "@mui/icons-material/Close";
-import { putRequest, postRequest } from './axiosClient';
+import { putRequest, postRequest } from "./axiosClient";
 
 const { format } = require("date-fns");
 
@@ -17,10 +16,10 @@ const Diary = () => {
   const [errormessage, seterrormessage] = useState("");
   const [extracteddesc, setextracteddesc] = useState("");
   const [extractdate, setextractdate] = useState(false);
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split("T")[0];
 
   const [id, setid] = useState(0);
-  
+
   console.log(setuserid); //This is for removing warning only
   console.log(id); //This is for removing warning only
 
@@ -50,7 +49,6 @@ const Diary = () => {
   
   }, [])*/
   const update = (e) => {
-  
     putRequest("updatediary", {
       userid: userid,
       data_entry: newdesc,
@@ -60,7 +58,6 @@ const Diary = () => {
     });
   };
   const add = (e) => {
-  
     postRequest("insertdiary", {
       userid: userid,
       data_entry: desc,
@@ -69,13 +66,6 @@ const Diary = () => {
       console.log("inserted");
     });
   };
-  /*const deleteentry=(tid)=>{
-    
-    deleteRequest(`http://localhost:3001/deleteentry/${tid}`).then((respose)=>{
-      setentrystatus(false);
-
-    })
-  }*/
   const getentry = (datadate) => {
     postRequest("getentry", {
       userid: userid,
@@ -129,7 +119,7 @@ const Diary = () => {
         }}
       >
         <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
-          <label  style={{ fontSize: "2.5vh" }}>
+          <label style={{ fontSize: "2.5vh" }}>
             {format(new Date(date), "PPPP")}
           </label>
           <br />
@@ -158,7 +148,7 @@ const Diary = () => {
               onClick={() => {
                 entryexists ? update() : add();
                 toggleModal();
-                getentry(date)
+                getentry(date);
               }}
             >
               {entryexists ? "Update" : "Add Entry"}
@@ -178,7 +168,8 @@ const Diary = () => {
             marginTop: "2vh",
           }}
           onChange={(event) => {
-            setdate(event.target.value); getentry(event.target.value)
+            setdate(event.target.value);
+            getentry(event.target.value);
           }}
         />
       </div>
@@ -198,7 +189,6 @@ const Diary = () => {
           Update / Add
         </button>
         &nbsp;
-        
       </div>
       <br />
       <div

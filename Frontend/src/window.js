@@ -27,7 +27,7 @@ function useWindowSize() {
 }
 
 function Component() {
-  const { height, width } = useWindowSize();  
+  const { height, width } = useWindowSize();
   console.log(height); //This is for removing warning only
   if (width > 600) {
     return <App />;

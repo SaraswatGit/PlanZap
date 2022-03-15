@@ -2,7 +2,7 @@ import "./CSSComponents/App.css";
 import React, { useState, useEffect } from "react";
 import Login from "./loginpage";
 import Profile from "./profpage";
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Calender from "./calendar";
 import Loader from "./LoadingScreen";
 import Movies from "./movies";
