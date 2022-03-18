@@ -10,6 +10,7 @@
 
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   background-color: rgb(100, 100, 100);
+  color:black;
 }
 .hoverOnCursor:hover {
   cursor: pointer;

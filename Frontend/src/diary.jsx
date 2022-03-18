@@ -95,6 +95,7 @@ const Diary = () => {
         width: "85vw",
         marginLeft: "15vw",
         alignItems: "center",
+        color:"black"
       }}
     >
       <Modal

@@ -1,6 +1,7 @@
 .App {
   display: flex;
   flex-direction: row;
+  color:grey;
   /*height: 100vh;*/
 }
 input:focus,
