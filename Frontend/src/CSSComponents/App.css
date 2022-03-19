@@ -1,6 +1,7 @@
 .App {
   display: flex;
   flex-direction: row;
+  color:white;
   /*height: 100vh;*/
 }
 input:focus,
@@ -68,13 +69,11 @@ textarea:focus {
 .selected {
   display: flex;
   align-items: center;
-  background-color: black;
   margin: 0%;
   font-size: 1.9vh;
   font-weight: 700;
   text-decoration: none;
   font-style: normal;
-  color: white;
   height: 8.66vh;
   padding-left: 10%;
   margin-right: 0.5vw;
