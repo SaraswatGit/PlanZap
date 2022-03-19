@@ -157,8 +157,8 @@ const Diary = () => {
           </div>
         </div>
       </Modal>
-      <div>
-        {" "}
+      <div className="datepicker">
+        
         <input
           type="date"
           max={today}
