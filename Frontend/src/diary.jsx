@@ -160,6 +160,7 @@ const Diary = () => {
       <div className="datepicker">
         
         <input
+          
           type="date"
           max={today}
           style={{
