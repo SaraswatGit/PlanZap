@@ -56,13 +56,13 @@ const Calender = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { userid, setuserid } = useContext(usercontext);
   const [isLoader, setIsLoader] = useState(true);
-
+  const sideOpen=props.sideOpen;
   const [isSortPopup, setSortPopup] = useState(false);
   const today = new Date().toISOString().split("T")[0];
   const [deleteTaskID, setDeleteTaskID] = useState(null);
 
   console.log(setuserid); //This is for removing warning only
-
+  console.log(sideOpen+"&&&&&&&****")
   const [tasklist, settasklist] = useState([]);
 
   var taskArr = [...tasklist];
@@ -217,7 +217,7 @@ const Calender = (props) => {
           <CircularProgress color="inherit" size="80px" value={progress} />
         </div>
 
-        <div className="bottompart sider">
+        <div className={sideOpen?"bottompart sider":"bottompart sider increase"}>
           <div className="prioritydesc">
             <div className="redbox"></div>
             High Priority

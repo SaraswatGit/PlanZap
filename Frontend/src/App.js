@@ -16,6 +16,8 @@ import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 import EditIcon from "@mui/icons-material/Edit";
 import { usercontext } from "./Context/usercontext";
 import LogoutIcon from "@mui/icons-material/Logout";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { getRequest, postRequest, putRequest } from './axiosClient';
 import Modal from "react-modal";
 import ConfettiCeleb from "./ConfettiCeleb";
@@ -23,7 +25,7 @@ import MaintenanceImg from "./CSSComponents/maintenance.svg";
 import HowToUse from "./HowToUse";
 import Bookstoread from "./booksToRead";
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
-
+import SideBarDis from "./SideBar/SideBarDis";
 Modal.setAppElement("#root");
 
 function App() {
@@ -38,6 +40,7 @@ function App() {
   //const history=useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const [isHowToUseModal, setIsHowToUseModal] = useState(false);
+  const [sideOpen,issideOpen]=useState(false);
 
   function checkHowToUseModal() {
     if (!localStorage.getItem("isVisited")) {
@@ -209,112 +212,28 @@ function App() {
             ) : (
               <div>
                 {" "}
-                <div className="sidebar">
-                  {/*      <NavLink to="/Profile" className="barelement" activeClassName="selected">
-                     <AccountCircleIcon />
-                     &nbsp; &nbsp; Profile
-              </NavLink>*/}
+                <div className={sideOpen?"sidebar":"sidebar close"}>
+                   <div className="back-icon-side"  onClick={()=>{
+                   issideOpen((val)=>{
+                     return !val
+                   })
+                 }}>
+                   {
+                     sideOpen?<ArrowBackIosNewIcon/>:<ArrowForwardIosIcon/>
+                   }
+                     
+                   </div>
+
                   <div className="quotearea">
-                    "{userquote}"<br />
+                    <span className={sideOpen?"disQuote":"disQuote disappear"}>
+                    {userquote}<br />
+
+                    </span>
+                    
                     <EditIcon className="editbutton" onClick={toggleModal} />
                   </div>
-                  <NavLink
-                    to="/TasksandProgress"
-                    className={({ isActive }) =>
-                      `link ${
-                        isActive
-                          ? "selected"
-                          : // Couldn't do this before!
-                            "barelement"
-                      }`
-                    }
-                  >
-                    <TaskIcon style={{ height: "2.8vh", marginRight: "1vw" }} />
-                    Tasks and Progress
-                  </NavLink>
-                  {/*  <NavLink to="/Performancegraphs" className="barelement" activeClassName="selected">
-                     <ShowChartIcon/>      &nbsp; &nbsp;Performance Graphs
-    </NavLink>*/}
-                  <NavLink
-                    to="/movieslist"
-                    className={({ isActive }) =>
-                      `link ${
-                        isActive
-                          ? "selected"
-                          : // Couldn't do this before!
-                            "barelement"
-                      }`
-                    }
-                  >
-                    <FormatListBulletedIcon
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                    Movies to Watch
-                  </NavLink>
-                  <NavLink
-                    to="/diary"
-                    className={({ isActive }) =>
-                      `link ${
-                        isActive
-                          ? "selected"
-                          : // Couldn't do this before!
-                            "barelement"
-                      }`
-                    }
-                  >
-                    <MenuBookIcon
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                    Personal Diary <br />
-                  </NavLink>
-                  <NavLink
-                    to="/ideasnotes"
-                    className={({ isActive }) =>
-                      `link ${
-                        isActive
-                          ? "selected"
-                          : // Couldn't do this before!
-                            "barelement"
-                      }`
-                    }
-                  >
-                    <CollectionsBookmarkIcon
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                    Ideas and Notes <br />
-                  </NavLink>
-                  <NavLink
-                    to="/bookstoread"
-                    className={({ isActive }) =>
-                      `link ${
-                        isActive
-                          ? "selected"
-                          : // Couldn't do this before!
-                            "barelement"
-                      }`
-                    }
-                  >
-                    <LocalLibraryIcon
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                    Books to Read <br />
-                  </NavLink>
-                  {/* <NavLink
-                    to="/howtouse"
-                    className={({ isActive }) =>
-                      `link ${
-                        isActive
-                          ? "selected"
-                          : // Couldn't do this before!
-                            "barelement"
-                      }`
-                    }
-                  >
-                    <ListAltIcon
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                    How To Use <br />
-                  </NavLink> */}
+                  <SideBarDis sideOpen={sideOpen}></SideBarDis>
+                  
                   <div
                     className="logout"
                     onClick={logout}
@@ -323,9 +242,9 @@ function App() {
                     <LogoutIcon
                       style={{ height: "2.8vh", marginRight: "1vw" }}
                     />{" "}
-                    Log Out{" "}
+                     {sideOpen?"Log Out":""}
                   </div>
-                </div>
+                </div> 
                 <div>
                   <Modal
                     isOpen={isHowToUseModal}
@@ -366,9 +285,9 @@ function App() {
                       </button>
                     </Link> */}
                   </Modal>
-
+                  <div className={sideOpen?"Route_container":"Route_container closed"}>
                   <Routes>
-                    ]
+                    
                     <Route
                       path="/"
                       element={<Calender setConfetti={setConfetti} />}
@@ -376,17 +295,21 @@ function App() {
                     <Route path="/Profile" element={<Profile />}></Route>
                     <Route
                       path="/TasksandProgress"
-                      element={<Calender setConfetti={setConfetti} />}
+                      element={<Calender setConfetti={setConfetti} sideOpen={sideOpen} />}
                     ></Route>
                     <Route path="/diary" element={<Diary />}></Route>
-                    <Route path="/movieslist" element={<Movies />}></Route>
-                    <Route path="/ideasnotes" element={<Ideas />}></Route>
+                    <Route path="/movieslist" element={<Movies sideOpen={sideOpen}/>}></Route>
+                    <Route path="/ideasnotes" element={<Ideas sideOpen={sideOpen} />}></Route>
                     <Route
                       path="/bookstoread"
-                      element={<Bookstoread />}
+                      element={<Bookstoread sideOpen={sideOpen}/>}
                     ></Route>
                     <Route path="/howtouse" element={<HowToUse />}></Route>
                   </Routes>
+
+                  </div>
+
+                  
                 </div>
               </div>
             )}

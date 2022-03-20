@@ -12,13 +12,13 @@ import Idea from "./idea";
 
 Modal.setAppElement("#root");
 
-const Ideas = () => {
+const Ideas = (props) => {
   const { userid, setuserid } = useContext(usercontext);
   const [idea_name, setideaname] = useState("");
   const [idea_desc, setideadesc] = useState("");
   const [idea_list, setidealist] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-
+  const {sideOpen}=props;
   const [tempidea, settempidea] = useState("");
   const [tempideadesc, settempdesc] = useState("");
   const [newidea, setnewidea] = useState("");
@@ -83,7 +83,7 @@ const Ideas = () => {
   };
 
   return (
-    <div className="ideaspage">
+    <div className={sideOpen?"ideaspage":"ideaspage increase"}>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}

@@ -4,10 +4,22 @@
   flex-direction: column;
   height: 100vh;
   width: 85vw;
+  padding: 20px;
   margin-left: 15vw;
   align-items: center;
   font-family: "Poppins", sans-serif;
 
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  background-color: rgb(100, 100, 100);
+  color:black;
+  overflow: visible;
+  transition: width 0.2s ease-in;
+}
+.ideaspage.increase{
+
+  width: 95vw;
+ 
+  margin-left: 15vw;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   background-color: rgb(100, 100, 100);
   color:black;
