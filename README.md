@@ -1,4 +1,6 @@
 <br/>
+<div id="BacktoTop">
+</div>
 <p align=center>
     <h1 align="center"> 📓 PlanZap 📓 </h1>
     <img align="center" src="https://i.postimg.cc/XJSmSqZV/planzap-2.png" alt="PlanZap logo" width="100%"/>
@@ -370,4 +372,8 @@ Thanks to these wonderful people ✨✨:
 </p>
 <p align = "center">
 <a href="https://github.com/SaraswatGit"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="25"></img></a>&nbsp;&nbsp; <a href="https://www.linkedin.com/in/saraswat-majumder-b9136115b/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="25"></img></a>
+</p>
+
+<p align="right">
+  <a href="https://github.com/KushalGhosh9899/PlanZap/edit/main/README.md#BacktoTop">Back to Top^</a>
 </p>
