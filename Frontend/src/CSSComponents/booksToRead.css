@@ -81,3 +81,40 @@
 .bookDialog form label {
   font-weight: 500;
 }
+.booksSearchResultContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bookCard {
+  display: flex;
+  padding: 1vw;
+  /* height: 30rem; */
+  width: 40%;
+  background-color: #181a1c;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.5),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.1),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+
+  border-radius: 10px;
+  margin: 2rem;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+.bookThumbnail {
+  width: 30%;
+  margin: 1rem;
+}
+.bookDescription {
+  width: 70%;
+  margin: 1rem;
+}
+
+.bookDescription p {
+  margin-top: 0;
+}
+.bookCardLabel {
+  color: #03a9f4;
+  font-weight: bold;
+  margin: 0;
+}

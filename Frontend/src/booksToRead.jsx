@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./CSSComponents/movies.css";
+import "./CSSComponents/booksToRead.css";
 import Axios from "axios";
 import EditIcon from "@mui/icons-material/Edit";
 import Modal from "react-modal";
@@ -20,6 +21,7 @@ const Books = () => {
   const [tempdesc, settempdesc] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [tempid, settempid] = useState(0);
+  const [searchedBooks, setSearchedBooks] = useState([]);
 
   const { userid, setuserid } = useContext(usercontext);
   const [isPopup, setPopup] = useState(false);
@@ -31,6 +33,34 @@ const Books = () => {
   function toggleModal() {
     setIsOpen(!isOpen);
   }
+
+  const searchBoock = (title) => {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=+intitle:${title}`)
+      .then((res) => res.json())
+      .then((books) => {
+        console.log(books.items);
+        var booksList = [];
+        books.items.forEach((book) => {
+          const {
+            authors,
+            averageRating,
+            description,
+            imageLinks,
+            title,
+            ...rest
+          } = book.volumeInfo;
+          booksList.push({
+            authors,
+            averageRating,
+            description,
+            imageLinks,
+            title,
+          });
+        });
+        console.log(booksList);
+        setSearchedBooks(booksList);
+      });
+  };
 
   const updatebook = () => {
     console.log(tempid);
@@ -49,8 +79,12 @@ const Books = () => {
   };
 
   const addbook = () => {
-    if (!book_description || !book_name || !book_author) {
-      alert("Enter all the fields");
+    // if (!book_description || !book_name || !book_author) {
+    //   alert("Enter all the fields");
+    //   return;
+    // }
+    if (!book_name) {
+      alert("Enter atleast partial book title to search a book");
       return;
     }
     const data = Axios.post("https://planzap.herokuapp.com/book/create", {
@@ -283,7 +317,95 @@ const Books = () => {
         })}
       </div>
 
+      {/* ------------------------------------------------------------------------------------ */}
+
       <div className="entrybox">
+        <div className="formbox">
+          <label for="mname">Book Title</label>
+          <br />
+          <br />
+          <input
+            type="text"
+            id="mname"
+            maxLength="40"
+            name="moviename"
+            className="donkey"
+            value={book_name}
+            placeholder="Harry Potter"
+            onChange={(event) => {
+              setbookname(event.target.value);
+            }}
+          />
+
+          <div className="center">
+            <input
+              type="submit"
+              value="SEARCH"
+              className="subm2"
+              onClick={() => {
+                searchBoock(book_name);
+              }}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="booksSearchResultContainer">
+        {searchedBooks.map((book, key) => {
+          const { authors, averageRating, description, imageLinks, title } =
+            book;
+          console.log(book);
+          return (
+            <div className="bookCard">
+              <div className="bookThumbnail">
+                {imageLinks ? (
+                  <img
+                    src={imageLinks.thumbnail}
+                    alt="Book thumbnail"
+                    width="100"
+                    height="170"
+                  />
+                ) : (
+                  "Image not available"
+                )}
+              </div>
+              <div className="bookDescription">
+                <p className="bookCardLabel">Title</p>
+                <p>{title}</p>
+                <p className="bookCardLabel">Description</p>
+                {description ? (
+                  <p>
+                    {description.length > 200
+                      ? description.substring(0, 195) + "..."
+                      : description}
+                  </p>
+                ) : (
+                  "N/A"
+                )}
+
+                <p className="bookCardLabel">Authors</p>
+                {authors
+                  ? authors.map((author, key) => {
+                      return <span>{`${author}, `}</span>;
+                    })
+                  : "N/A"}
+                <p className="bookCardLabel">Rating</p>
+                <p>{averageRating ? averageRating : "*Not Rated*"}</p>
+                <input
+                  type="submit"
+                  value="ADD"
+                  className="subm2"
+                  onClick={() => {
+                    addbook();
+                  }}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {/* ------------------------------------------------------------------------------------ */}
+
+      {/* <div className="entrybox">
         <div className="Heading">Enter the Book Details here</div>
         <br />
         <div className="formbox">
@@ -343,13 +465,12 @@ const Books = () => {
               type="submit"
               value="ADD"
               className="subm2"
-              onClick={addbook}
+              onClick={()=>{addbook();
+							searchBoock(book_name)}}
             />
           </div>
         </div>
-      </div>
-
-      <div></div>
+      </div> */}
     </div>
   );
 };
