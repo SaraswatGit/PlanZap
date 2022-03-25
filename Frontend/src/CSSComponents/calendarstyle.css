@@ -204,7 +204,16 @@
 .topbar {
   margin: 0%;
 }
-
+.high {
+  height: 5px;
+  background-color: #fdc379 ;
+}
+.med {
+  background-color: #59afb1;
+}
+.low {
+  background-color: #7a9af0;
+}
 .formarea {
   padding: 0vw 0vw 0vw 1vw;
   font-weight: bolder;
