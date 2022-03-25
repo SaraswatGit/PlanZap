@@ -8,24 +8,26 @@ import Loader from "./LoadingScreen";
 import Movies from "./movies";
 import Ideas from "./ideas";
 import Diary from "./diary";
-import { NavLink } from "react-router-dom";
-import TaskIcon from "@mui/icons-material/Task";
-import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
-import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
-import EditIcon from "@mui/icons-material/Edit";
 import { usercontext } from "./Context/usercontext";
+<<<<<<< HEAD
 import LogoutIcon from "@mui/icons-material/Logout";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+=======
+>>>>>>> modifications
 import { getRequest, postRequest, putRequest } from './axiosClient';
 import Modal from "react-modal";
 import ConfettiCeleb from "./ConfettiCeleb";
 import MaintenanceImg from "./CSSComponents/maintenance.svg";
 import HowToUse from "./HowToUse";
 import Bookstoread from "./booksToRead";
+<<<<<<< HEAD
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import SideBarDis from "./SideBar/SideBarDis";
+=======
+import Sidebar from "./Components/Sidebar";
+
+>>>>>>> modifications
 Modal.setAppElement("#root");
 
 function App() {
@@ -212,6 +214,7 @@ function App() {
             ) : (
               <div>
                 {" "}
+<<<<<<< HEAD
                 <div className={sideOpen?"sidebar":"sidebar close"}>
                    <div className="back-icon-side"  onClick={()=>{
                    issideOpen((val)=>{
@@ -245,6 +248,9 @@ function App() {
                      {sideOpen?"Log Out":""}
                   </div>
                 </div> 
+=======
+                <Sidebar />
+>>>>>>> modifications
                 <div>
                   <Modal
                     isOpen={isHowToUseModal}

@@ -586,9 +586,9 @@ const Calender = (props) => {
             >
               <option></option>
 
-              <option value="Highest Priority">Highest Priority</option>
-              <option value="Medium Priority">Medium Priority</option>
-              <option value="Low Priority">Low Priority</option>
+              <option value="Highest Priority" class = "high">Highest Priority</option>
+              <option value="Medium Priority" class = "med">Medium Priority</option>
+              <option value="Low Priority" class = "low">Low Priority</option>
             </select>
             <input
               type="submit"
