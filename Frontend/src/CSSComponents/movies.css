@@ -3,8 +3,8 @@
 .moviesback {
   position: absolute;
   height: auto;
-  margin-left:15%;
-  width: 85%;
+  margin-left:16%;
+  width: 84%;
   
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   background-color: #181a1c;
@@ -19,7 +19,7 @@
 }
 .moviesback.increase{
   position: absolute;
-  width: 95%;
+  width: 96%;
   margin-left:15%;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   background-color: #181a1c;
@@ -155,7 +155,9 @@
 .entrybox {
   padding: 1vw;
   height: auto;
+  margin: auto;
   margin-bottom: 20rem;
+  
   background-color: #181a1c;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.5),

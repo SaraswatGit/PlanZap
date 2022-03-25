@@ -1,3 +1,5 @@
+
+   
 import "./CSSComponents/App.css";
 import React, { useState, useEffect } from "react";
 import Login from "./loginpage";
@@ -9,26 +11,22 @@ import Movies from "./movies";
 import Ideas from "./ideas";
 import Diary from "./diary";
 import { usercontext } from "./Context/usercontext";
-<<<<<<< HEAD
 import LogoutIcon from "@mui/icons-material/Logout";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-=======
->>>>>>> modifications
 import { getRequest, postRequest, putRequest } from './axiosClient';
 import Modal from "react-modal";
 import ConfettiCeleb from "./ConfettiCeleb";
 import MaintenanceImg from "./CSSComponents/maintenance.svg";
 import HowToUse from "./HowToUse";
 import Bookstoread from "./booksToRead";
-<<<<<<< HEAD
-import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
-import SideBarDis from "./SideBar/SideBarDis";
-=======
-import Sidebar from "./Components/Sidebar";
 
->>>>>>> modifications
+import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+
+import EditIcon from "@mui/icons-material/Edit";
+import Sidebar from './Components/Sidebar'
 Modal.setAppElement("#root");
+
 
 function App() {
   const [confetti, setConfetti] = useState(false);
@@ -214,7 +212,6 @@ function App() {
             ) : (
               <div>
                 {" "}
-<<<<<<< HEAD
                 <div className={sideOpen?"sidebar":"sidebar close"}>
                    <div className="back-icon-side"  onClick={()=>{
                    issideOpen((val)=>{
@@ -235,22 +232,16 @@ function App() {
                     
                     <EditIcon className="editbutton" onClick={toggleModal} />
                   </div>
-                  <SideBarDis sideOpen={sideOpen}></SideBarDis>
+                  <Sidebar sideOpen={sideOpen}></Sidebar>
                   
-                  <div
-                    className="logout"
-                    onClick={logout}
-                    style={{ fontSize: "2.1vh" }}
-                  >
+                 
                     <LogoutIcon
+                    onClick={logout}
                       style={{ height: "2.8vh", marginRight: "1vw" }}
                     />{" "}
                      {sideOpen?"Log Out":""}
-                  </div>
+                  
                 </div> 
-=======
-                <Sidebar />
->>>>>>> modifications
                 <div>
                   <Modal
                     isOpen={isHowToUseModal}
@@ -280,7 +271,6 @@ function App() {
                     {/* <h3>
                       You are new here so, you can check how to use it properly
                     </h3>
-
                     <Link to="/howtouse">
                       <button
                         onClick={() => {
@@ -325,5 +315,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
