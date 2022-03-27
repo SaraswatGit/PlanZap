@@ -35,14 +35,23 @@
   align-items: center;
   position: fixed;
   margin-top: 91vh;
+  
 }
 .hoverOnCursor:hover {
   cursor: pointer;
 }
 
-.sider {
+.bottompart.sider {
   position: relative;
-  left: 17.5%;
+  /* left: 17.5%; */
+  
+  transition: width 0.2s ease-in;
+  margin-left: 40%;
+}
+
+.bottompart.sider.increase{
+  width: 95vw;
+  margin-left: 15%;
 }
 
 .commonbox {

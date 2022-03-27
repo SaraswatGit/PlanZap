@@ -1,3 +1,5 @@
+
+   
 import "./CSSComponents/App.css";
 import React, { useState, useEffect } from "react";
 import Login from "./loginpage";
@@ -9,15 +11,22 @@ import Movies from "./movies";
 import Ideas from "./ideas";
 import Diary from "./diary";
 import { usercontext } from "./Context/usercontext";
+import LogoutIcon from "@mui/icons-material/Logout";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { getRequest, postRequest, putRequest } from './axiosClient';
 import Modal from "react-modal";
 import ConfettiCeleb from "./ConfettiCeleb";
 import MaintenanceImg from "./CSSComponents/maintenance.svg";
 import HowToUse from "./HowToUse";
 import Bookstoread from "./booksToRead";
-import Sidebar from "./Components/Sidebar";
 
+import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+
+import EditIcon from "@mui/icons-material/Edit";
+import Sidebar from './Components/Sidebar'
 Modal.setAppElement("#root");
+
 
 function App() {
   const [confetti, setConfetti] = useState(false);
@@ -31,6 +40,7 @@ function App() {
   //const history=useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const [isHowToUseModal, setIsHowToUseModal] = useState(false);
+  const [sideOpen,issideOpen]=useState(false);
 
   function checkHowToUseModal() {
     if (!localStorage.getItem("isVisited")) {
@@ -202,7 +212,36 @@ function App() {
             ) : (
               <div>
                 {" "}
-                <Sidebar />
+                <div className={sideOpen?"sidebar":"sidebar close"}>
+                   <div className="back-icon-side"  onClick={()=>{
+                   issideOpen((val)=>{
+                     return !val
+                   })
+                 }}>
+                   {
+                     sideOpen?<ArrowBackIosNewIcon/>:<ArrowForwardIosIcon/>
+                   }
+                     
+                   </div>
+
+                  <div className="quotearea">
+                    <span className={sideOpen?"disQuote":"disQuote disappear"}>
+                    {userquote}<br />
+
+                    </span>
+                    
+                    <EditIcon className="editbutton" onClick={toggleModal} />
+                  </div>
+                  <Sidebar sideOpen={sideOpen}></Sidebar>
+                  
+                 
+                    <LogoutIcon
+                    onClick={logout}
+                      style={{ height: "2.8vh", marginRight: "1vw" }}
+                    />{" "}
+                     {sideOpen?"Log Out":""}
+                  
+                </div> 
                 <div>
                   <Modal
                     isOpen={isHowToUseModal}
@@ -232,7 +271,6 @@ function App() {
                     {/* <h3>
                       You are new here so, you can check how to use it properly
                     </h3>
-
                     <Link to="/howtouse">
                       <button
                         onClick={() => {
@@ -243,9 +281,9 @@ function App() {
                       </button>
                     </Link> */}
                   </Modal>
-
+                  <div className={sideOpen?"Route_container":"Route_container closed"}>
                   <Routes>
-                    ]
+                    
                     <Route
                       path="/"
                       element={<Calender setConfetti={setConfetti} />}
@@ -253,17 +291,21 @@ function App() {
                     <Route path="/Profile" element={<Profile />}></Route>
                     <Route
                       path="/TasksandProgress"
-                      element={<Calender setConfetti={setConfetti} />}
+                      element={<Calender setConfetti={setConfetti} sideOpen={sideOpen} />}
                     ></Route>
                     <Route path="/diary" element={<Diary />}></Route>
-                    <Route path="/movieslist" element={<Movies />}></Route>
-                    <Route path="/ideasnotes" element={<Ideas />}></Route>
+                    <Route path="/movieslist" element={<Movies sideOpen={sideOpen}/>}></Route>
+                    <Route path="/ideasnotes" element={<Ideas sideOpen={sideOpen} />}></Route>
                     <Route
                       path="/bookstoread"
-                      element={<Bookstoread />}
+                      element={<Bookstoread sideOpen={sideOpen}/>}
                     ></Route>
                     <Route path="/howtouse" element={<HowToUse />}></Route>
                   </Routes>
+
+                  </div>
+
+                  
                 </div>
               </div>
             )}
@@ -273,5 +315,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

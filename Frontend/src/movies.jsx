@@ -10,7 +10,7 @@ import SimpleDialogDemo from "./modalBox";
 
 Modal.setAppElement("#root");
 
-const Movies = () => {
+const Movies = (props) => {
   const [movie_name, setmoviename] = useState("");
   const [movie_rating, setmovierating] = useState(0);
   const [movie_desc, setmoviedesc] = useState("");
@@ -22,6 +22,7 @@ const Movies = () => {
   const [isOpen, setIsOpen] = useState(false);
   //const [defaulttext, setdefaulttext] = useState("");
   const [tempid, settempid] = useState(0);
+  const {sideOpen}=props;
 
   const { userid, setuserid } = useContext(usercontext);
   const [isPopup, setPopup] = useState(false);
@@ -98,7 +99,7 @@ const Movies = () => {
   };
 
   return (
-    <div className="moviesback">
+    <div className={sideOpen?"moviesback":"moviesback increase"}>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
