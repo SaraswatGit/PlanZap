@@ -1,4 +1,6 @@
 <br/>
+<div id="BacktoTop">
+</div>
 <p align=center>
     <h1 align="center"> 📓 PlanZap 📓 </h1>
     <img align="center" src="https://i.postimg.cc/XJSmSqZV/planzap-2.png" alt="PlanZap logo" width="100%"/>
@@ -26,9 +28,34 @@
   </h3>
 </p><br/>
 
+## 🌟 Index
+
+- <a href="#AboutProject">About the Project</a>
+- <a href="#BuiltWith">Built With</a>
+- <a href="#Structure">Structure</a>
+- <a href="#LiveSite">Live Site</a>
+- <a href="#GettingStarted">Getting Started</a>
+- <a href="#Prerequisites">Prerequisites</a>
+- <a href="#InstallationAndSetup">Installation and Setup</a>
+- <a href="#Contributing">Contributing</a>
+- <a href="#Roadmap">Roadmap</a>
+- <a href="#CanBeImproved">Things that can be improved</a>
+- <a href="#CodeOfConduct">Code of Conduct</a>
+- <a href="#ResolveMergeConflicts">How to resolve merge conflicts</a>
+- <a href="#ContributingUsingGithub">Contributing using Github Desktop</a>
+- <a href="#OpenSourceParticipation">Open Source Participation</a>
+- <a href="#Contributors">Contributors</a>
+- <a href="#ProjectAdmin">Project Admin</a>
+
+<div id="AboutProject">
+</div>
+
 ## 🌟 About The Project
 
 A productivity cum utility based open source application, where users can keep an eye on their tasks update their progress , maintain a watchlist for movies, books , personal diary as well as notes.
+
+<div id="BuiltWith">
+</div>
 
 ## 🌟 Built With
 
@@ -38,24 +65,39 @@ A productivity cum utility based open source application, where users can keep a
 - Material UI
 - REST APIs
 
+<div id="Structure">
+</div>
+
 ## 🌟 Structure
 
 - A side navbar with the fixed position, that render everytime a new section is clicked, in the area beside it- refered to as "routearea" in the app
 - All CSS of all files is present in the CSS components file
 - `useContext` has been used to get access to userid , login status etc.
 
+<div id="LiveSite">
+</div>
+
 ### Live site
 
 **_Have a look <a href="https://planzap.netlify.app/">here</a> on the live site._**
+
+<div id="GettingStarted">
+</div>
 
 ## 🌟 Getting Started
 
 To get a local copy up and running follow these simple steps.
 
+<div id="Prerequisites">
+</div>
+
 ### Prerequisites
 
 - You need to install [Node js](https://nodejs.org/en/) to successfully run this project on your local machine.
 
+
+<div id="InstallationAndSetup">
+</div>
 
 ## 🌟 Installation and Setup
 
@@ -104,6 +146,9 @@ To get a local copy up and running follow these simple steps.
 Open [http://localhost:3000](http://localhost:3000) or [http://localhost:3001](http://localhost:3001) to view it in the browser.
 The page will reload if you make edits.\
  You will also see any lint errors in the console.
+
+<div id="Contributing">
+</div>
 
 ## 🌟 Contributing
 
@@ -175,18 +220,26 @@ git push -u origin <your_branch_name>
 
 **15.** Click on `Create Pull Request`.
 
+<div id="Roadmap">
+</div>
 
 ## 🌟 Roadmap
 
 See the [open issues](https://github.com/SaraswatGit/PlanZap/issues) for a list of proposed features . Feel free to raise new issues.
 
-### Thnigs that can be improved
+<div id="CanBeImproved">
+</div>
+
+### Things that can be improved
 
 - On login page confirm password and password don't yet have matching ability
 - Improving the UI of the login page
 - Implementing responsiveness
 - Improving the Modals (that pops up to create new movie entry or new diary entry)
 - Improving the User experience of the Personal Diary
+
+<div id="CodeOfConduct">
+</div>
 
 ## 🌟 Code of Conduct
 
@@ -195,6 +248,9 @@ See the [open issues](https://github.com/SaraswatGit/PlanZap/issues) for a list 
 - Spamming issues may lead to banning user from contributing to the project.
 - No disrespectful comments towards any gender, sex, caste or nationality will be tolerated.
 
+
+<div id="ResolveMergeConflicts">
+</div>
 
 ## 🌟 How to resolve merge conflicts
 
@@ -215,6 +271,9 @@ See the [open issues](https://github.com/SaraswatGit/PlanZap/issues) for a list 
   ![image](https://user-images.githubusercontent.com/75252077/154049841-b802abec-0203-4cea-b93c-b9212738c61b.png)
 
   - If above are not resolving your issue you can checkout this [url](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts)
+
+<div id="ContributingUsingGithub">
+</div>
 
 ## 🌟 Contributing using Github Desktop
 
@@ -266,7 +325,8 @@ Use this method if you have github desktop downloaded.
 
 ![image](https://user-images.githubusercontent.com/76390773/156129451-2f62604a-593c-4a24-a317-46082c17c197.png)
 
-
+<div id="OpenSourceParticipation">
+</div>
 
 ## 🌟 Open Source Participation
 
@@ -284,6 +344,9 @@ This project is a part of these Open Source Programs
 </tr>
 </table>
 
+<div id="Contributors">
+</div>
+
 ## 🌟 Contributors
 
 Thanks to these wonderful people ✨✨:
@@ -298,6 +361,9 @@ Thanks to these wonderful people ✨✨:
 	</tr>
 </table>
 
+<div id="ProjectAdmin">
+</div>
+
 ## 🌟 Project Admin
 
 <br/>
@@ -306,4 +372,8 @@ Thanks to these wonderful people ✨✨:
 </p>
 <p align = "center">
 <a href="https://github.com/SaraswatGit"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="25"></img></a>&nbsp;&nbsp; <a href="https://www.linkedin.com/in/saraswat-majumder-b9136115b/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="25"></img></a>
+</p>
+
+<p align="right">
+  <a href="https://github.com/KushalGhosh9899/PlanZap/edit/main/README.md#BacktoTop">Back to Top^</a>
 </p>
