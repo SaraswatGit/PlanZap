@@ -2,9 +2,10 @@
 
 .moviesback {
   position: absolute;
-  height: auto;
+  height: 95%;
   margin-left:16%;
   width: 84%;
+  
   
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   background-color: #181a1c;
@@ -13,13 +14,13 @@
   align-items: center;
   padding: 0 0 10vh 0;
   color:black;
-  transition: width 0.2s ease-in;
+  transition: all 0.2s ease-in;
   
 
 }
 .moviesback.increase{
   position: absolute;
-  width: 96%;
+  width: 95%;
   margin-left:15%;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   background-color: #181a1c;
@@ -29,7 +30,9 @@
   padding: 0 0 10vh 0;
   color:black;
 }
-
+.donkey{
+  width: 20vw;
+}
 .hoverOnCursor:hover {
   cursor: pointer;
 }

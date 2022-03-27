@@ -106,7 +106,7 @@ const Books = (props) => {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
           },
           content: {
-            width: "100vw",
+            width: "40vw",
             height: "55vh",
             margin: "auto",
             padding: "0",

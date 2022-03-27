@@ -10,8 +10,8 @@ textarea:focus {
   outline: none;
 }
 .sidebar .disQuote{
-  display: block;
-  transition: opacity 0.2s ease-in;
+  
+  transition: all 0.2s ease-in;
   opacity: 1;
   }
   .sidebar .disQuote.disappear{
@@ -25,10 +25,10 @@ textarea:focus {
     position: fixed;
     background: #000;
     width: 14%;
-    height: 100%;
+    height: 100vh;
     
     padding: 30px 20px;
-    transition: width .2s ease-in;
+    transition: all 0.2s ease-in;
     z-index: 10;
     
   
@@ -63,7 +63,7 @@ textarea:focus {
     padding: 5px;
     height: "2.8vh";
     margin-right: "3vw";
-    transition: opacity 0.2s ease-in;
+    transition: all 0.2s ease-in;
    }
    .sidebar.close .menu-overall .menu-item{
     opacity: 0;
@@ -82,7 +82,7 @@ textarea:focus {
   .Route_container{
     
     margin-left: 0px;
-    transition: margin-left 0.2s ease-in;
+    transition: all 0.2s ease-in;
   }
   
 
@@ -144,7 +144,7 @@ textarea:focus {
   color: grey;
   height: 3vh;
   padding-left: 10%;
-  bottom: 3vh;
+  bottom: 12vh;
 }
 .logout:hover {
   color: white;

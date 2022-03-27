@@ -233,13 +233,13 @@ function App() {
                     <EditIcon className="editbutton" onClick={toggleModal} />
                   </div>
                   <Sidebar sideOpen={sideOpen}></Sidebar>
+                  <div className="logout" onClick={logout} style={{ fontSize: "2.1vh" }}>
+                  <LogoutIcon style={{ height: "2.8vh", marginRight: "1vw" }} /> {sideOpen?"Log Out":""}
+                </div>
                   
                  
-                    <LogoutIcon
-                    onClick={logout}
-                      style={{ height: "2.8vh", marginRight: "1vw" }}
-                    />{" "}
-                     {sideOpen?"Log Out":""}
+                   
+                     
                   
                 </div> 
                 <div>

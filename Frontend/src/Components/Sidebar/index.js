@@ -151,7 +151,7 @@ function Sidebar(props) {
                             {/* this will contain  for loop for holding all the elements in the sidemenu */}
                             <NavLink
                             
-                            to={sideOpen?vals.to:"#"}
+                            to={vals.to}
                             className={({ isActive }) =>
                             `link ${
                               isActive
