@@ -417,7 +417,7 @@ const Books = () => {
           return (
             <BookCard
               key={key.toString()}
-              title={title}
+              curTitle={title}
               curAuthors={authors}
               curAverageRating={averageRating}
               curDescription={description}
