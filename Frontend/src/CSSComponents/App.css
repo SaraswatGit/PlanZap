@@ -9,6 +9,82 @@ select:focus,
 textarea:focus {
   outline: none;
 }
+.sidebar .disQuote{
+  
+  transition: all 0.2s ease-in;
+  opacity: 1;
+  }
+  .sidebar .disQuote.disappear{
+    overflow-x: hidden;
+    opacity: 0;
+    display: none;
+  
+  
+  }
+  .sidebar {
+    position: fixed;
+    background: #000;
+    width: 14%;
+    height: 100vh;
+    
+    padding: 30px 20px;
+    transition: all 0.2s ease-in;
+    z-index: 10;
+    
+  
+   
+    
+  }
+ .sidebar.close{
+  width: 3%;
+    
+  }
+  .sidebar .menu-overall{
+    cursor: pointer;
+    display: flex;
+  
+  }
+  .LogoutIcon{
+    color: antiquewhite;
+  }
+  .sidebar .back-icon-side{
+    color: whitesmoke;
+    
+    
+    position: absolute;
+    top: 5%;
+    right: 0px;
+    transform: translateY(-50%);
+    right: 5%;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .sidebar .menu-overall .menu-item{ 
+    padding: 5px;
+    height: "2.8vh";
+    margin-right: "3vw";
+    transition: all 0.2s ease-in;
+   }
+   .sidebar.close .menu-overall .menu-item{
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  .Route_container.closed{
+    
+    margin-left: -10vw;
+    
+    
+   
+    
+  }
+  .Route_container{
+    
+    margin-left: 0px;
+    transition: all 0.2s ease-in;
+  }
+  
 .editbutton:hover {
   cursor: pointer;
 }
@@ -85,7 +161,7 @@ textarea:focus {
   color: grey;
   height: 3vh;
   padding-left: 10%;
-  bottom: 3vh;
+  bottom: 12vh;
 }
 .logout:hover {
   color: white;

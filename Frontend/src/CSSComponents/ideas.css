@@ -3,11 +3,23 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 85vw;
-  margin-left: 15vw;
+  width: 84%;
+  
+  margin-left: 16%;
   align-items: center;
   font-family: "Poppins", sans-serif;
 
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  background-color: rgb(100, 100, 100);
+  color:black;
+  overflow: visible;
+  transition: all 0.2s ease-in;
+}
+.ideaspage.increase{
+
+  width:86%;
+ 
+  margin-left: 14%;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   background-color: rgb(100, 100, 100);
   color:black;

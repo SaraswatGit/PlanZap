@@ -9,7 +9,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 Modal.setAppElement("#root");
 
-const Books = () => {
+const Books = (props) => {
   const [book_name, setbookname] = useState("");
   const [book_author, setbookauthor] = useState("");
   const [book_description, setbookdesc] = useState("");
@@ -20,7 +20,7 @@ const Books = () => {
   const [tempdesc, settempdesc] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [tempid, settempid] = useState(0);
-
+  const {sideOpen}=props;
   const { userid, setuserid } = useContext(usercontext);
   const [isPopup, setPopup] = useState(false);
   const [isRatingAsc, setIsRatingAsc] = useState(null);
@@ -31,6 +31,7 @@ const Books = () => {
   function toggleModal() {
     setIsOpen(!isOpen);
   }
+  
 
   const updatebook = () => {
     console.log(tempid);
@@ -95,7 +96,7 @@ const Books = () => {
   };
 
   return (
-    <div className="moviesback">
+    <div className={sideOpen?"moviesback":"moviesback increase"}>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
