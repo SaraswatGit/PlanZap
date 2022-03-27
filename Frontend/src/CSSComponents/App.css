@@ -1,5 +1,5 @@
 .App {
-  
+  display: flex;
   flex-direction: row;
   color:white;
   /*height: 100vh;*/
@@ -9,82 +9,23 @@ select:focus,
 textarea:focus {
   outline: none;
 }
-.sidebar .disQuote{
-  display: block;
-  transition: opacity 0.2s ease-in;
-  opacity: 1;
-  }
-  .sidebar .disQuote.disappear{
-    overflow-x: hidden;
-    opacity: 0;
-    display: none;
-  
-  
-  }
-  .sidebar {
-    position: fixed;
-    background: #000;
-    width: 14%;
-    height: 100%;
-    
-    padding: 30px 20px;
-    transition: width .2s ease-in;
-    z-index: 10;
-    
-  
-   
-    
-  }
- .sidebar.close{
-  width: 3%;
-    
-  }
-  .sidebar .menu-overall{
-    cursor: pointer;
-    display: flex;
-  
-  }
-  .LogoutIcon{
-    color: antiquewhite;
-  }
-  .sidebar .back-icon-side{
-    color: whitesmoke;
-    
-    
-    position: absolute;
-    top: 5%;
-    right: 0px;
-    transform: translateY(-50%);
-    right: 5%;
-    padding: 10px;
-    cursor: pointer;
-  }
-  .sidebar .menu-overall .menu-item{ 
-    padding: 5px;
-    height: "2.8vh";
-    margin-right: "3vw";
-    transition: opacity 0.2s ease-in;
-   }
-   .sidebar.close .menu-overall .menu-item{
-    opacity: 0;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-  }
-  .Route_container.closed{
-    
-    margin-left: -10vw;
-    
-    
-   
-    
-  }
-  .Route_container{
-    
-    margin-left: 0px;
-    transition: margin-left 0.2s ease-in;
-  }
-  
+.editbutton:hover {
+  cursor: pointer;
+}
+.sidebar {
+  display: flex;
+  background-color: black;
+  margin-left: 0;
+  margin-right: 0%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  flex-direction: column;
+  height: 100vh;
+  width: 15%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: fixed;
+}
 
 .quotearea {
   margin-top: 3vh;
@@ -150,10 +91,6 @@ textarea:focus {
   color: white;
   cursor: pointer;
 }
-.editbutton:hover {
-  cursor: pointer;
-}
-
 .profpage {
   color: black;
   font-size: 10px;
