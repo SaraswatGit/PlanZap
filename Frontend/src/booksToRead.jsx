@@ -21,12 +21,9 @@ const Books = (props) => {
   const [tempdesc, settempdesc] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [tempid, settempid] = useState(0);
-<<<<<<< HEAD
   const {sideOpen}=props;
-=======
   const [searchedBooks, setSearchedBooks] = useState([]);
 
->>>>>>> 9b1fd08fd34e442a7225bf63145c0c678e641616
   const { userid, setuserid } = useContext(usercontext);
   const [isPopup, setPopup] = useState(false);
   const [isRatingAsc, setIsRatingAsc] = useState(null);
