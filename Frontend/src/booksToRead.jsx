@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./CSSComponents/movies.css";
+import "./CSSComponents/booksToRead.css";
 import Axios from "axios";
 import EditIcon from "@mui/icons-material/Edit";
 import Modal from "react-modal";
@@ -11,8 +12,8 @@ Modal.setAppElement("#root");
 
 const Books = (props) => {
   const [book_name, setbookname] = useState("");
-  const [book_author, setbookauthor] = useState("");
-  const [book_description, setbookdesc] = useState("");
+  // const [book_author, setbookauthor] = useState("");
+  // const [book_description, setbookdesc] = useState("");
   const [booklist, setbooklist] = useState([]);
   const [newname, setnewname] = useState("");
   const [newdesc, setnewdesc] = useState("");
@@ -20,7 +21,12 @@ const Books = (props) => {
   const [tempdesc, settempdesc] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [tempid, settempid] = useState(0);
+<<<<<<< HEAD
   const {sideOpen}=props;
+=======
+  const [searchedBooks, setSearchedBooks] = useState([]);
+
+>>>>>>> 9b1fd08fd34e442a7225bf63145c0c678e641616
   const { userid, setuserid } = useContext(usercontext);
   const [isPopup, setPopup] = useState(false);
   const [isRatingAsc, setIsRatingAsc] = useState(null);
@@ -28,10 +34,107 @@ const Books = (props) => {
     ? booklist.sort((a, b) => (a.book_author < b.book_author ? 1 : -1))
     : booklist.sort((a, b) => (a.book_author > b.book_author ? 1 : -1));
 
+  const BookCard = ({
+    curAuthors,
+    curAverageRating,
+    curDescription,
+    curImageLinks,
+    curTitle,
+    index,
+  }) => {
+    return (
+      <div className="bookCard">
+        <div className="bookThumbnail">
+          {curImageLinks ? (
+            <img
+              src={curImageLinks.thumbnail}
+              alt="Book thumbnail"
+              width="100"
+              height="170"
+            />
+          ) : (
+            "Image not available"
+          )}
+        </div>
+        <div className="bookDescription">
+          <p className="bookCardLabel">Title</p>
+          <p>{curTitle}</p>
+          <p className="bookCardLabel">Description</p>
+          {curDescription ? (
+            <p>
+              {curDescription.length > 200
+                ? curDescription.substring(0, 195) + "..."
+                : curDescription}
+            </p>
+          ) : (
+            "N/A"
+          )}
+
+          <p className="bookCardLabel">Authors</p>
+          {curAuthors
+            ? curAuthors.map((author, key) => {
+                return <span>{`${author}, `}</span>;
+              })
+            : "N/A"}
+          <p className="bookCardLabel">Rating</p>
+          <p>{curAverageRating ? curAverageRating : "*Not Rated*"}</p>
+          <input
+            type="submit"
+            value="ADD"
+            className="subm2"
+            onClick={(event) => {
+              const { authors, averageRating, description, imageLinks, title } =
+                searchedBooks[index];
+              addbook(event, authors, description, title);
+            }}
+          />
+        </div>
+      </div>
+    );
+  };
+
   function toggleModal() {
     setIsOpen(!isOpen);
   }
   
+
+  const searchBoock = (event, title) => {
+    event.preventDefault();
+    if (title === "") {
+      setSearchedBooks([]);
+      alert("Enter tiile to search for books");
+      return;
+    }
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=+intitle:${title}`)
+      .then((res) => res.json())
+      .then((books) => {
+        console.log(books);
+        if (books.totalItems === 0) {
+          setSearchedBooks([]);
+          alert("No Result Found");
+          return;
+        }
+        var searchedBooksList = [];
+        books.items.forEach((book) => {
+          const {
+            authors,
+            averageRating,
+            description,
+            imageLinks,
+            title,
+            ...rest
+          } = book.volumeInfo;
+          searchedBooksList.push({
+            authors,
+            averageRating,
+            description,
+            imageLinks,
+            title,
+          });
+        });
+        setSearchedBooks(searchedBooksList);
+      });
+  };
 
   const updatebook = () => {
     console.log(tempid);
@@ -49,29 +152,22 @@ const Books = (props) => {
     });
   };
 
-  const addbook = () => {
-    if (!book_description || !book_name || !book_author) {
-      alert("Enter all the fields");
-      return;
-    }
+  const addbook = (event, authors, description, title) => {
+    event.preventDefault();
     const data = Axios.post("https://planzap.herokuapp.com/book/create", {
-      book_name: book_name,
-      book_author: book_author,
-      book_description: book_description,
+      book_name: title,
+      book_author: authors ? authors[0] : "N/A",
+      book_description: description ? description : "N/A",
       userid: userid,
     }).then(() => {
       Axios.post("https://planzap.herokuapp.com/book/list", {
         userid: userid,
       }).then((response) => {
+        console.log("New List of books : ", response.data);
         setbooklist(response.data);
       });
       console.log("success");
     });
-    if (data) {
-      setbookdesc("");
-      setbookname("");
-      setbookauthor("");
-    }
   };
 
   console.log(setuserid); //This is for removing warning only
@@ -206,7 +302,11 @@ const Books = (props) => {
               </div>
               <div className="movierating2">{val.book_author}</div>
               <div className="moviedesc2">
-                <p>{val.book_description}</p>
+                <p>
+                  {val.book_description.length > 500
+                    ? val.book_description.substring(0, 495) + " . . ."
+                    : val.book_description}
+                </p>
                 <div>
                   <EditIcon
                     className="edit-icon hoverOnCursor"
@@ -285,8 +385,6 @@ const Books = (props) => {
       </div>
 
       <div className="entrybox">
-        <div className="Heading">Enter the Book Details here</div>
-        <br />
         <div className="formbox">
           <label for="mname">Book Title</label>
           <br />
@@ -303,54 +401,37 @@ const Books = (props) => {
               setbookname(event.target.value);
             }}
           />
-          <br />
-          <br />
-          <label for="mrating">Author</label>
-          <br />
-          <br />
-          <input
-            type="text"
-            id="mrating"
-            // maxLength="3"
-            name="movierating"
-            className="donkey"
-            value={book_author}
-            placeholder="J.K Rowling"
-            onChange={(event) => {
-              setbookauthor(event.target.value);
-            }}
-          />
-          <br />
-          <br />
-          <label for="mdesc">Book Description</label>
-          <br />
-          <textarea
-            style={{
-              resize: "vertical",
-            }}
-            id="mdesc"
-            name="moviedescription"
-            rows="2"
-            cols="40"
-            maxLength="73"
-            value={book_description}
-            placeholder="Description"
-            onChange={(event) => {
-              setbookdesc(event.target.value);
-            }}
-          ></textarea>
+
           <div className="center">
             <input
               type="submit"
-              value="ADD"
+              value="SEARCH"
               className="subm2"
-              onClick={addbook}
+              onClick={(event) => {
+                searchBoock(event, book_name);
+              }}
             />
           </div>
         </div>
       </div>
-
-      <div></div>
+      <div className="booksSearchResultContainer">
+        {searchedBooks.map((book, key) => {
+          const { title, authors, averageRating, description, imageLinks } =
+            book;
+          console.log(book, " ", key);
+          return (
+            <BookCard
+              key={key.toString()}
+              curTitle={title}
+              curAuthors={authors}
+              curAverageRating={averageRating}
+              curDescription={description}
+              curImageLinks={imageLinks}
+              index={key}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

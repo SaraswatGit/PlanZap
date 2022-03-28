@@ -2,11 +2,20 @@
 
 .moviesback {
   position: absolute;
+<<<<<<< HEAD
   height: 95%;
   margin-left:17%;
   width: 83%;
   
   
+=======
+  min-height: 100vh;
+  height: auto;
+  margin-left: 15%;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+>>>>>>> 9b1fd08fd34e442a7225bf63145c0c678e641616
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   background-color: #181a1c;
   font-family: "Poppins", sans-serif;
@@ -14,10 +23,14 @@
   flex-direction: column;
   align-items: center;
   padding: 0 0 10vh 0;
+<<<<<<< HEAD
   color:black;
   transition: all 0.2s ease-in;
   
 
+=======
+  color: black;
+>>>>>>> 9b1fd08fd34e442a7225bf63145c0c678e641616
 }
 .moviesback.increase{
   position: absolute;
@@ -162,7 +175,7 @@
 .entrybox {
   padding: 1vw;
   height: auto;
-  margin-bottom: 20rem;
+  /* margin-bottom: 20rem; */
   background-color: #181a1c;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.5),
@@ -223,8 +236,9 @@
     inset 2px 2px 6px rgba(0, 0, 0, 0.8);
   transition: all 1s;
   font-weight: bold;
-  margin: auto;
+  margin: 10px auto;
   width: 30%;
+  min-width: 8rem;
 }
 .subm2:hover {
   background-color: #03a9f4;
