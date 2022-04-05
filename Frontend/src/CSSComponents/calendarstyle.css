@@ -214,6 +214,11 @@
 .low {
   background-color: #7a9af0;
 }
+#date {
+  filter: invert(100%);
+  color: black;
+}
+
 .formarea {
   padding: 0vw 0vw 0vw 1vw;
   font-weight: bolder;
