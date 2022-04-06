@@ -14,6 +14,7 @@ const Books = () => {
   const [book_name, setbookname] = useState("");
   // const [book_author, setbookauthor] = useState("");
   // const [book_description, setbookdesc] = useState("");
+	const [bookToDelete ,setBookToDelete] = useState(null);
   const [booklist, setbooklist] = useState([]);
   const [newname, setnewname] = useState("");
   const [newdesc, setnewdesc] = useState("");
@@ -174,12 +175,12 @@ const Books = () => {
     });
   }, [userid]);
 
-  const deletebook = (id) => {
-    Axios.delete(`https://planzap.herokuapp.com/book/delete/${id}`).then(
+  const deletebook = () => {
+    Axios.delete(`https://planzap.herokuapp.com/book/delete/${bookToDelete}`).then(
       (respose) => {
         setbooklist(
           booklist.filter((val) => {
-            return val.id !== id;
+            return val.id !== bookToDelete;
           })
         );
       }
@@ -320,6 +321,7 @@ const Books = () => {
                     style={{ paddingLeft: "30px", height: "3.2vh" }}
                     onClick={() => {
                       setPopup(true);
+											setBookToDelete(val.id);
                     }}
                   />
                 </div>
@@ -355,7 +357,7 @@ const Books = () => {
                 <div className="delete-btns">
                   <button
                     onClick={() => {
-                      deletebook(val.id);
+                      deletebook();
                       setPopup(false);
                     }}
                     className="popupBtn confirm-btn"
