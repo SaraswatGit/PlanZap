@@ -42,3 +42,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 input[type="date"]::-webkit-calendar-picker-indicator:hover {
   opacity: 1
 }
+
+::-webkit-scrollbar{
+  width:15px;
+}
+
+::-webkit-scrollbar-track{
+  border-radius:10px;
+  background:white;
+  box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius:10px;
+  background:grey;
+  box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+}
