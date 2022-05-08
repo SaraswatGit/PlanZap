@@ -109,7 +109,7 @@ const Login = () => {
           One Place for your notes, goals, movies, personal diary and more!
         </p>
         <img
-          class="logo-img"
+          className="logo-img"
           src="https://image.freepik.com/free-vector/flat-creativity-concept-illustration_52683-64279.jpg"
           alt=""
         />
