@@ -19,6 +19,7 @@ const Diary = () => {
   const today = new Date().toISOString().split("T")[0];
 
   const [id, setid] = useState(0);
+  console.log(today);
 
   console.log(setuserid); //This is for removing warning only
   console.log(id); //This is for removing warning only
@@ -95,7 +96,7 @@ const Diary = () => {
         width: "85vw",
         marginLeft: "15vw",
         alignItems: "center",
-        color:"black"
+        color: "black",
       }}
     >
       <Modal
@@ -158,9 +159,7 @@ const Diary = () => {
         </div>
       </Modal>
       <div className="datepicker">
-        
         <input
-          
           type="date"
           max={today}
           style={{

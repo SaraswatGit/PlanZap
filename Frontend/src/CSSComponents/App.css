@@ -302,12 +302,30 @@ textarea:focus {
   align-items: center;
   margin: 1rem 1rem;
 }
+.quote-div > textarea {
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 90%;
+  resize: vertical;
+  margin-top: 20px;
+  text-indent: 10px;
+  border: none;
+  padding: 10px;
+}
 
 .quote-div > label {
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .quote-btn {
-  width: 60% !important;
+  all:revert;
+  padding: .5em 1em;
+  color: #fff;
+  background:rgb(255, 183, 1);
+  border: none;
+  border-radius: 5px;
+  align-self: flex-end;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px -3px rgb(255, 183, 1);
 }

@@ -161,20 +161,18 @@ function App() {
               contentLabel="My dialog2"
               style={{
                 overlay: {
-                  backgroundColor: "rgba(255, 255, 255, 0.75)",
+                  backgroundColor: "rgba(0, 0, 0, 0.75)",
                 },
                 content: {
                   width: "30vw",
                   height: "max-content",
                   margin: "auto",
-                  padding: "0",
+                  padding: "10px",
                   borderRadius: "10px",
-                  borderColor: "red",
+                  outline: "none",
+                  border: "none",
                   backgroundImage:
                     "linear-gradient(to top left, rgba(255,255,255), teal)",
-
-                  paddingLeft: "15px",
-                  paddingTop: "15px",
                 },
               }}
             >
@@ -183,7 +181,7 @@ function App() {
                 <textarea
                   id="quote"
                   name="userquote"
-                  rows="3"
+                  rows="5"
                   cols="20"
                   maxLength="57"
                   defaultValue={userquote}
@@ -201,7 +199,7 @@ function App() {
                 >
                   Save
                 </button>
-              </div>{" "}
+              </div>
             </Modal>
             {loading ? (
               <Loader />
@@ -209,8 +207,6 @@ function App() {
               <Login />
             ) : (
               <div>
-                {" "}
-                
                 <div className="sidebar">
       {/*      <NavLink to="/Profile" className="barelement" activeClassName="selected">
                      <AccountCircleIcon />
