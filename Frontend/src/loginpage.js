@@ -93,8 +93,20 @@ const Login = () => {
 						fontWeight: 'bolder',
 						color: 'rgb(255, 183, 1)',
 						marginBottom: '0px',
+						
 					}}
 				>
+				<img
+					className='logo-img'
+					src='https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/128/Diary-icon.png'
+					alt=''
+					style={{
+						marginBottom: '-20px',
+						height: '90px',
+						width: 'auto',
+					}}
+
+				/>
 					{' '}
 					PlanZap
 				</h2>
