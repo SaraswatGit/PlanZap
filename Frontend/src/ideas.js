@@ -181,7 +181,7 @@ const Ideas = () => {
         onClick={toggleModal}
         style={{ fontSize: "2.5vh" }}
       >
-        <AddCircleOutlineIcon className="hoverOnCursor" />
+        <AddCircleOutlineIcon className="hoverOnCursor" sx={{fontSize: 40}} />
       </div>
     </div>
   );
